@@ -3,7 +3,7 @@
   "env": {
     "cpu_count": 28,
     "executable": "/home/md/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python",
-    "git_commit": "8ec2ce1584b6711a9d443cb5cb1f837e98ebb5ff",
+    "git_commit": "ceda71c12de600801b7d658c8f95eaeca26e9121",
     "machine": "x86_64",
     "packages": {
       "numpy": "2.2.6",
@@ -16,12 +16,12 @@
     "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
     "processor": "",
     "python": "3.12.13",
-    "timestamp_utc": "2026-11-04T20:20:22+00:00",
+    "timestamp_utc": "2026-11-04T20:28:56+00:00",
     "torch_cuda_available": true,
     "torch_cuda_devices": 1
   },
   "experiment": "E6_reproducibility",
-  "generated_utc": "2026-11-04T20:20:22+00:00",
+  "generated_utc": "2026-11-04T20:28:56+00:00",
   "hypothesis_tests": {
     "deterministic_rerun_byte_identical": true
   },
@@ -138,12 +138,12 @@
         "sha256": "6ddaed08c561a10d6430bb8de34575ab06bea18b2226e7460694b92ae0ba1a49"
       },
       "scripts/build_preview.py": {
-        "bytes": 21579,
-        "sha256": "0729368f693c6132a0872c6a3e91c7cef01997fdcd521db505d2189805bfdd7e"
+        "bytes": 22807,
+        "sha256": "c70fa6d32ed8456aa1770fccb82e0ff12b67931d224258d330f40ccf97178774"
       },
       "scripts/check_results.py": {
-        "bytes": 9579,
-        "sha256": "14d9218a16bab463467650f78043d1e9e9ab26c26210592fa3e630c91aa7874d"
+        "bytes": 10506,
+        "sha256": "1eed32239ce14b691031bceed24498091979461a032e4efd7067a7283b0054c3"
       },
       "scripts/fetch_data.py": {
         "bytes": 1331,

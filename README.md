@@ -13,11 +13,13 @@
 [![Docker ready](https://img.shields.io/badge/docker-ready-2496ed.svg)](Dockerfile)
 [![No GPU required](https://img.shields.io/badge/GPU-not%20required-64748b.svg)](#quick-start-in-30-seconds)
 
-**[Open the interactive preview](https://M0-AR.github.io/foundations-of-ai-benchmark)** · **[Take the 3-minute quiz](https://M0-AR.github.io/foundations-of-ai-benchmark#quiz)** · **[🌱 Beginner guide](#-beginner-guide--read-this-and-you-are-a-professional)** · **[Headline results](#headline-results)** · **[Quick start](#quick-start-in-30-seconds)**
+**[Open the interactive preview](https://M0-AR.github.io/foundations-of-ai-benchmark/preview.html)** · **[Take the 3-minute quiz](https://M0-AR.github.io/foundations-of-ai-benchmark/preview.html#quiz)** · **[🌱 Beginner guide](#-beginner-guide--read-this-and-you-are-a-professional)** · **[Headline results](#headline-results)** · **[Quick start](#quick-start-in-30-seconds)**
+
+**Live pages:** [home](https://M0-AR.github.io/foundations-of-ai-benchmark/) · [preview.html](https://M0-AR.github.io/foundations-of-ai-benchmark/preview.html) · [docs/preview.html](https://M0-AR.github.io/foundations-of-ai-benchmark/docs/preview.html) — all three render the same self-contained page.
 
 <img src="docs/assets/demo.gif" alt="An 18-second tour of the Foundations-Bench interactive preview: headline numbers, evidence explorer, beginner guide, and quiz" width="680">
 
-<sub>18-second tour of the real site (4.0 MB GIF). <a href="docs/assets/demo.mp4">MP4</a> · <a href="preview.html">full screen</a> · no sign-up, no tracking, no external assets.</sub>
+<sub>18-second tour of the real site (4.0 MB GIF). <a href="docs/assets/demo.mp4">MP4</a> · <a href="https://M0-AR.github.io/foundations-of-ai-benchmark/preview.html">full screen</a> · no sign-up, no tracking, no external assets.</sub>
 
 </div>
 
@@ -241,7 +243,7 @@ The detailed methods, tables, and figures are in [Evidence in detail](#evidence-
 
 ## See it in action
 
-The repository ships a self-contained interactive site. It works offline, has no sign-up, no tracking, and no external assets. Open **[`preview.html`](preview.html)** in a browser, or visit the [live site](https://M0-AR.github.io/foundations-of-ai-benchmark). Both serve the same self-contained file.
+The repository ships a self-contained interactive site. It works offline, has no sign-up, no tracking, and no external assets. Open the live **[home page](https://M0-AR.github.io/foundations-of-ai-benchmark/)**, **[preview.html](https://M0-AR.github.io/foundations-of-ai-benchmark/preview.html)**, or **[docs/preview.html](https://M0-AR.github.io/foundations-of-ai-benchmark/docs/preview.html)**. All three render the same self-contained page; the local copy is also in the repository.
 
 <img src="docs/assets/preview-results.png" alt="The evidence dashboard: bits-per-character chart and hypothesis scorecard" width="820">
 
@@ -259,7 +261,7 @@ The repository ships a self-contained interactive site. It works offline, has no
 
 ## Quick start in 30 seconds
 
-**Option A — just look.** Open [`preview.html`](preview.html). No install, no server, no network.
+**Option A — just look.** Open the live [`preview.html`](https://M0-AR.github.io/foundations-of-ai-benchmark/preview.html) or [`docs/preview.html`](https://M0-AR.github.io/foundations-of-ai-benchmark/docs/preview.html). No install, no server, no network.
 
 **Option B — verify the claims.**
 
@@ -297,6 +299,7 @@ No GPU or API key is required. E1–E4 and E6 run offline; E5 fetches the live m
 | Path | Purpose |
 |---|---|
 | `preview.html` / `index.html` | Self-contained interactive preview; `index.html` is the Pages landing page |
+| `docs/preview.html` / `docs/index.html` | Pages mirror, so `/docs/preview.html` and `/docs/` also resolve |
 | `README.md` | This document, generated from the template and result files |
 | `config/preregistration.yaml` | Frozen hypotheses, endpoints, seeds, thresholds, and exclusions |
 | `config/experiment.yaml` | Hyperparameters and data sources |
@@ -307,7 +310,7 @@ No GPU or API key is required. E1–E4 and E6 run offline; E5 fetches the live m
 | `experiments/e1_*.py` … `e6_*.py` | One script per study |
 | `experiments/run_all.py` | Runs every study and writes `results/summary.json` |
 | `scripts/make_report.py` | Generates tables, figures, and this README |
-| `scripts/build_preview.py` | Generates `preview.html` and `index.html` from results |
+| `scripts/build_preview.py` | Generates the root and `docs/` preview mirrors from results |
 | `scripts/check_results.py` | Validates artifacts, provenance, and the generated page |
 | `scripts/make_demo.py` | Maintainer-only recorder for the preview screenshots, GIF, and MP4 |
 | `results/*.json` | Machine-readable metrics, hypothesis tests, and environment |

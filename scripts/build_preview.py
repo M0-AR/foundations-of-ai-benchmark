@@ -20,6 +20,25 @@ RESULTS = ROOT / "results"
 TEMPLATE = ROOT / "docs" / "preview.template.html"
 OUTPUT = ROOT / "preview.html"
 INDEX = ROOT / "index.html"
+DOCS = ROOT / "docs"
+DOCS_PREVIEW = DOCS / "preview.html"
+DOCS_INDEX = DOCS / "index.html"
+DOCS_NOJEKYLL = DOCS / ".nojekyll"
+
+DOCS_REDIRECT = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url=preview.html">
+<link rel="canonical" href="preview.html">
+<meta name="robots" content="noindex">
+<title>Foundations-Bench</title>
+</head>
+<body>
+<p><a href="preview.html">Open the Foundations-Bench preview</a>.</p>
+</body>
+</html>
+"""
 
 
 def repository_url() -> str:
@@ -488,9 +507,27 @@ def render(repo_url: str) -> None:
     leftover = [line for line in rendered.splitlines() if "{{" in line and "}}" in line]
     if leftover:
         raise RuntimeError(f"unresolved preview placeholders: {leftover[:3]}")
+    docs_markers = (
+        'content="docs/assets/preview-hero.png"',
+        '<a href="README.md">README</a>',
+    )
+    for marker in docs_markers:
+        if marker not in rendered:
+            raise RuntimeError(f"docs mirror marker missing: {marker}")
+    docs_rendered = rendered.replace(
+        'content="docs/assets/preview-hero.png"',
+        'content="assets/preview-hero.png"',
+    ).replace('<a href="README.md">README</a>', '<a href="../README.md">README</a>')
+
     OUTPUT.write_text(rendered, encoding="utf-8")
     INDEX.write_text(rendered, encoding="utf-8")
-    print(f"Wrote {OUTPUT.name} and {INDEX.name} ({len(rendered):,} bytes)")
+    DOCS_PREVIEW.write_text(docs_rendered, encoding="utf-8")
+    DOCS_INDEX.write_text(DOCS_REDIRECT, encoding="utf-8")
+    DOCS_NOJEKYLL.write_text("", encoding="utf-8")
+    print(
+        f"Wrote {OUTPUT.name}, {INDEX.name}, {DOCS_PREVIEW.relative_to(ROOT)}, "
+        f"and {DOCS_INDEX.relative_to(ROOT)} ({len(rendered):,} bytes)"
+    )
 
 
 def main() -> None:

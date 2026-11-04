@@ -143,6 +143,22 @@ def check_site_and_assets(readme_text: str) -> None:
         if marker not in site:
             raise SystemExit(f"{preview.name}: missing {marker}")
 
+    docs_preview = ROOT / "docs" / "preview.html"
+    docs_index = ROOT / "docs" / "index.html"
+    docs_nojekyll = ROOT / "docs" / ".nojekyll"
+    for path in (docs_preview, docs_index, docs_nojekyll):
+        if not path.exists():
+            raise SystemExit(f"{path.relative_to(ROOT)} is missing; run scripts/build_preview.py")
+    expected_docs = site.replace(
+        'content="docs/assets/preview-hero.png"',
+        'content="assets/preview-hero.png"',
+    ).replace('<a href="README.md">README</a>', '<a href="../README.md">README</a>')
+    if docs_preview.read_text(encoding="utf-8") != expected_docs:
+        raise SystemExit("docs/preview.html is stale; rerun scripts/build_preview.py")
+    docs_redirect = docs_index.read_text(encoding="utf-8")
+    if 'http-equiv="refresh"' not in docs_redirect or "url=preview.html" not in docs_redirect:
+        raise SystemExit("docs/index.html is not the expected redirect")
+
     for required in README_REQUIRED:
         if required not in readme_text:
             raise SystemExit(f"README.md: missing required text: {required}")
