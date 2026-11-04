@@ -4,7 +4,7 @@
 
 ### AI you can trust — checked from first principles.
 
-**Six pre-registered studies. 4 of 6 hypotheses supported. Every number executed, hashed, and reproducible.**
+**Six pre-registered confirmatory studies. 4 of 6 hypotheses supported. Five exploratory labs, 9 of 10 lab tests passed. Every number executed, hashed, and reproducible.**
 
 [![MIT License](https://img.shields.io/badge/license-MIT-22c55e.svg)](LICENSE)
 [![Python 3.12](https://img.shields.io/badge/python-3.12-3776ab.svg)](pyproject.toml)
@@ -42,7 +42,7 @@
 | Did the mathematical foundations check out? | Yes. The worst gradient error is **3.64e-10**, attention matches the reference to **8.88e-16**, and causal leakage is exactly **0.00e+00**. |
 | Does a small transformer beat a strong classical baseline? | Yes. **2.5582** bits per character versus **3.0958** for a smoothed trigram — **17.4%** lower, across all seeds. |
 | Can you make money from the market result? | No. Volatility clusters in **3 of 5** symbols, but next-day direction survives costs in **0 of 5**. Structure is not alpha. |
-| Can someone else reproduce it? | Yes. Retraining is byte-identical (**yes**) and 30 files are SHA-256 hashed. |
+| Can someone else reproduce it? | Yes. Retraining is byte-identical (**yes**) and 45 files are SHA-256 hashed. |
 | Is this a product pitch? | No. It is a public benchmark under the MIT license. Use it, fork it, audit it, or challenge it. |
 
 **The one-sentence takeaway:** *most AI claims fail not because the maths is hard, but because nobody checks the boring parts — and this project checks the boring parts in public.*
@@ -131,6 +131,24 @@ It is not an LLM leaderboard, a frontier-model evaluation, a trading strategy, o
 - **E6 passed.** Retraining from the same seed produces byte-identical parameters, and the manifest hashes every artifact.
 
 The failures are not footnotes. They are the reason to trust the wins.
+
+---
+
+## Exploratory novelty labs
+
+The six studies above are the confirmatory benchmark. After their protocol was frozen, we ran five separate labs against their own frozen hypotheses. They ask different questions: whether a detector catches known errors, where attention overtakes an n-gram model, whether thread count changes parameter bits, whether calibration and accuracy rank the same activations, and whether a two-sided market test can be mistaken for alpha.
+
+| Lab | Question                 | What it tests                            | Observed                                                          | Pre-registered tests |
+|-----|--------------------------|------------------------------------------|-------------------------------------------------------------------|----------------------|
+| 1   | Falsification coverage   | Do detectors catch known errors?         | 23/24 probes killed (95.8%); concealed optional stopping survives | 2/2 pass             |
+| 2   | Locality phase           | When does attention beat an n-gram?      | Crossover between lag 2 and 4; -1.81 BPC at lag 4, -1.61 at lag 8 | 2/2 pass             |
+| 3   | Reproducibility envelope | Does thread count change parameter bits? | 2 NumPy / 4 torch hashes; loss range 2.38e-07                     | 2/2 pass             |
+| 4   | Calibration              | Do calibration and accuracy rank agree?  | Ranks differ on 3/3 datasets; closest Holm p = 0.0586             | 1/2 pass             |
+| 5   | Null-market alpha        | Does a two-sided DM test detect alpha?   | 0% false alpha; 17/50 markets reject two-sided, all harm          | 2/2 pass             |
+
+**9 of 10 pre-registered lab tests passed.** The failure stays in the table: no activation-calibration pair survived Holm correction, even though the omnibus test was significant on breast cancer. The strongest actionable result is Lab 5: on synthetic null markets with volatility clustering and no directional signal, 34% of markets produced a two-sided Diebold–Mariano rejection, while 0% favoured the model. A two-sided rejection is not an alpha test.
+
+These labs are exploratory, small-scale, and not part of the 4/6 confirmatory headline. They are reproducible leads, not claims of invention. Read the [frozen protocol](labs/PREREGISTRATION.md), the [full lab report](labs/REPORT.md), or the [lab code](labs/). Lab artifacts are included in the E6 SHA-256 manifest.
 
 ---
 
@@ -226,7 +244,7 @@ If you can explain those ten ideas without notes, you are ready for the next con
 
 ---
 
-## How the six studies work
+## How the six confirmatory studies work
 
 | Study | Question in plain English | What is measured | Verdict |
 |---|---|---|---|
@@ -237,7 +255,7 @@ If you can explain those ten ideas without notes, you are ready for the next con
 | **E5** | Is market structure the same as a tradeable edge? | Ljung–Box, walk-forward R², Diebold–Mariano, costs, Sharpe | Partial |
 | **E6** | Can the whole artifact be regenerated and verified? | Byte-identical retraining; SHA-256 manifest; seed stability | Supported |
 
-The detailed methods, tables, and figures are in [Evidence in detail](#evidence-in-detail). Every number there is generated from the JSON written by the experiments.
+The detailed methods, tables, and figures are in [Evidence in detail](#evidence-in-detail). Every number there is generated from the JSON written by the experiments. The five exploratory labs are reported separately above.
 
 ---
 
@@ -278,6 +296,7 @@ make check         # validate artifacts and hashes
 ```bash
 make data          # checksum-pinned text + live market snapshots
 make all           # E1–E6, about 15 minutes on 28 CPU cores
+make labs          # optional exploratory labs, several minutes
 make report        # regenerate README, tables, and figures from results/
 ```
 
@@ -290,7 +309,7 @@ docker compose run --rm report     # regenerates README and figures
 docker compose run --rm check      # validates provenance and hashes
 ```
 
-No GPU or API key is required. E1–E4 and E6 run offline; E5 fetches the live market snapshot at run time, and the committed results record its exact hashes and retrieval times.
+No GPU or API key is required. E1–E4 and E6 run offline; E5 fetches the live market snapshot at run time, and the committed results record its exact hashes and retrieval times. Because the lab artifacts are hashed by E6, after `make labs` refresh the manifest and generated pages with `python experiments/e6_reproducibility.py`, `python experiments/run_all.py --assemble-only`, `make report`, `make preview`, and `make check`.
 
 ---
 
@@ -314,6 +333,8 @@ No GPU or API key is required. E1–E4 and E6 run offline; E5 fetches the live m
 | `scripts/check_results.py` | Validates artifacts, provenance, and the generated page |
 | `scripts/make_demo.py` | Maintainer-only recorder for the preview screenshots, GIF, and MP4 |
 | `results/*.json` | Machine-readable metrics, hypothesis tests, and environment |
+| `labs/` | Five exploratory labs, frozen protocol, report, and raw results |
+| `labs/results/*.json` | Machine-readable lab endpoints and summary |
 | `paper/figures/*.png` | Figures regenerated from results |
 | `tests/test_foundations.py` | Fast correctness and property tests |
 | `docs/assets/` | Screenshots, GIF, and MP4 used by this README |
@@ -537,7 +558,7 @@ Volatility clustering is Holm-significant in **3 of 5** symbols; the strict all-
 | Byte-identical retraining                 | True              |
 | Autograd expression identical             | True              |
 | Split-half Kendall τ (mean over datasets) | -0.087            |
-| Files in artifact manifest                | 30                |
+| Files in artifact manifest                | 45                |
 
 The determinism check retrains the same model twice from the same seed and obtains byte-identical parameters. The split-half Kendall τ is **-0.087**, near zero: activation rankings estimated on one half of the seeds do not transfer to the other half. This is an independent reason to treat the small pairwise differences in E2 as noise, and it illustrates why single-seed comparisons are unreliable.
 
@@ -713,7 +734,7 @@ If you want a custom benchmark, an independent technical audit, or a workshop bu
 | Tiny Shakespeare SHA256   | 86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed |
 | Configuration SHA256      | 07679a6614e32be5a2ce63db059717443b3bf32310f196ec0793bf322c2b7389 |
 | Pre-registration SHA256   | e7f20951298111402c66e9badf7b8d114eb12c3b6be1aaace75a98b0140af9f5 |
-| Artifact manifest entries | 30                                                               |
+| Artifact manifest entries | 45                                                               |
 
 The E6 artifact contains a SHA-256 manifest of every source, configuration, result, and pinned public data file present at audit time. Market snapshot hashes are recorded in E5. To verify the current tree against the recorded manifest:
 
@@ -731,6 +752,7 @@ python scripts/check_results.py
 | E4 TinyGPT (3 seeds) | ~12 min | only if text missing |
 | E5 live market | 1–2 min | yes |
 | E6 reproducibility audit | < 1 s | no |
+| Exploratory labs (optional) | several minutes | no |
 
 ### Data policy
 
@@ -751,6 +773,7 @@ Public text and tabular data are checksum-pinned. Market data is fetched at run 
 9. **Data source.** Yahoo Finance's chart endpoint is convenient but not an exchange-grade feed. Split adjustment and missing days are handled by the provider, not independently audited.
 10. **Multiple testing scope.** Holm correction is applied within each pre-registered family, not across all six experiments. A global correction would be more conservative; the headline already reports unsupported hypotheses, so the qualitative conclusion would not change.
 11. **Presentation layer.** The GIF, screenshots, and interactive site are views of the result files, not additional evidence. If a visual ever disagrees with `results/*.json`, the JSON wins.
+12. **Exploratory labs.** The five follow-up labs are small, partly synthetic, and not independently replicated. Lab 4's pairwise calibration claim failed after correction; Lab 5 uses a null generator, not live markets. Treat the labs as reproducible leads, not confirmatory evidence.
 
 ---
 

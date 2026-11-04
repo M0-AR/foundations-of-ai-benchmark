@@ -84,6 +84,7 @@ Open the Pages URL and check:
 
 - the hero animation and the four 3D cards;
 - the **Results** tabs E1–E6;
+- the **Labs** cards and the full lab report link;
 - the **Learn** progress bar and all ten steps;
 - the **Quiz**: answer one question, check it, and advance;
 - the **Business** section and the reproduction commands;
@@ -91,14 +92,14 @@ Open the Pages URL and check:
 
 `scripts/check_results.py` also verifies that `preview.html` and `index.html` are
 byte-identical, that the README has no unresolved placeholders or tool mentions,
-and that the GIF, screenshots, `.nojekyll`, and `CITATION.cff` are present.
+and that the GIF, screenshots, `.nojekyll`, `CITATION.cff`, and the lab summary/report are present.
 
 ## Repository metadata
 
 Set a short description:
 
-> Six pre-registered studies on the foundations of AI. Every number executed,
-> hashed, and reproducible.
+> Six pre-registered studies plus five exploratory novelty labs on the foundations
+> of AI. Every number executed, hashed, and reproducible.
 
 Add topics: `reproducibility`, `benchmark`, `pre-registration`, `autograd`,
 `transformers`, `attention`, `statistics`, `machine-learning`, `open-science`.

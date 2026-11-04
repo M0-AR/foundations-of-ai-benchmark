@@ -111,6 +111,7 @@ README_REQUIRED = [
     "docs/assets/preview-results.png",
     "docs/assets/preview-quiz.png",
     "docs/assets/preview-mobile.png",
+    "labs/REPORT.md",
 ]
 FORBIDDEN_README = re.compile(
     r"\b(playwright|mcp|exa|duckduckgo|kaggle|ai-generated|headless browser|autonomous coding agent)\b",
@@ -139,7 +140,7 @@ def check_site_and_assets(readme_text: str) -> None:
     leftover = [line for line in site.splitlines() if "{{" in line and "}}" in line]
     if leftover:
         raise SystemExit(f"{preview.name} has unresolved placeholders: {leftover[:3]}")
-    for marker in ('id="quiz"', 'id="learn"', "docs/assets/preview-hero.png"):
+    for marker in ('id="quiz"', 'id="learn"', 'id="labs"', "docs/assets/preview-hero.png"):
         if marker not in site:
             raise SystemExit(f"{preview.name}: missing {marker}")
 
@@ -230,7 +231,19 @@ def main() -> int:
         if headline.get("total") != 6:
             raise SystemExit("headline.json: total is not 6")
 
+    labs_summary = ROOT / "labs" / "results" / "summary.json"
+    labs_report = ROOT / "labs" / "REPORT.md"
+    if not labs_summary.exists() or not labs_report.exists():
+        raise SystemExit("labs artifacts are missing; run labs/build_summary.py")
+    labs = json.loads(labs_summary.read_text(encoding="utf-8"))
+    if len(labs.get("labs", {})) != 5:
+        raise SystemExit("labs/results/summary.json: expected five labs")
+    if labs.get("hypothesis_tests_total") != 10:
+        raise SystemExit("labs/results/summary.json: expected ten lab tests")
+
     e6 = payloads["E6"]["metrics"]
+    if not any(relative.startswith("labs/") for relative in e6["manifest"]):
+        raise SystemExit("E6 manifest: lab artifacts are missing")
     for relative, record in e6["manifest"].items():
         path = ROOT / relative
         if not path.exists():

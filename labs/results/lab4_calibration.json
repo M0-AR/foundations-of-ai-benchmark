@@ -1,0 +1,1849 @@
+{
+  "lab": "lab4_calibration",
+  "config": {
+    "activations": [
+      "sigmoid",
+      "tanh",
+      "relu",
+      "leaky_relu",
+      "gelu"
+    ],
+    "hidden_units": 64,
+    "epochs": 300,
+    "learning_rate": 0.01,
+    "batch_size": 128,
+    "test_fraction": 0.3,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  },
+  "raw": [
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 0,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.08737267597622647,
+      "test_ece_15": 0.023358538821595328,
+      "train_seconds": 0.5034694839996519
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 1,
+      "test_accuracy": 0.9532163742690059,
+      "test_nll": 0.10663270625599884,
+      "test_ece_15": 0.033203216129363514,
+      "train_seconds": 0.491293022998434
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 2,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.08173822783923204,
+      "test_ece_15": 0.01728386276793475,
+      "train_seconds": 0.5028051710032742
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 3,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.09206830018217445,
+      "test_ece_15": 0.02680021748796,
+      "train_seconds": 0.4950922290008748
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 4,
+      "test_accuracy": 0.9590643274853801,
+      "test_nll": 0.09459717075161501,
+      "test_ece_15": 0.02572244327558615,
+      "train_seconds": 0.4929979079970508
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 5,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.08836187523202531,
+      "test_ece_15": 0.025437860350915466,
+      "train_seconds": 0.5102290170034394
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 6,
+      "test_accuracy": 0.9590643274853801,
+      "test_nll": 0.09183559353549789,
+      "test_ece_15": 0.02890214732678379,
+      "train_seconds": 0.5315716200057068
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 7,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.08615049100824361,
+      "test_ece_15": 0.027120695449330243,
+      "train_seconds": 0.9798885310010519
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 8,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.07106713977038465,
+      "test_ece_15": 0.01779216566925335,
+      "train_seconds": 0.4694743299987749
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "sigmoid",
+      "seed": 9,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.08960875972072821,
+      "test_ece_15": 0.030631800589876114,
+      "train_seconds": 0.47698808499990264
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 0,
+      "test_accuracy": 0.9766081871345029,
+      "test_nll": 0.08552745466900136,
+      "test_ece_15": 0.017700680455358313,
+      "train_seconds": 0.2449565970018739
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 1,
+      "test_accuracy": 0.9766081871345029,
+      "test_nll": 0.08021501268371393,
+      "test_ece_15": 0.019053058141166236,
+      "train_seconds": 0.24534391199995298
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 2,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.07969590249905548,
+      "test_ece_15": 0.024967186518686908,
+      "train_seconds": 0.2384546820030664
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 3,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.09148032347542,
+      "test_ece_15": 0.023344970501054482,
+      "train_seconds": 0.24177956299536163
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 4,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.08591526645089335,
+      "test_ece_15": 0.025425489701856072,
+      "train_seconds": 0.23879892800323432
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 5,
+      "test_accuracy": 0.9766081871345029,
+      "test_nll": 0.09217429349831753,
+      "test_ece_15": 0.017369671895293877,
+      "train_seconds": 0.23886994800704997
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 6,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.10899427075549523,
+      "test_ece_15": 0.025762321074873872,
+      "train_seconds": 0.24111773599724984
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 7,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.08276088266121548,
+      "test_ece_15": 0.022704695457357656,
+      "train_seconds": 0.24590511199494358
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 8,
+      "test_accuracy": 0.9766081871345029,
+      "test_nll": 0.07161661454029271,
+      "test_ece_15": 0.023190958137298684,
+      "train_seconds": 0.23868352299905382
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "tanh",
+      "seed": 9,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.07894252180506288,
+      "test_ece_15": 0.019953126004408277,
+      "train_seconds": 0.2398811029997887
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 0,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.13811443350305644,
+      "test_ece_15": 0.026180214309447912,
+      "train_seconds": 0.15028799100400647
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 1,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.11720784652799925,
+      "test_ece_15": 0.028732507465825785,
+      "train_seconds": 0.15466682300029788
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 2,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.12399876818067922,
+      "test_ece_15": 0.023980342649576644,
+      "train_seconds": 0.155177573004039
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 3,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.11350097420050188,
+      "test_ece_15": 0.02888041339249546,
+      "train_seconds": 0.15329581700643757
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 4,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.12547171011239486,
+      "test_ece_15": 0.028241427519754142,
+      "train_seconds": 0.14939162899827352
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 5,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.120471180077844,
+      "test_ece_15": 0.03288431662987684,
+      "train_seconds": 0.15447636699536815
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 6,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.119153907090183,
+      "test_ece_15": 0.026335019175285017,
+      "train_seconds": 0.15534042899525957
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 7,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.1404068640872663,
+      "test_ece_15": 0.032907251686004724,
+      "train_seconds": 0.15620426800160203
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 8,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.11622064347072726,
+      "test_ece_15": 0.028600012364971006,
+      "train_seconds": 0.1500588649942074
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "relu",
+      "seed": 9,
+      "test_accuracy": 0.9766081871345029,
+      "test_nll": 0.11018240560429188,
+      "test_ece_15": 0.02163971462979938,
+      "train_seconds": 0.1509218779974617
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 0,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.13747007225160549,
+      "test_ece_15": 0.026146042684565062,
+      "train_seconds": 0.21654829299950507
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 1,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.11723188087055822,
+      "test_ece_15": 0.02414209056743715,
+      "train_seconds": 0.21799791700323112
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 2,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.12151234662527356,
+      "test_ece_15": 0.02429254484389791,
+      "train_seconds": 0.21843204699689522
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 3,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.11213700852608267,
+      "test_ece_15": 0.028855791450427215,
+      "train_seconds": 0.21302300300158095
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 4,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.12107152232848882,
+      "test_ece_15": 0.024338864510447287,
+      "train_seconds": 0.21242043700476643
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 5,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.1180839386803974,
+      "test_ece_15": 0.03249301638356131,
+      "train_seconds": 0.21140558300248813
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 6,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.11970372230102701,
+      "test_ece_15": 0.026451603948895716,
+      "train_seconds": 0.20861029499792494
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 7,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.13900839109514396,
+      "test_ece_15": 0.028384934807250073,
+      "train_seconds": 0.21202721699955873
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 8,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.11140439226625205,
+      "test_ece_15": 0.020336847075660577,
+      "train_seconds": 0.2145130139979301
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "leaky_relu",
+      "seed": 9,
+      "test_accuracy": 0.9766081871345029,
+      "test_nll": 0.10836893145353858,
+      "test_ece_15": 0.021146775601770765,
+      "train_seconds": 0.21514134899916826
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 0,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.16503945855541247,
+      "test_ece_15": 0.03133317359209246,
+      "train_seconds": 0.5434873470003367
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 1,
+      "test_accuracy": 0.9766081871345029,
+      "test_nll": 0.14292457077727816,
+      "test_ece_15": 0.03145287179570311,
+      "train_seconds": 0.5336309910053387
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 2,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.16728396803654572,
+      "test_ece_15": 0.029123868368992924,
+      "train_seconds": 0.5389327640004922
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 3,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.16930048643510967,
+      "test_ece_15": 0.0315395742833679,
+      "train_seconds": 0.5410547720020986
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 4,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.177408323855528,
+      "test_ece_15": 0.03167645546126942,
+      "train_seconds": 0.5394161210060702
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 5,
+      "test_accuracy": 0.9590643274853801,
+      "test_nll": 0.17502654575469057,
+      "test_ece_15": 0.04151533535083323,
+      "train_seconds": 0.5395153920035227
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 6,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.1759858431864685,
+      "test_ece_15": 0.03564464148251523,
+      "train_seconds": 0.528697492001811
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 7,
+      "test_accuracy": 0.9532163742690059,
+      "test_nll": 0.18675214069756962,
+      "test_ece_15": 0.04020720977382275,
+      "train_seconds": 0.5510907439966104
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 8,
+      "test_accuracy": 0.9649122807017544,
+      "test_nll": 0.14465219584006633,
+      "test_ece_15": 0.03311394733931747,
+      "train_seconds": 0.5951287099960609
+    },
+    {
+      "dataset": "breast_cancer",
+      "activation": "gelu",
+      "seed": 9,
+      "test_accuracy": 0.9707602339181286,
+      "test_nll": 0.16467243767234108,
+      "test_ece_15": 0.027522126864089676,
+      "train_seconds": 0.6404475189992809
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 0,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07507019486531653,
+      "test_ece_15": 0.01601441993377859,
+      "train_seconds": 0.1724566760021844
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 1,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07183800639351774,
+      "test_ece_15": 0.018128397476735877,
+      "train_seconds": 0.15036443900316954
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 2,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07181111755917809,
+      "test_ece_15": 0.015480029774069485,
+      "train_seconds": 0.14289527099754196
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 3,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.06964115032011259,
+      "test_ece_15": 0.023778336376700203,
+      "train_seconds": 0.13989607999974396
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 4,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07363748577500893,
+      "test_ece_15": 0.028797727470327036,
+      "train_seconds": 0.14244028100074502
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 5,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07652103398846816,
+      "test_ece_15": 0.0138512712839963,
+      "train_seconds": 0.14759957200294593
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 6,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.0739857580760224,
+      "test_ece_15": 0.018660231636489548,
+      "train_seconds": 0.1405361860015546
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 7,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07633518854970091,
+      "test_ece_15": 0.014240831211451394,
+      "train_seconds": 0.14937755699793343
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 8,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07195477415282571,
+      "test_ece_15": 0.01573024040751682,
+      "train_seconds": 0.17287709600350354
+    },
+    {
+      "dataset": "wine",
+      "activation": "sigmoid",
+      "seed": 9,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.08005104205988404,
+      "test_ece_15": 0.0303673412762175,
+      "train_seconds": 0.15138492699770723
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 0,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07273826725851801,
+      "test_ece_15": 0.02929787616636479,
+      "train_seconds": 0.06917302799411118
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 1,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.075309857696255,
+      "test_ece_15": 0.017472413113902043,
+      "train_seconds": 0.07551234700076748
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 2,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.06731634430918268,
+      "test_ece_15": 0.015938813169635996,
+      "train_seconds": 0.07085369300330058
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 3,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.08016371726317265,
+      "test_ece_15": 0.022586303398713266,
+      "train_seconds": 0.06787908599653747
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 4,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.08509174468417073,
+      "test_ece_15": 0.02516085039977234,
+      "train_seconds": 0.06660563899640692
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 5,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.08857528660177658,
+      "test_ece_15": 0.026110278341799617,
+      "train_seconds": 0.06677485199907096
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 6,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.08271125521085078,
+      "test_ece_15": 0.022213021374282035,
+      "train_seconds": 0.067100398002367
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 7,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.06943550993492485,
+      "test_ece_15": 0.014071041948246758,
+      "train_seconds": 0.07283734799420927
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 8,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.08197034575254719,
+      "test_ece_15": 0.027790734911787646,
+      "train_seconds": 0.07057742000324652
+    },
+    {
+      "dataset": "wine",
+      "activation": "tanh",
+      "seed": 9,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.1003378994146779,
+      "test_ece_15": 0.029719439688658273,
+      "train_seconds": 0.07101441499980865
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 0,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.060942768445741924,
+      "test_ece_15": 0.02814650876765794,
+      "train_seconds": 0.043551891001698095
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 1,
+      "test_accuracy": 0.9444444444444444,
+      "test_nll": 0.07835265189278458,
+      "test_ece_15": 0.041378392776784345,
+      "train_seconds": 0.044018935004714876
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 2,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.07187714996983681,
+      "test_ece_15": 0.031081447278316018,
+      "train_seconds": 0.04586395099613583
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 3,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.03199298437877542,
+      "test_ece_15": 0.016413882065697768,
+      "train_seconds": 0.04921667500457261
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 4,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.030375643900719167,
+      "test_ece_15": 0.01809778459674342,
+      "train_seconds": 0.05018008500337601
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 5,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.04900807427641458,
+      "test_ece_15": 0.029158619343795204,
+      "train_seconds": 0.045816596000804566
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 6,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.02763859388950097,
+      "test_ece_15": 0.021171029284839337,
+      "train_seconds": 0.043883165999432094
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 7,
+      "test_accuracy": 1.0,
+      "test_nll": 0.021424410609228044,
+      "test_ece_15": 0.01731698082450571,
+      "train_seconds": 0.043164824004634283
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 8,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.04388571085418124,
+      "test_ece_15": 0.01718449216718229,
+      "train_seconds": 0.04339775800326606
+    },
+    {
+      "dataset": "wine",
+      "activation": "relu",
+      "seed": 9,
+      "test_accuracy": 1.0,
+      "test_nll": 0.022756031030533766,
+      "test_ece_15": 0.01862874838265541,
+      "train_seconds": 0.04131316900020465
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 0,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.060785401293850586,
+      "test_ece_15": 0.027986400403197602,
+      "train_seconds": 0.058032075001392514
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 1,
+      "test_accuracy": 0.9444444444444444,
+      "test_nll": 0.07797110212284417,
+      "test_ece_15": 0.041607431150900334,
+      "train_seconds": 0.06036115100141615
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 2,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.07388861010913546,
+      "test_ece_15": 0.03128391412515983,
+      "train_seconds": 0.05939588399633067
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 3,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.032723033994257675,
+      "test_ece_15": 0.01655540900581015,
+      "train_seconds": 0.06038565599737922
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 4,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.030998091693605692,
+      "test_ece_15": 0.018263863509484238,
+      "train_seconds": 0.060193944998900406
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 5,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.050104182768664525,
+      "test_ece_15": 0.029540656973101133,
+      "train_seconds": 0.05837130699364934
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 6,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.02701735891997788,
+      "test_ece_15": 0.020959422991386818,
+      "train_seconds": 0.05822827300289646
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 7,
+      "test_accuracy": 1.0,
+      "test_nll": 0.0219039499481052,
+      "test_ece_15": 0.017445862185035438,
+      "train_seconds": 0.05820036200020695
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 8,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.04615642381109852,
+      "test_ece_15": 0.016893297962115,
+      "train_seconds": 0.05922481599554885
+    },
+    {
+      "dataset": "wine",
+      "activation": "leaky_relu",
+      "seed": 9,
+      "test_accuracy": 1.0,
+      "test_nll": 0.02331540646546498,
+      "test_ece_15": 0.019015161675562747,
+      "train_seconds": 0.06149559500045143
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 0,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.0569369705743417,
+      "test_ece_15": 0.026509980479815263,
+      "train_seconds": 0.16122956000617705
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 1,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.06101261066300411,
+      "test_ece_15": 0.036344485023295056,
+      "train_seconds": 0.1687508210015949
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 2,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.07292713147639407,
+      "test_ece_15": 0.031121798764069338,
+      "train_seconds": 0.17325701499794377
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 3,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.0318792830259942,
+      "test_ece_15": 0.018686671598001133,
+      "train_seconds": 0.1614902000001166
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 4,
+      "test_accuracy": 1.0,
+      "test_nll": 0.026423008569708584,
+      "test_ece_15": 0.020615503177215087,
+      "train_seconds": 0.16871029900357826
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 5,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.04852618816006366,
+      "test_ece_15": 0.029901102302082958,
+      "train_seconds": 0.16179643599753035
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 6,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.025792185753888613,
+      "test_ece_15": 0.019986356388902015,
+      "train_seconds": 0.15729616099997656
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 7,
+      "test_accuracy": 1.0,
+      "test_nll": 0.02144013776836049,
+      "test_ece_15": 0.017328042390356513,
+      "train_seconds": 0.16842505999375135
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 8,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.04116503209841745,
+      "test_ece_15": 0.0170477058410867,
+      "train_seconds": 0.16450383499613963
+    },
+    {
+      "dataset": "wine",
+      "activation": "gelu",
+      "seed": 9,
+      "test_accuracy": 1.0,
+      "test_nll": 0.023646338447026436,
+      "test_ece_15": 0.01907878314893425,
+      "train_seconds": 0.17727316200034693
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 0,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.0732002704542245,
+      "test_ece_15": 0.011119920780726926,
+      "train_seconds": 2.6278295049996814
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 1,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07128466761092596,
+      "test_ece_15": 0.009279006712488361,
+      "train_seconds": 2.5313631309982156
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 2,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07517188891032624,
+      "test_ece_15": 0.019138785352813385,
+      "train_seconds": 2.325862090001465
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 3,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.0791403723125282,
+      "test_ece_15": 0.012626612045410086,
+      "train_seconds": 2.4412400519941
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 4,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07246712091687965,
+      "test_ece_15": 0.009820548963009488,
+      "train_seconds": 3.8324205449971487
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 5,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.07086159627923033,
+      "test_ece_15": 0.012013180468144763,
+      "train_seconds": 3.7005357360030757
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 6,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07424999913648234,
+      "test_ece_15": 0.010157496931654068,
+      "train_seconds": 3.7972038770021754
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 7,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.07024319219436974,
+      "test_ece_15": 0.013390805492540722,
+      "train_seconds": 3.7877052330004517
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 8,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.07176406281674494,
+      "test_ece_15": 0.011339945140063094,
+      "train_seconds": 3.877920354003436
+    },
+    {
+      "dataset": "digits",
+      "activation": "sigmoid",
+      "seed": 9,
+      "test_accuracy": 0.9796296296296296,
+      "test_nll": 0.07162238404219916,
+      "test_ece_15": 0.013786598731974156,
+      "train_seconds": 3.732146381997154
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 0,
+      "test_accuracy": 0.987037037037037,
+      "test_nll": 0.07289818324041943,
+      "test_ece_15": 0.014552010022346976,
+      "train_seconds": 2.404829281003913
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 1,
+      "test_accuracy": 0.9796296296296296,
+      "test_nll": 0.07409743567368812,
+      "test_ece_15": 0.011068663274004381,
+      "train_seconds": 0.9984736339974916
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 2,
+      "test_accuracy": 0.987037037037037,
+      "test_nll": 0.06691634935420292,
+      "test_ece_15": 0.012565900677158463,
+      "train_seconds": 1.0202823420040659
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 3,
+      "test_accuracy": 0.9777777777777777,
+      "test_nll": 0.08238776555405404,
+      "test_ece_15": 0.008025094771724335,
+      "train_seconds": 1.0103757020042394
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 4,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07404482677624605,
+      "test_ece_15": 0.014111198698783188,
+      "train_seconds": 0.9913512869970873
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 5,
+      "test_accuracy": 0.9777777777777777,
+      "test_nll": 0.10712420376832135,
+      "test_ece_15": 0.012716410748864378,
+      "train_seconds": 1.0012279959992156
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 6,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.07219692555925761,
+      "test_ece_15": 0.007991481346073205,
+      "train_seconds": 1.0299405850018957
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 7,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07398707898393632,
+      "test_ece_15": 0.011177458560882916,
+      "train_seconds": 1.1402745230006985
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 8,
+      "test_accuracy": 0.9629629629629629,
+      "test_nll": 0.15380913067603544,
+      "test_ece_15": 0.016601703644157903,
+      "train_seconds": 1.0158748610047041
+    },
+    {
+      "dataset": "digits",
+      "activation": "tanh",
+      "seed": 9,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.06868825142930154,
+      "test_ece_15": 0.010495799372879899,
+      "train_seconds": 1.00768916800007
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 0,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.0728986656323596,
+      "test_ece_15": 0.01265340624616319,
+      "train_seconds": 0.6738862860001973
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 1,
+      "test_accuracy": 0.975925925925926,
+      "test_nll": 0.15417390314799417,
+      "test_ece_15": 0.01784108509948179,
+      "train_seconds": 0.675361318004434
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 2,
+      "test_accuracy": 0.9703703703703703,
+      "test_nll": 0.16037065761629712,
+      "test_ece_15": 0.021032558760572993,
+      "train_seconds": 0.6880676380023942
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 3,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.06827884489589038,
+      "test_ece_15": 0.010111414134936856,
+      "train_seconds": 0.7776135849999264
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 4,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.06097318307332939,
+      "test_ece_15": 0.0069397783381568955,
+      "train_seconds": 0.6880425470008049
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 5,
+      "test_accuracy": 0.987037037037037,
+      "test_nll": 0.06423787475353779,
+      "test_ece_15": 0.009186493636952151,
+      "train_seconds": 0.6689174970015301
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 6,
+      "test_accuracy": 0.9740740740740741,
+      "test_nll": 0.16178993156477184,
+      "test_ece_15": 0.01899526498008984,
+      "train_seconds": 0.679637849003484
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 7,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.06491279297312524,
+      "test_ece_15": 0.015465740937207454,
+      "train_seconds": 0.6961675290003768
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 8,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07708622960705554,
+      "test_ece_15": 0.01458325087488269,
+      "train_seconds": 0.670052980996843
+    },
+    {
+      "dataset": "digits",
+      "activation": "relu",
+      "seed": 9,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.0724129137179486,
+      "test_ece_15": 0.013938970596904897,
+      "train_seconds": 0.6645527769942419
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 0,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.06992295311824284,
+      "test_ece_15": 0.008241396804634893,
+      "train_seconds": 0.9403337109979475
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 1,
+      "test_accuracy": 0.9777777777777777,
+      "test_nll": 0.12057558992584752,
+      "test_ece_15": 0.014320813320207081,
+      "train_seconds": 0.9426468960009515
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 2,
+      "test_accuracy": 0.9777777777777777,
+      "test_nll": 0.13268800655553808,
+      "test_ece_15": 0.012286887109018313,
+      "train_seconds": 0.963117699000577
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 3,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07083950908333726,
+      "test_ece_15": 0.009371935843233769,
+      "train_seconds": 0.9412898539958405
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 4,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.060546234659646626,
+      "test_ece_15": 0.0069560792801459555,
+      "train_seconds": 0.9377708750034799
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 5,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.11439595013642595,
+      "test_ece_15": 0.013186487249697006,
+      "train_seconds": 0.9340254929993534
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 6,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.06661114175293595,
+      "test_ece_15": 0.008613380743301478,
+      "train_seconds": 0.9612524490003125
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 7,
+      "test_accuracy": 0.9796296296296296,
+      "test_nll": 0.11593549945539541,
+      "test_ece_15": 0.016880051564461665,
+      "train_seconds": 0.9548200909994193
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 8,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.08923220107747112,
+      "test_ece_15": 0.014777166958008965,
+      "train_seconds": 1.096705739000754
+    },
+    {
+      "dataset": "digits",
+      "activation": "leaky_relu",
+      "seed": 9,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07265524911853531,
+      "test_ece_15": 0.014540327758501986,
+      "train_seconds": 1.0478738200035878
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 0,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.06990389551207686,
+      "test_ece_15": 0.01247517958940936,
+      "train_seconds": 2.301883017004002
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 1,
+      "test_accuracy": 0.987037037037037,
+      "test_nll": 0.0741696215432836,
+      "test_ece_15": 0.01214885280361858,
+      "train_seconds": 2.239435109993792
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 2,
+      "test_accuracy": 0.9740740740740741,
+      "test_nll": 0.10934101285546935,
+      "test_ece_15": 0.01844366468716129,
+      "train_seconds": 2.1743880989961326
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 3,
+      "test_accuracy": 0.987037037037037,
+      "test_nll": 0.07068585459411707,
+      "test_ece_15": 0.013558644041265649,
+      "train_seconds": 2.2045275140044396
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 4,
+      "test_accuracy": 0.9814814814814815,
+      "test_nll": 0.06253043995525942,
+      "test_ece_15": 0.008435081340893257,
+      "train_seconds": 5.3719419420012855
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 5,
+      "test_accuracy": 0.987037037037037,
+      "test_nll": 0.06236121247957057,
+      "test_ece_15": 0.009278126888468075,
+      "train_seconds": 3.097234295993985
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 6,
+      "test_accuracy": 0.9740740740740741,
+      "test_nll": 0.1354045383330357,
+      "test_ece_15": 0.02045313396471339,
+      "train_seconds": 2.23581383000419
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 7,
+      "test_accuracy": 0.9851851851851852,
+      "test_nll": 0.11531073137683978,
+      "test_ece_15": 0.012852665033419152,
+      "train_seconds": 2.314868794004724
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 8,
+      "test_accuracy": 0.9259259259259259,
+      "test_nll": 0.478866522267568,
+      "test_ece_15": 0.05924083834087186,
+      "train_seconds": 2.256140775003587
+    },
+    {
+      "dataset": "digits",
+      "activation": "gelu",
+      "seed": 9,
+      "test_accuracy": 0.9833333333333333,
+      "test_nll": 0.07177631173111912,
+      "test_ece_15": 0.013143063806800845,
+      "train_seconds": 2.3927262319994043
+    }
+  ],
+  "per_dataset": {
+    "breast_cancer": {
+      "summary": {
+        "sigmoid": {
+          "accuracy_mean": 0.964327485380117,
+          "nll_mean": 0.08894329402721264,
+          "ece_mean": 0.02562529478685987,
+          "ece_std": 0.005087725679343231
+        },
+        "tanh": {
+          "accuracy_mean": 0.9719298245614034,
+          "nll_mean": 0.08573225430384679,
+          "ece_mean": 0.021947215788735437,
+          "ece_std": 0.0031830722872638146
+        },
+        "relu": {
+          "accuracy_mean": 0.9695906432748538,
+          "nll_mean": 0.12247287328549443,
+          "ece_mean": 0.027838121982303694,
+          "ece_std": 0.003529247267093
+        },
+        "leaky_relu": {
+          "accuracy_mean": 0.9695906432748537,
+          "nll_mean": 0.12059922063983677,
+          "ece_mean": 0.025658851187391307,
+          "ece_std": 0.0036486810380627877
+        },
+        "gelu": {
+          "accuracy_mean": 0.9660818713450292,
+          "nll_mean": 0.16690459708110103,
+          "ece_mean": 0.03331292043120042,
+          "ece_std": 0.004528560592433097
+        }
+      },
+      "friedman_ece": {
+        "statistic": 22.80000000000001,
+        "p_value": 0.00013882401204812697
+      },
+      "accuracy_rank": [
+        "tanh",
+        "relu",
+        "leaky_relu",
+        "gelu",
+        "sigmoid"
+      ],
+      "ece_rank": [
+        "tanh",
+        "sigmoid",
+        "leaky_relu",
+        "relu",
+        "gelu"
+      ],
+      "rank_correlation": 0.3
+    },
+    "wine": {
+      "summary": {
+        "sigmoid": {
+          "accuracy_mean": 0.9814814814814815,
+          "nll_mean": 0.0740845751740035,
+          "ece_mean": 0.019504882684728275,
+          "ece_std": 0.006032548563257142
+        },
+        "tanh": {
+          "accuracy_mean": 0.9796296296296297,
+          "nll_mean": 0.08036502281260763,
+          "ece_mean": 0.02303607725131628,
+          "ece_std": 0.005607799067433097
+        },
+        "relu": {
+          "accuracy_mean": 0.975925925925926,
+          "nll_mean": 0.04382540192477165,
+          "ece_mean": 0.023857788548817743,
+          "ece_std": 0.008273859250868208
+        },
+        "leaky_relu": {
+          "accuracy_mean": 0.975925925925926,
+          "nll_mean": 0.04448635611270047,
+          "ece_mean": 0.023955141998175326,
+          "ece_std": 0.008336852837510896
+        },
+        "gelu": {
+          "accuracy_mean": 0.9814814814814815,
+          "nll_mean": 0.04097488865371993,
+          "ece_mean": 0.02366204291137583,
+          "ece_std": 0.006798288908716782
+        }
+      },
+      "friedman_ece": {
+        "statistic": 2.4799999999999898,
+        "p_value": 0.6482206481834754
+      },
+      "accuracy_rank": [
+        "sigmoid",
+        "gelu",
+        "tanh",
+        "relu",
+        "leaky_relu"
+      ],
+      "ece_rank": [
+        "sigmoid",
+        "tanh",
+        "gelu",
+        "relu",
+        "leaky_relu"
+      ],
+      "rank_correlation": 0.8999999999999998
+    },
+    "digits": {
+      "summary": {
+        "sigmoid": {
+          "accuracy_mean": 0.9827777777777778,
+          "nll_mean": 0.0730005554673911,
+          "ece_mean": 0.012267290061882504,
+          "ece_std": 0.0028387350189360994
+        },
+        "tanh": {
+          "accuracy_mean": 0.980925925925926,
+          "nll_mean": 0.08461501510154629,
+          "ece_mean": 0.011930572111687564,
+          "ece_std": 0.002760948962561701
+        },
+        "relu": {
+          "accuracy_mean": 0.9805555555555554,
+          "nll_mean": 0.09571349969823097,
+          "ece_mean": 0.014074796360534877,
+          "ece_std": 0.004491360046226948
+        },
+        "leaky_relu": {
+          "accuracy_mean": 0.9820370370370368,
+          "nll_mean": 0.0913402334883376,
+          "ece_mean": 0.011917452663121112,
+          "ece_std": 0.0033785772837655057
+        },
+        "gelu": {
+          "accuracy_mean": 0.9768518518518517,
+          "nll_mean": 0.12503501406483394,
+          "ece_mean": 0.01800292504966215,
+          "ece_std": 0.014941181713302805
+        }
+      },
+      "friedman_ece": {
+        "statistic": 1.5200000000000102,
+        "p_value": 0.8230929115374385
+      },
+      "accuracy_rank": [
+        "sigmoid",
+        "leaky_relu",
+        "tanh",
+        "relu",
+        "gelu"
+      ],
+      "ece_rank": [
+        "leaky_relu",
+        "tanh",
+        "sigmoid",
+        "relu",
+        "gelu"
+      ],
+      "rank_correlation": 0.7
+    }
+  },
+  "all_pairs_holm": {
+    "breast_cancer:sigmoid_vs_tanh": {
+      "dataset": "breast_cancer",
+      "pair": "sigmoid_vs_tanh",
+      "p_value": 0.130859375,
+      "cohen_dz": 0.5478546035054354,
+      "mean_difference": 0.003678078998124433,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "breast_cancer:sigmoid_vs_relu": {
+      "dataset": "breast_cancer",
+      "pair": "sigmoid_vs_relu",
+      "p_value": 0.322265625,
+      "cohen_dz": -0.3667223687431547,
+      "mean_difference": -0.0022128271954438205,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "breast_cancer:sigmoid_vs_leaky_relu": {
+      "dataset": "breast_cancer",
+      "pair": "sigmoid_vs_leaky_relu",
+      "p_value": 0.845703125,
+      "cohen_dz": -0.005822395455240821,
+      "mean_difference": -3.355640053143566e-05,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "breast_cancer:sigmoid_vs_gelu": {
+      "dataset": "breast_cancer",
+      "pair": "sigmoid_vs_gelu",
+      "p_value": 0.009765625,
+      "cohen_dz": -1.1627907354599123,
+      "mean_difference": -0.007687625644340545,
+      "n": 10,
+      "p_holm": 0.25390625,
+      "reject": 0.0
+    },
+    "breast_cancer:tanh_vs_relu": {
+      "dataset": "breast_cancer",
+      "pair": "tanh_vs_relu",
+      "p_value": 0.005859375,
+      "cohen_dz": -1.1520134688558343,
+      "mean_difference": -0.005890906193568253,
+      "n": 10,
+      "p_holm": 0.158203125,
+      "reject": 0.0
+    },
+    "breast_cancer:tanh_vs_leaky_relu": {
+      "dataset": "breast_cancer",
+      "pair": "tanh_vs_leaky_relu",
+      "p_value": 0.064453125,
+      "cohen_dz": -0.6872723380679949,
+      "mean_difference": -0.0037116353986558688,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "breast_cancer:tanh_vs_gelu": {
+      "dataset": "breast_cancer",
+      "pair": "tanh_vs_gelu",
+      "p_value": 0.001953125,
+      "cohen_dz": -1.9239702055212062,
+      "mean_difference": -0.011365704642464978,
+      "n": 10,
+      "p_holm": 0.05859375,
+      "reject": 0.0
+    },
+    "breast_cancer:relu_vs_leaky_relu": {
+      "dataset": "breast_cancer",
+      "pair": "relu_vs_leaky_relu",
+      "p_value": 0.037109375,
+      "cohen_dz": 0.7400247834931081,
+      "mean_difference": 0.002179270794912385,
+      "n": 10,
+      "p_holm": 0.927734375,
+      "reject": 0.0
+    },
+    "breast_cancer:relu_vs_gelu": {
+      "dataset": "breast_cancer",
+      "pair": "relu_vs_gelu",
+      "p_value": 0.001953125,
+      "cohen_dz": -2.3468948860783256,
+      "mean_difference": -0.005474798448896724,
+      "n": 10,
+      "p_holm": 0.05859375,
+      "reject": 0.0
+    },
+    "breast_cancer:leaky_relu_vs_gelu": {
+      "dataset": "breast_cancer",
+      "pair": "leaky_relu_vs_gelu",
+      "p_value": 0.001953125,
+      "cohen_dz": -2.4412625164320083,
+      "mean_difference": -0.007654069243809109,
+      "n": 10,
+      "p_holm": 0.05859375,
+      "reject": 0.0
+    },
+    "wine:sigmoid_vs_tanh": {
+      "dataset": "wine",
+      "pair": "sigmoid_vs_tanh",
+      "p_value": 0.4921875,
+      "cohen_dz": -0.5464276094447109,
+      "mean_difference": -0.0035311945665880014,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:sigmoid_vs_relu": {
+      "dataset": "wine",
+      "pair": "sigmoid_vs_relu",
+      "p_value": 0.232421875,
+      "cohen_dz": -0.36212916748504637,
+      "mean_difference": -0.004352905864089469,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:sigmoid_vs_leaky_relu": {
+      "dataset": "wine",
+      "pair": "sigmoid_vs_leaky_relu",
+      "p_value": 0.232421875,
+      "cohen_dz": -0.3700874357360394,
+      "mean_difference": -0.004450259313447054,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:sigmoid_vs_gelu": {
+      "dataset": "wine",
+      "pair": "sigmoid_vs_gelu",
+      "p_value": 0.275390625,
+      "cohen_dz": -0.3934484502500145,
+      "mean_difference": -0.004157160226647556,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:tanh_vs_relu": {
+      "dataset": "wine",
+      "pair": "tanh_vs_relu",
+      "p_value": 0.921875,
+      "cohen_dz": -0.07301850602562704,
+      "mean_difference": -0.0008217112975014683,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:tanh_vs_leaky_relu": {
+      "dataset": "wine",
+      "pair": "tanh_vs_leaky_relu",
+      "p_value": 0.921875,
+      "cohen_dz": -0.08119062613867457,
+      "mean_difference": -0.0009190647468590524,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:tanh_vs_gelu": {
+      "dataset": "wine",
+      "pair": "tanh_vs_gelu",
+      "p_value": 0.921875,
+      "cohen_dz": -0.06312580891217964,
+      "mean_difference": -0.0006259656600595548,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:relu_vs_leaky_relu": {
+      "dataset": "wine",
+      "pair": "relu_vs_leaky_relu",
+      "p_value": 0.322265625,
+      "cohen_dz": -0.4076213965973025,
+      "mean_difference": -9.73534493575845e-05,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:relu_vs_gelu": {
+      "dataset": "wine",
+      "pair": "relu_vs_gelu",
+      "p_value": 0.921875,
+      "cohen_dz": 0.09135795647514647,
+      "mean_difference": 0.00019574563744191343,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "wine:leaky_relu_vs_gelu": {
+      "dataset": "wine",
+      "pair": "leaky_relu_vs_gelu",
+      "p_value": 0.921875,
+      "cohen_dz": 0.138619623292959,
+      "mean_difference": 0.00029309908679949793,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:sigmoid_vs_tanh": {
+      "dataset": "digits",
+      "pair": "sigmoid_vs_tanh",
+      "p_value": 0.845703125,
+      "cohen_dz": 0.08382073109925108,
+      "mean_difference": 0.0003367179501949405,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:sigmoid_vs_relu": {
+      "dataset": "digits",
+      "pair": "sigmoid_vs_relu",
+      "p_value": 0.375,
+      "cohen_dz": -0.4258423644828996,
+      "mean_difference": -0.0018075062986523712,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:sigmoid_vs_leaky_relu": {
+      "dataset": "digits",
+      "pair": "sigmoid_vs_leaky_relu",
+      "p_value": 1.0,
+      "cohen_dz": 0.09329574197765661,
+      "mean_difference": 0.00034983739876139357,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:sigmoid_vs_gelu": {
+      "dataset": "digits",
+      "pair": "sigmoid_vs_gelu",
+      "p_value": 0.431640625,
+      "cohen_dz": -0.37610842393080085,
+      "mean_difference": -0.005735634987779642,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:tanh_vs_relu": {
+      "dataset": "digits",
+      "pair": "tanh_vs_relu",
+      "p_value": 0.275390625,
+      "cohen_dz": -0.3721217091727795,
+      "mean_difference": -0.002144224248847312,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:tanh_vs_leaky_relu": {
+      "dataset": "digits",
+      "pair": "tanh_vs_leaky_relu",
+      "p_value": 0.845703125,
+      "cohen_dz": 0.0031481579175870584,
+      "mean_difference": 1.3119448566453056e-05,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:tanh_vs_gelu": {
+      "dataset": "digits",
+      "pair": "tanh_vs_gelu",
+      "p_value": 0.232421875,
+      "cohen_dz": -0.43808773343321383,
+      "mean_difference": -0.006072352937974581,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:relu_vs_leaky_relu": {
+      "dataset": "digits",
+      "pair": "relu_vs_leaky_relu",
+      "p_value": 0.375,
+      "cohen_dz": 0.47135285087064366,
+      "mean_difference": 0.0021573436974137647,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:relu_vs_gelu": {
+      "dataset": "digits",
+      "pair": "relu_vs_gelu",
+      "p_value": 1.0,
+      "cohen_dz": -0.2701499241941978,
+      "mean_difference": -0.00392812868912727,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    },
+    "digits:leaky_relu_vs_gelu": {
+      "dataset": "digits",
+      "pair": "leaky_relu_vs_gelu",
+      "p_value": 0.16015625,
+      "cohen_dz": -0.4232445783847832,
+      "mean_difference": -0.006085472386541035,
+      "n": 10,
+      "p_holm": 1.0,
+      "reject": 0.0
+    }
+  },
+  "hypothesis_tests": {
+    "H10a_any_ece_pair_holm_significant": false,
+    "H10b_accuracy_rank_differs_from_ece_rank": true
+  },
+  "significant_pairs": []
+}

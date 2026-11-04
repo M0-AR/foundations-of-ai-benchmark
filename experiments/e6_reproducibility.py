@@ -171,6 +171,9 @@ def _build_manifest() -> dict:
         + list((ROOT / "experiments").glob("*.py"))
         + list((ROOT / "scripts").glob("*.py"))
         + list((ROOT / "tests").glob("*.py"))
+        + list((ROOT / "labs").glob("*.py"))
+        + list((ROOT / "labs").glob("*.md"))
+        + list((ROOT / "labs" / "results").glob("*.json"))
         + list((DATA / "public").glob("*"))
     )
     return {

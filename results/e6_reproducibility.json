@@ -3,7 +3,7 @@
   "env": {
     "cpu_count": 28,
     "executable": "/home/md/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python",
-    "git_commit": "ceda71c12de600801b7d658c8f95eaeca26e9121",
+    "git_commit": "85797c8a7b4593ab56c9dcb9aa7550184bbe1ac1",
     "machine": "x86_64",
     "packages": {
       "numpy": "2.2.6",
@@ -16,18 +16,18 @@
     "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
     "processor": "",
     "python": "3.12.13",
-    "timestamp_utc": "2026-11-04T20:28:56+00:00",
+    "timestamp_utc": "2026-11-04T21:14:53+00:00",
     "torch_cuda_available": true,
     "torch_cuda_devices": 1
   },
   "experiment": "E6_reproducibility",
-  "generated_utc": "2026-11-04T20:28:56+00:00",
+  "generated_utc": "2026-11-04T21:14:53+00:00",
   "hypothesis_tests": {
     "deterministic_rerun_byte_identical": true
   },
   "inputs": {
     "e2_sha256": "07117d825b911323ae296665dfb1e278266376d0eb9620bd41d229f0bedfdaeb",
-    "script_sha256": "19c4ef7fbf1a764a19d7cd6b61f93351dd5781e5d7908f94895bd097aa44e87f"
+    "script_sha256": "06bb86eea9a5947ad400820fb3af58188f04b2f9b86d21e2579458931ee8abfc"
   },
   "metrics": {
     "config_sha256": "07679a6614e32be5a2ce63db059717443b3bf32310f196ec0793bf322c2b7389",
@@ -110,12 +110,72 @@
         "sha256": "33f41dfd141cf5366a1443554b897aa7ec5a69c1a77b2873dbf0b0863601ad75"
       },
       "experiments/e6_reproducibility.py": {
-        "bytes": 7295,
-        "sha256": "19c4ef7fbf1a764a19d7cd6b61f93351dd5781e5d7908f94895bd097aa44e87f"
+        "bytes": 7444,
+        "sha256": "06bb86eea9a5947ad400820fb3af58188f04b2f9b86d21e2579458931ee8abfc"
       },
       "experiments/run_all.py": {
         "bytes": 2430,
         "sha256": "18b05e71d4812d2af760a1352549aa7e0e2f5c3806d6c4595ccd437fa016ec05"
+      },
+      "labs/PREREGISTRATION.md": {
+        "bytes": 4359,
+        "sha256": "5ad896a894500473e302bfb2a29ecd5c1c9c7aeafdac57cf6950c13e3cdc7b57"
+      },
+      "labs/REPORT.md": {
+        "bytes": 8017,
+        "sha256": "a74f1b7a6570a306162fc4a589524c91ae8a5bf9294dfaae99e098b14f217d28"
+      },
+      "labs/_repro_worker.py": {
+        "bytes": 3098,
+        "sha256": "e3b36387027a1ef12be8c51c4e2165f1a28c695de21a300112d2388f37b84b91"
+      },
+      "labs/build_summary.py": {
+        "bytes": 2884,
+        "sha256": "b77752878ef27e071484db63e8d8bcd0a8ef4cdd59e1189b56ed80e27ca9ff50"
+      },
+      "labs/lab1_falsification.py": {
+        "bytes": 14351,
+        "sha256": "a256b3e399f71b37322abeb39264dca02e4ca183a8d579296c343fa153e5e806"
+      },
+      "labs/lab2_locality.py": {
+        "bytes": 6334,
+        "sha256": "ec625d1bd8b2ba8f1ffb9056431e9db41ca7d61367c681ad8d28075f827f0693"
+      },
+      "labs/lab3_reproducibility.py": {
+        "bytes": 2869,
+        "sha256": "d7d483b84058a4f9d0367f4cf7c769280af87519d870d5dfdb1d24dcdbddf3bc"
+      },
+      "labs/lab4_calibration.py": {
+        "bytes": 7225,
+        "sha256": "0ab2d3910f9421fa21007f61061077a7e3ee7c4569f2a8fcececdcb87b42278a"
+      },
+      "labs/lab5_null_market.py": {
+        "bytes": 5658,
+        "sha256": "c6b2a38d282002505010a6867903b07027b224eda126a61d0707c3df6fe35000"
+      },
+      "labs/results/lab1_falsification.json": {
+        "bytes": 7051,
+        "sha256": "e1c65345d2c411e68c2cec6fc84bde02a8e74e90b4afdb437747ec7605aee3e5"
+      },
+      "labs/results/lab2_locality.json": {
+        "bytes": 4634,
+        "sha256": "9c4c20a0a6ce3772556562d2db92cac7e355fd60024a6066f9816ebbb5563a23"
+      },
+      "labs/results/lab3_reproducibility.json": {
+        "bytes": 4824,
+        "sha256": "8084203a144adfe21e05b3527062aaa269bd72e715ee657c1fd3624a019982ba"
+      },
+      "labs/results/lab4_calibration.json": {
+        "bytes": 51517,
+        "sha256": "a49580d3b93c39ae8bd5ea89978fa8a9429f9f3fe922df30c62e797b494524bc"
+      },
+      "labs/results/lab5_null_market.json": {
+        "bytes": 6493,
+        "sha256": "5ba0342dcaec1183efcab4bb9496a457e674eb9879c9855eb68ca3cbf856a0ab"
+      },
+      "labs/results/summary.json": {
+        "bytes": 5541,
+        "sha256": "7cd839f060cb8cfb94ec75c2dd514605a0d2d7eddf28d6882e4fcec711226925"
       },
       "results/e1_calculus_autograd.json": {
         "bytes": 6996,
@@ -138,12 +198,12 @@
         "sha256": "6ddaed08c561a10d6430bb8de34575ab06bea18b2226e7460694b92ae0ba1a49"
       },
       "scripts/build_preview.py": {
-        "bytes": 22807,
-        "sha256": "c70fa6d32ed8456aa1770fccb82e0ff12b67931d224258d330f40ccf97178774"
+        "bytes": 25963,
+        "sha256": "8796407f094e4ceda391e61d171f3891530b38bda73d2cf72543643d090e1620"
       },
       "scripts/check_results.py": {
-        "bytes": 10506,
-        "sha256": "1eed32239ce14b691031bceed24498091979461a032e4efd7067a7283b0054c3"
+        "bytes": 11242,
+        "sha256": "f47e8f78771f99a0dec4996059533a6c0e8facdf56c9142160a4a641fc44867f"
       },
       "scripts/fetch_data.py": {
         "bytes": 1331,
@@ -154,8 +214,8 @@
         "sha256": "72e326fed06bf2527ec4df5b90bdafa64300f07a3fecf60ace3a58ac9aae18f4"
       },
       "scripts/make_report.py": {
-        "bytes": 31870,
-        "sha256": "f9b17481f125939306122485257be311f6dd80441d9a9c7d41bb67cf95319b5c"
+        "bytes": 34630,
+        "sha256": "36525b4925225ee1bfebcc83efa34084c4878e6a2070f8334d26bfc852a5a686"
       },
       "src/fbench/__init__.py": {
         "bytes": 99,

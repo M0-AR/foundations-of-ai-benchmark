@@ -1,0 +1,329 @@
+{
+  "lab": "lab5_null_market",
+  "config": {
+    "n_markets": 50,
+    "n_symbols": 5,
+    "n_days": 1250,
+    "omega": 1e-06,
+    "alpha": 0.08,
+    "beta": 0.9,
+    "initial_train_fraction": 0.6,
+    "refit_every": 21
+  },
+  "market_summary": [
+    {
+      "market": 0,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 1,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 2,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 3,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 4,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 5,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 6,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 7,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 8,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 2,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 9,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 10,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 11,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 12,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 2,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 13,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 14,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 15,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 16,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 17,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 18,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 19,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 20,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 2,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 21,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 22,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 23,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 2,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 24,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 25,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 26,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 27,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 28,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 29,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 30,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 31,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 32,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 33,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 34,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 35,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 36,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 37,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 38,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 39,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 40,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 41,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 42,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 43,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 44,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 45,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 46,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 47,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 0,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 48,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    },
+    {
+      "market": 49,
+      "lb_rejections": 5,
+      "dm_rejections_holm": 1,
+      "dm_better_holm": 0
+    }
+  ],
+  "aggregate": {
+    "symbols": 250,
+    "volatility_clustering_rate": 1.0,
+    "market_false_alpha_rate": 0.0,
+    "markets_with_any_significant_better_model": 0,
+    "markets_with_any_two_sided_rejection": 17,
+    "mean_dm_rejections_per_market": 0.42,
+    "mean_dm_better_per_market": 0.0,
+    "mean_oos_r2": -0.01514251117668881
+  },
+  "hypothesis_tests": {
+    "H11a_volatility_clustering_ge_0_80": true,
+    "H11b_false_alpha_le_0_10": true
+  }
+}

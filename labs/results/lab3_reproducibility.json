@@ -1,0 +1,181 @@
+{
+  "lab": "lab3_reproducibility",
+  "config": {
+    "threads": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "repeats": 2,
+    "seed": 3
+  },
+  "rows": [
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "fab86f0c4ba639236a65b1c0550ad3d86259b5716245f20e10f4566460c5838b",
+      "param_norm": 13.181732637192013,
+      "threads": 1,
+      "repeat": 0
+    },
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "fab86f0c4ba639236a65b1c0550ad3d86259b5716245f20e10f4566460c5838b",
+      "param_norm": 13.181732637192013,
+      "threads": 1,
+      "repeat": 1
+    },
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "fab86f0c4ba639236a65b1c0550ad3d86259b5716245f20e10f4566460c5838b",
+      "param_norm": 13.181732637192013,
+      "threads": 2,
+      "repeat": 0
+    },
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "fab86f0c4ba639236a65b1c0550ad3d86259b5716245f20e10f4566460c5838b",
+      "param_norm": 13.181732637192013,
+      "threads": 2,
+      "repeat": 1
+    },
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "fab86f0c4ba639236a65b1c0550ad3d86259b5716245f20e10f4566460c5838b",
+      "param_norm": 13.181732637192013,
+      "threads": 4,
+      "repeat": 0
+    },
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "fab86f0c4ba639236a65b1c0550ad3d86259b5716245f20e10f4566460c5838b",
+      "param_norm": 13.181732637192013,
+      "threads": 4,
+      "repeat": 1
+    },
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "e6a8d52d795e8f71aac35f455bdd53d914c9f5cc5c18251a14f7cdae85b37723",
+      "param_norm": 13.181732637192013,
+      "threads": 8,
+      "repeat": 0
+    },
+    {
+      "workload": "numpy",
+      "seed": 3,
+      "loss": 16.37419769312773,
+      "param_hash": "e6a8d52d795e8f71aac35f455bdd53d914c9f5cc5c18251a14f7cdae85b37723",
+      "param_norm": 13.181732637192013,
+      "threads": 8,
+      "repeat": 1
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.466920852661133,
+      "param_hash": "b5c05656e52963420003392779165d613352d808c3d3e2d9ebb90c293a0bb3d8",
+      "param_norm": 13.270998001098633,
+      "threads": 1,
+      "repeat": 0
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.466920852661133,
+      "param_hash": "b5c05656e52963420003392779165d613352d808c3d3e2d9ebb90c293a0bb3d8",
+      "param_norm": 13.270998001098633,
+      "threads": 1,
+      "repeat": 1
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.4669206142425537,
+      "param_hash": "a96238b34f038d9968c3fcaa6ddaef15625d3c9600902e8b25573b811276130d",
+      "param_norm": 13.270998001098633,
+      "threads": 2,
+      "repeat": 0
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.4669206142425537,
+      "param_hash": "a96238b34f038d9968c3fcaa6ddaef15625d3c9600902e8b25573b811276130d",
+      "param_norm": 13.270998001098633,
+      "threads": 2,
+      "repeat": 1
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.466920852661133,
+      "param_hash": "5565227fa6af0bdba68d070a84cd2b3d0251c5259b3726718a06c613c3b26246",
+      "param_norm": 13.270998001098633,
+      "threads": 4,
+      "repeat": 0
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.466920852661133,
+      "param_hash": "5565227fa6af0bdba68d070a84cd2b3d0251c5259b3726718a06c613c3b26246",
+      "param_norm": 13.270998001098633,
+      "threads": 4,
+      "repeat": 1
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.466920852661133,
+      "param_hash": "38e354e261c2a3eafb3135f06fd22c66517fe524b1fffdcb0f9dfcd67168edb7",
+      "param_norm": 13.270998001098633,
+      "threads": 8,
+      "repeat": 0
+    },
+    {
+      "workload": "torch",
+      "seed": 3,
+      "loss": 3.466920852661133,
+      "param_hash": "38e354e261c2a3eafb3135f06fd22c66517fe524b1fffdcb0f9dfcd67168edb7",
+      "param_norm": 13.270998001098633,
+      "threads": 8,
+      "repeat": 1
+    }
+  ],
+  "by_workload": {
+    "numpy": {
+      "unique_hashes": 2,
+      "bitwise_stable": false,
+      "loss_min": 16.37419769312773,
+      "loss_max": 16.37419769312773,
+      "loss_range": 0.0,
+      "param_norm_range": 0.0
+    },
+    "torch": {
+      "unique_hashes": 4,
+      "bitwise_stable": false,
+      "loss_min": 3.4669206142425537,
+      "loss_max": 3.466920852661133,
+      "loss_range": 2.384185791015625e-07,
+      "param_norm_range": 0.0
+    }
+  },
+  "hypothesis_tests": {
+    "H9a_any_nonidentical_hash": true,
+    "H9b_loss_range_below_1e_3": true
+  }
+}

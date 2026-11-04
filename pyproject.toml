@@ -5,12 +5,12 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "foundations-bench"
 version = "0.1.0"
-description = "Fidelity-first benchmark of first-principles AI foundations on public and live data"
+description = "Fidelity-first benchmark of first-principles AI foundations, plus exploratory novelty labs"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "Foundations-Bench Consortium" }]
-keywords = ["reproducibility", "benchmark", "autograd", "transformers", "statistics", "live-data"]
+keywords = ["reproducibility", "benchmark", "autograd", "transformers", "statistics", "live-data", "falsification", "calibration"]
 dependencies = [
   "numpy>=2.0",
   "scipy>=1.13",

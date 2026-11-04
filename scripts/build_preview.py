@@ -70,6 +70,81 @@ def load(name: str) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+LABS_SUMMARY = ROOT / "labs" / "results" / "summary.json"
+
+
+def load_labs() -> dict[str, Any]:
+    if not LABS_SUMMARY.exists():
+        raise FileNotFoundError(f"missing lab summary: {LABS_SUMMARY}; run labs/build_summary.py")
+    return json.loads(LABS_SUMMARY.read_text(encoding="utf-8"))
+
+
+def labs_markup(labs: dict[str, Any], repo_url: str) -> str:
+    lab1 = labs["labs"]["lab1"]
+    lab2 = labs["labs"]["lab2"]
+    lab3 = labs["labs"]["lab3"]
+    lab4 = labs["labs"]["lab4"]
+    lab5 = labs["labs"]["lab5"]
+    lag4 = lab2["by_lag"]["4"]
+    lag8 = lab2["by_lag"]["8"]
+    numpy = lab3["by_workload"]["numpy"]
+    torch = lab3["by_workload"]["torch"]
+    markets = lab5["aggregate"]["symbols"] // 5
+    report = f"{repo_url}/blob/main/labs/REPORT.md" if repo_url else "labs/REPORT.md"
+    cards = [
+        (
+            "1",
+            "Falsification coverage",
+            f"{lab1['killed']}/{lab1['n_probes']} probes killed ({lab1['coverage']:.1%}). "
+            "The survivor is concealed optional stopping: a metadata-only audit cannot detect it.",
+            "2/2 tests passed",
+        ),
+        (
+            "2",
+            "Locality phase",
+            f"The transformer loses at lags 1-2 and wins by {abs(lag4['delta_bpc_mean']):.2f} BPC "
+            f"at lag 4 and {abs(lag8['delta_bpc_mean']):.2f} BPC at lag 8.",
+            "2/2 tests passed",
+        ),
+        (
+            "3",
+            "Reproducibility envelope",
+            f"Thread count changed parameter bits: {numpy['unique_hashes']} NumPy hashes and "
+            f"{torch['unique_hashes']} torch hashes, with a loss range of "
+            f"{max(numpy['loss_range'], torch['loss_range']):.2e}.",
+            "2/2 tests passed",
+        ),
+        (
+            "4",
+            "Calibration",
+            f"Accuracy and ECE rank the activations differently on {len(lab4['per_dataset'])}/3 datasets, "
+            f"but the smallest Holm p-value is {lab4['closest_holm_p']:.4f}. The pairwise claim fails.",
+            "1/2 tests passed",
+        ),
+        (
+            "5",
+            "Null-market alpha",
+            f"On {markets} synthetic markets, volatility clustering appears in {lab5['aggregate']['volatility_clustering_rate']:.0%} "
+            f"and false alpha in {lab5['aggregate']['market_false_alpha_rate']:.0%}, while "
+            f"{lab5['aggregate']['markets_with_any_two_sided_rejection']}/{markets} produce a two-sided rejection (all harm).",
+            "2/2 tests passed",
+        ),
+    ]
+    body = "\n".join(
+        f"""        <article class="card">
+          <div class="num">{number}</div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+          <p><strong>{status}.</strong></p>
+        </article>"""
+        for number, title, text, status in cards
+    )
+    return f'''      <div class="grid3">
+{body}
+      </div>
+      <p style="margin-top:18px"><a class="btn ghost small" href="{report}">Read the full lab report</a></p>'''
+
+
 def fmt(value: float | int | None, nd: int = 3) -> str:
     if value is None:
         return "n/a"
@@ -481,6 +556,7 @@ def build_data(repo_url: str) -> dict[str, Any]:
 
 def render(repo_url: str) -> None:
     data = build_data(repo_url)
+    labs = load_labs()
     template = TEMPLATE.read_text(encoding="utf-8")
     values = {
         "DATA_JSON": json.dumps(data, separators=(",", ":"), ensure_ascii=True).replace(
@@ -500,6 +576,9 @@ def render(repo_url: str) -> None:
         "CONFIG_HASH": load("e6_reproducibility.json")["metrics"]["config_sha256"],
         "PREREG_HASH": load("e6_reproducibility.json")["metrics"]["preregistration_sha256"],
         "MANIFEST": str(data["meta"]["manifest"]),
+        "LABS_HTML": labs_markup(labs, repo_url),
+        "LABS_PASSED": str(labs["hypothesis_tests_passed"]),
+        "LABS_TOTAL": str(labs["hypothesis_tests_total"]),
     }
     rendered = template
     for key, value in values.items():

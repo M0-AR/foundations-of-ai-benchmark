@@ -369,6 +369,7 @@
       <a href="#summary">Summary</a>
       <a href="#results">Results</a>
       <a href="#evidence">Evidence</a>
+      <a href="#labs">Labs</a>
       <a href="#learn">Learn</a>
       <a href="#quiz">Quiz</a>
       <a href="#business">For teams</a>
@@ -510,6 +511,17 @@
       </div>
       <div class="tabs" role="tablist" aria-label="Studies" id="evidenceTabs"></div>
       <div class="evidence-panel" id="evidencePanel" role="tabpanel" tabindex="0" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="labs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Exploratory novelty labs</p>
+        <h2>Five follow-up labs. {{LABS_PASSED}} of {{LABS_TOTAL}} tests passed.</h2>
+        <p>Separate from the six confirmatory studies, with their own frozen protocol. The failure stays visible.</p>
+      </div>
+{{LABS_HTML}}
     </div>
   </section>
 

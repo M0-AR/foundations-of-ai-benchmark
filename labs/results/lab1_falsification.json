@@ -1,0 +1,305 @@
+{
+  "lab": "lab1_falsification",
+  "n_probes": 24,
+  "killed": 23,
+  "survived": 1,
+  "coverage": 0.9583333333333334,
+  "by_family": {
+    "autograd": {
+      "n": 6,
+      "killed": 6,
+      "coverage": 1.0,
+      "survivors": []
+    },
+    "attention": {
+      "n": 6,
+      "killed": 6,
+      "coverage": 1.0,
+      "survivors": []
+    },
+    "inference": {
+      "n": 6,
+      "killed": 6,
+      "coverage": 1.0,
+      "survivors": []
+    },
+    "protocol": {
+      "n": 6,
+      "killed": 5,
+      "coverage": 0.8333333333333334,
+      "survivors": [
+        "optional_stopping_concealed"
+      ]
+    }
+  },
+  "hypothesis_tests": {
+    "H7a_coverage_ge_0_80": true,
+    "H7b_numerical_ge_protocol": true
+  },
+  "numerical_coverage": 1.0,
+  "protocol_coverage": 0.8333333333333334,
+  "survivors": [
+    "optional_stopping_concealed"
+  ],
+  "exploratory_hac_envelope": {
+    "0.0": {
+      "hac_false_positive_rate": 0.08,
+      "iid_false_positive_rate": 0.075
+    },
+    "0.2": {
+      "hac_false_positive_rate": 0.075,
+      "iid_false_positive_rate": 0.13
+    },
+    "0.4": {
+      "hac_false_positive_rate": 0.1,
+      "iid_false_positive_rate": 0.215
+    },
+    "0.6": {
+      "hac_false_positive_rate": 0.105,
+      "iid_false_positive_rate": 0.305
+    },
+    "0.8": {
+      "hac_false_positive_rate": 0.195,
+      "iid_false_positive_rate": 0.485
+    }
+  },
+  "probes": [
+    {
+      "family": "autograd",
+      "name": "mul_wrong_factor",
+      "control_pass": true,
+      "mutant_pass": false,
+      "control_error": 3.6863441590831283e-11,
+      "mutant_error": 0.5652173913203753,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "autograd",
+      "name": "exp_missing_chain",
+      "control_pass": true,
+      "mutant_pass": false,
+      "control_error": 5.568973856480213e-11,
+      "mutant_error": 0.5005202111624193,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "autograd",
+      "name": "sigmoid_wrong_sign",
+      "control_pass": true,
+      "mutant_pass": false,
+      "control_error": 2.0797204574747915e-11,
+      "mutant_error": 0.9481295352608993,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "autograd",
+      "name": "relu_all_ones",
+      "control_pass": true,
+      "mutant_pass": false,
+      "control_error": 4.113331897484415e-11,
+      "mutant_error": 1.0,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "autograd",
+      "name": "power_forgot_exponent",
+      "control_pass": true,
+      "mutant_pass": false,
+      "control_error": 4.0999313377237946e-11,
+      "mutant_error": 1.445344129549036,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "autograd",
+      "name": "tanh_missing_square",
+      "control_pass": true,
+      "mutant_pass": false,
+      "control_error": 1.80362874417655e-11,
+      "mutant_error": 0.593139233336622,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "attention",
+      "name": "no_scale",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 0.6920115832986391,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "attention",
+      "name": "no_mask",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 1.1872757621069845,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "attention",
+      "name": "off_by_one",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 1.5026850514984242,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "attention",
+      "name": "softmax_axis",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 1.5813595276037333,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "attention",
+      "name": "rope_sign",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 1.1349988961036772,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "attention",
+      "name": "rope_half_split",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 0.6177707284945215,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "inference",
+      "name": "holm_raw",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 0.41000000000000003,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "inference",
+      "name": "holm_no_monotonicity",
+      "control_pass": true,
+      "mutant_pass": false,
+      "mutant_error": 0.399,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "inference",
+      "name": "oos_in_sample",
+      "control_pass": true,
+      "mutant_pass": false,
+      "r2_oos": -1.455909877399122,
+      "r2_in_sample": 0.6076377380924146,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "inference",
+      "name": "test_set_leakage",
+      "control_pass": true,
+      "mutant_pass": false,
+      "control_accuracy": 0.54,
+      "test_accuracy": 0.76,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "inference",
+      "name": "cost_omitted",
+      "control_pass": true,
+      "mutant_pass": false,
+      "gross": -0.0009485892580105857,
+      "net": -0.0011025892580105857,
+      "reported": -0.0009485892580105857,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "inference",
+      "name": "dm_iid_variance",
+      "control_pass": true,
+      "mutant_pass": false,
+      "hac_false_positive_rate": 0.06666666666666667,
+      "iid_false_positive_rate": 0.18333333333333332,
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "protocol",
+      "name": "seed_cherry_pick",
+      "control_pass": true,
+      "mutant_pass": false,
+      "violations": [
+        "seed_count_mismatch"
+      ],
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "protocol",
+      "name": "optional_stopping_honest",
+      "control_pass": true,
+      "mutant_pass": false,
+      "violations": [
+        "optional_stopping"
+      ],
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "protocol",
+      "name": "optional_stopping_concealed",
+      "control_pass": true,
+      "mutant_pass": true,
+      "violations": [],
+      "killed": false,
+      "valid": true
+    },
+    {
+      "family": "protocol",
+      "name": "test_reuse",
+      "control_pass": true,
+      "mutant_pass": false,
+      "violations": [
+        "test_set_reuse"
+      ],
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "protocol",
+      "name": "family_switch",
+      "control_pass": true,
+      "mutant_pass": false,
+      "violations": [
+        "multiplicity_family_mismatch"
+      ],
+      "killed": true,
+      "valid": true
+    },
+    {
+      "family": "protocol",
+      "name": "endpoint_drop",
+      "control_pass": true,
+      "mutant_pass": false,
+      "violations": [
+        "endpoint_omission"
+      ],
+      "killed": true,
+      "valid": true
+    }
+  ]
+}

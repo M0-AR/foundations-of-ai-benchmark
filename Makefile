@@ -1,7 +1,7 @@
 PYTHON ?= python
 COMPOSE ?= docker compose
 
-.PHONY: install data all test lint report preview demo check docker-build docker-bench docker-report clean
+.PHONY: install data all labs test lint report preview demo check docker-build docker-bench docker-report clean
 
 install:
 	$(PYTHON) -m pip install -e ".[dev]"
@@ -11,6 +11,14 @@ data:
 
 all:
 	$(PYTHON) experiments/run_all.py
+
+labs:
+	$(PYTHON) labs/lab1_falsification.py
+	$(PYTHON) labs/lab2_locality.py
+	$(PYTHON) labs/lab3_reproducibility.py
+	$(PYTHON) labs/lab4_calibration.py
+	$(PYTHON) labs/lab5_null_market.py
+	$(PYTHON) labs/build_summary.py
 
 test:
 	$(PYTHON) -m pytest -q

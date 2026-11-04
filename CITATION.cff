@@ -6,8 +6,10 @@ abstract: >-
   Six pre-registered studies covering reverse-mode autograd, finite-difference
   convergence, attention and rotary position embeddings, a small character
   transformer against n-gram baselines, volatility structure versus directional
-  alpha, and byte-level reproducibility. Every reported number is generated from
-  executed code and hashed in a public manifest.
+  alpha, and byte-level reproducibility. Five exploratory labs separately test
+  falsification coverage, locality phase transitions, thread-count
+  reproducibility, calibration, and null-market alpha. Every reported number is
+  generated from executed code and hashed in a public manifest.
 authors:
   - name: "Foundations-Bench Consortium"
 version: 0.1.0
@@ -22,3 +24,5 @@ keywords:
   - transformers
   - pre-registration
   - statistics
+  - falsification
+  - calibration

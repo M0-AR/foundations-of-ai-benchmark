@@ -747,6 +747,79 @@ def build_headline(
     return table, values, headline
 
 
+def load_labs() -> dict[str, Any]:
+    path = ROOT / "labs" / "results" / "summary.json"
+    if not path.exists():
+        raise FileNotFoundError(f"missing lab summary: {path}; run labs/build_summary.py")
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def labs_section(labs: dict[str, Any]) -> tuple[str, dict[str, str]]:
+    lab1 = labs["labs"]["lab1"]
+    lab2 = labs["labs"]["lab2"]
+    lab3 = labs["labs"]["lab3"]
+    lab4 = labs["labs"]["lab4"]
+    lab5 = labs["labs"]["lab5"]
+    lag4 = lab2["by_lag"]["4"]
+    lag8 = lab2["by_lag"]["8"]
+    numpy = lab3["by_workload"]["numpy"]
+    torch = lab3["by_workload"]["torch"]
+    closest = lab4["closest_holm_p"]
+    rows = [
+        [
+            "1",
+            "Falsification coverage",
+            "Do detectors catch known errors?",
+            f"{lab1['killed']}/{lab1['n_probes']} probes killed "
+            f"({lab1['coverage']:.1%}); concealed optional stopping survives",
+            "2/2 pass",
+        ],
+        [
+            "2",
+            "Locality phase",
+            "When does attention beat an n-gram?",
+            f"Crossover between lag 2 and 4; {fmt(lag4['delta_bpc_mean'], 2)} BPC at lag 4, "
+            f"{fmt(lag8['delta_bpc_mean'], 2)} at lag 8",
+            "2/2 pass",
+        ],
+        [
+            "3",
+            "Reproducibility envelope",
+            "Does thread count change parameter bits?",
+            f"{numpy['unique_hashes']} NumPy / {torch['unique_hashes']} torch hashes; "
+            f"loss range {sci(max(numpy['loss_range'], torch['loss_range']))}",
+            "2/2 pass",
+        ],
+        [
+            "4",
+            "Calibration",
+            "Do calibration and accuracy rank agree?",
+            f"Ranks differ on {len(lab4['per_dataset'])}/3 datasets; closest Holm p = {fmt(closest, 4)}",
+            "1/2 pass",
+        ],
+        [
+            "5",
+            "Null-market alpha",
+            "Does a two-sided DM test detect alpha?",
+            f"{lab5['aggregate']['market_false_alpha_rate']:.0%} false alpha; "
+            f"{lab5['aggregate']['markets_with_any_two_sided_rejection']}/"
+            f"{lab5['aggregate']['symbols'] // 5} markets reject two-sided, all harm",
+            "2/2 pass",
+        ],
+    ]
+    table = markdown_table(
+        ["Lab", "Question", "What it tests", "Observed", "Pre-registered tests"],
+        rows,
+    )
+    values = {
+        "LABS_TABLE": table,
+        "LABS_PASSED": str(labs["hypothesis_tests_passed"]),
+        "LABS_TOTAL": str(labs["hypothesis_tests_total"]),
+        "LABS_COUNT": str(len(labs["labs"])),
+    }
+    return table, values
+
+
 def provenance_table(e1: dict[str, Any], e6: dict[str, Any], e4: dict[str, Any]) -> str:
     env = e1["env"]
     packages = env["packages"]
@@ -789,6 +862,7 @@ def main() -> None:
     e4 = load("e4_gpt.json")
     e5 = load("e5_market.json")
     e6 = load("e6_reproducibility.json")
+    labs = load_labs()
 
     e1_table, e1_values = e1_section(e1)
     e2_summary, e2_pairs, e2_all_pairs, e2_values = e2_section(e2)
@@ -796,6 +870,7 @@ def main() -> None:
     e4_table, e4_base_table, e4_values, e4_samples = e4_section(e4)
     e5_table, e5_snapshots, e5_values = e5_section(e5)
     e6_table, e6_values = e6_section(e6)
+    labs_table, labs_values = labs_section(labs)
     headline_table, headline_values, headline = build_headline(e1, e2, e3, e4, e5, e6)
 
     e1_figure(e1)
@@ -843,6 +918,7 @@ def main() -> None:
         "E5_TABLE": e5_table,
         "E5_SNAPSHOT_TABLE": e5_snapshots,
         "E6_TABLE": e6_table,
+        "LABS_TABLE": labs_table,
     }
     values.update(e1_values)
     values.update(e2_values)
@@ -851,6 +927,7 @@ def main() -> None:
     values.update(e5_values)
     values.update(e6_values)
     values.update(headline_values)
+    values.update(labs_values)
 
     (RESULTS / "headline.json").write_text(
         json.dumps(headline, indent=2, sort_keys=True) + "\n", encoding="utf-8"

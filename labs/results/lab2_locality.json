@@ -1,0 +1,192 @@
+{
+  "lab": "lab2_locality",
+  "config": {
+    "vocab": 8,
+    "seq_len": 64,
+    "train_seqs": 400,
+    "val_seqs": 100,
+    "copy_prob": 0.85,
+    "lags": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "ngram_orders": [
+      1,
+      2,
+      3
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "steps": 400,
+    "batch": 32,
+    "block": 32
+  },
+  "runs": [
+    {
+      "lag": 1,
+      "seed": 0,
+      "transformer_bpc": 0.9068044530587761,
+      "ngram_bpc": {
+        "1": 0.8898862092933052,
+        "2": 0.8963016857269674,
+        "3": 0.9286908143687638
+      },
+      "best_ngram_bpc": 0.8898862092933052,
+      "best_ngram_order": 1,
+      "delta_bpc": 0.01691824376547091,
+      "train_seconds": 2.8920774630023516
+    },
+    {
+      "lag": 1,
+      "seed": 1,
+      "transformer_bpc": 0.9068962917943368,
+      "ngram_bpc": {
+        "1": 0.8898862092933052,
+        "2": 0.8963016857269674,
+        "3": 0.9286908143687638
+      },
+      "best_ngram_bpc": 0.8898862092933052,
+      "best_ngram_order": 1,
+      "delta_bpc": 0.017010082501031643,
+      "train_seconds": 2.171202062003431
+    },
+    {
+      "lag": 2,
+      "seed": 0,
+      "transformer_bpc": 1.1132358953221775,
+      "ngram_bpc": {
+        "1": 2.999484320466596,
+        "2": 0.945260518908492,
+        "3": 1.0259956621063302
+      },
+      "best_ngram_bpc": 0.945260518908492,
+      "best_ngram_order": 2,
+      "delta_bpc": 0.16797537641368543,
+      "train_seconds": 2.263017953999224
+    },
+    {
+      "lag": 2,
+      "seed": 1,
+      "transformer_bpc": 1.0480451835820264,
+      "ngram_bpc": {
+        "1": 2.999484320466596,
+        "2": 0.945260518908492,
+        "3": 1.0259956621063302
+      },
+      "best_ngram_bpc": 0.945260518908492,
+      "best_ngram_order": 2,
+      "delta_bpc": 0.10278466467353431,
+      "train_seconds": 2.1965442540022195
+    },
+    {
+      "lag": 4,
+      "seed": 0,
+      "transformer_bpc": 1.1974510699267962,
+      "ngram_bpc": {
+        "1": 2.9969968312245387,
+        "2": 3.011054505875525,
+        "3": 3.143470700316226
+      },
+      "best_ngram_bpc": 2.9969968312245387,
+      "best_ngram_order": 1,
+      "delta_bpc": -1.7995457612977426,
+      "train_seconds": 2.264335738000227
+    },
+    {
+      "lag": 4,
+      "seed": 1,
+      "transformer_bpc": 1.1707437120916597,
+      "ngram_bpc": {
+        "1": 2.9969968312245387,
+        "2": 3.011054505875525,
+        "3": 3.143470700316226
+      },
+      "best_ngram_bpc": 2.9969968312245387,
+      "best_ngram_order": 1,
+      "delta_bpc": -1.826253119132879,
+      "train_seconds": 2.461263121003867
+    },
+    {
+      "lag": 8,
+      "seed": 0,
+      "transformer_bpc": 1.3843011910000673,
+      "ngram_bpc": {
+        "1": 3.0019305569443486,
+        "2": 3.008931719062496,
+        "3": 3.080917716949542
+      },
+      "best_ngram_bpc": 3.0019305569443486,
+      "best_ngram_order": 1,
+      "delta_bpc": -1.6176293659442813,
+      "train_seconds": 4.362322309003503
+    },
+    {
+      "lag": 8,
+      "seed": 1,
+      "transformer_bpc": 1.3906937001413124,
+      "ngram_bpc": {
+        "1": 3.0019305569443486,
+        "2": 3.008931719062496,
+        "3": 3.080917716949542
+      },
+      "best_ngram_bpc": 3.0019305569443486,
+      "best_ngram_order": 1,
+      "delta_bpc": -1.6112368568030362,
+      "train_seconds": 3.639196042997355
+    }
+  ],
+  "by_lag": {
+    "1": {
+      "transformer_bpc_mean": 0.9068503724265564,
+      "best_ngram_bpc_mean": 0.8898862092933052,
+      "delta_bpc_mean": 0.016964163133251275,
+      "delta_bpc_std": 6.493979269059327e-05,
+      "best_ngram_orders": [
+        1,
+        1
+      ]
+    },
+    "2": {
+      "transformer_bpc_mean": 1.080640539452102,
+      "best_ngram_bpc_mean": 0.945260518908492,
+      "delta_bpc_mean": 0.13538002054360987,
+      "delta_bpc_std": 0.04609679434183833,
+      "best_ngram_orders": [
+        2,
+        2
+      ]
+    },
+    "4": {
+      "transformer_bpc_mean": 1.184097391009228,
+      "best_ngram_bpc_mean": 2.9969968312245387,
+      "delta_bpc_mean": -1.8128994402153107,
+      "delta_bpc_std": 0.018884953832800654,
+      "best_ngram_orders": [
+        1,
+        1
+      ]
+    },
+    "8": {
+      "transformer_bpc_mean": 1.3874974455706899,
+      "best_ngram_bpc_mean": 3.0019305569443486,
+      "delta_bpc_mean": -1.6144331113736587,
+      "delta_bpc_std": 0.004520186562571416,
+      "best_ngram_orders": [
+        1,
+        1
+      ]
+    }
+  },
+  "hypothesis_tests": {
+    "H8a_transformer_beats_ngram_at_lag_8": true,
+    "H8b_advantage_larger_at_lag_8_than_lag_1": true
+  },
+  "deltas": {
+    "lag_1": 0.016964163133251275,
+    "lag_8": -1.6144331113736587
+  }
+}
