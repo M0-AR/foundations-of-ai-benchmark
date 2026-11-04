@@ -1,0 +1,11 @@
+{
+  "det_ok": true,
+  "h1": true,
+  "h2": true,
+  "h3": true,
+  "h4": false,
+  "h5": true,
+  "h6": false,
+  "supported_count": 4,
+  "total": 6
+}

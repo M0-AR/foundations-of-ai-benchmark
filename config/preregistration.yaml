@@ -1,0 +1,126 @@
+# Pre-registration for Foundations-Bench v0.1
+# Written before any confirmatory run. Amendments must be appended, never edited.
+registration:
+  date: "2026-11-04"
+  status: "frozen-before-confirmatory-runs"
+  version: "0.1.0"
+  scope: >-
+    A fidelity-first, multi-evidence benchmark of the mathematical and
+    architectural foundations taught in first-principles AI curricula
+    (calculus -> vectors/gradients -> matrices -> probability -> autograd ->
+    neurons/layers/backpropagation -> attention -> decoder-only transformer),
+    evaluated on public datasets and on live market data.
+
+hypotheses:
+  H1_gradient_fidelity:
+    statement: >-
+      Independently written reverse-mode autodiff and manual MLP gradients
+      agree with central finite differences and PyTorch autograd to within
+      1e-5 relative error in double precision.
+    primary_endpoint: max_relative_gradient_error
+    success_threshold: 1.0e-5
+  H2_calculus_convergence:
+    statement: >-
+      Central finite differences exhibit empirical convergence order >= 1.8
+      for smooth test functions before floating-point round-off dominates.
+    primary_endpoint: fitted_loglog_slope
+    success_threshold: 1.8
+  H3_attention_fidelity:
+    statement: >-
+      The from-scratch causal multi-head attention matches PyTorch's fused
+      scaled-dot-product attention within 1e-6 max absolute error, leaks
+      exactly zero probability mass to future tokens, and RoPE preserves
+      pair norms while making scores depend only on relative position.
+    primary_endpoints:
+      - attention_parity_max_abs_error
+      - causal_leak_max
+      - rope_norm_max_abs_error
+      - rope_toeplitz_max_deviation
+    success_thresholds:
+      attention_parity_max_abs_error: 1.0e-6
+      causal_leak_max: 0.0
+      rope_norm_max_abs_error: 1.0e-6
+      rope_toeplitz_max_deviation: 1.0e-6
+  H4_activation_effects:
+    statement: >-
+      On small real tabular datasets, at least one pair of activation
+      functions differs significantly after Holm correction at alpha=0.05,
+      with a paired effect size |d_z| >= 0.5.
+    design: >-
+      5 activations x 3 public datasets x 10 pre-registered seeds, identical
+      architecture (one hidden layer, 64 units), identical optimizer budget.
+    primary_endpoint: holm_adjusted_paired_wilcoxon_p
+    success_threshold: 0.05
+    secondary_endpoint: paired_cohens_dz
+    practical_threshold: 0.5
+  H5_transformer_beats_ngram:
+    statement: >-
+      A ~0.8M-parameter character-level decoder-only transformer trained from
+      scratch reaches a lower held-out bits-per-character than a smoothed
+      trigram baseline on Tiny Shakespeare.
+    primary_endpoint: delta_bpc_transformer_minus_trigram
+    success_threshold: "< 0"
+    uncertainty: "95% bootstrap CI over seeds and validation batches"
+  H6_live_market_structure_vs_alpha:
+    statement: >-
+      In live daily equity data, volatility clustering is detectable
+      (Ljung-Box on squared returns, Holm-adjusted p < 0.05) while
+      next-day directional predictability after realistic costs is not
+      (out-of-sample R^2 <= 0 and Diebold-Mariano p > 0.05 versus the zero
+      forecast, Holm-adjusted across symbols).
+    data: "Yahoo Finance daily OHLCV, 5 years, fetched at run time"
+    symbols: ["SPY", "QQQ", "AAPL", "MSFT", "NVDA"]
+    primary_endpoints:
+      - ljung_box_squared_returns_p_holm
+      - oos_r2
+      - diebold_mariano_p_holm
+    success_thresholds:
+      ljung_box_squared_returns_p_holm: 0.05
+      oos_r2: 0.0
+      diebold_mariano_p_holm: 0.05
+    directional_note: >-
+      A failure of the negative-predictability claim is a scientifically
+      valid outcome and will be reported without spin.
+
+analysis_plan:
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  multiple_comparisons: "Holm-Bonferroni within each endpoint family"
+  effect_sizes: ["paired Cohen's d_z", "probability of superiority"]
+  uncertainty: "10,000-resample bootstrap percentile intervals"
+  exclusion_rules:
+    - "No run may be excluded after seeing its test metric."
+    - "Failed downloads are retried three times, then reported as missing."
+    - "NaN or Inf in a primary endpoint invalidates the run and is reported."
+  stopping_rule: "Fixed budgets; no early stopping on test data."
+  test_set_policy: "Test data touched once per run; no test-time model selection."
+
+deviations:
+  - date: "2026-11-04"
+    scope: "E4 baseline implementation"
+    change: >-
+      An exploratory n-gram baseline used a lagged bigram index and could
+      broadcast a single-column probability array. The bug was found in code
+      review, fixed before the reported confirmatory run, and the corrected
+      three-seed run is the only E4 evidence reported. No hypothesis,
+      endpoint, threshold, or seed changed.
+  - date: "2026-11-04"
+    scope: "H4 analysis family"
+    change: >-
+      The primary family is operationalized as all ten unordered activation
+      pairs per dataset (30 Holm-adjusted tests), because the hypothesis says
+      "at least one pair." The four vs-ReLU contrasts are retained as a
+      secondary view. The conclusion is unchanged: no pair survives Holm.
+  - date: "2026-11-04"
+    scope: "H6 descriptive summary"
+    change: >-
+      Added an explicitly post-hoc descriptive summary of the number of
+      symbols with Holm-significant volatility clustering and the number with
+      Holm-significant Diebold-Mariano tests. The pre-registered strict
+      all-symbol conjunction remains the headline test.
+  - date: "2026-11-04"
+    scope: "Final reruns"
+    change: >-
+      E2 and E5 were rerun after analysis-code changes that did not alter the
+      hypotheses. All numbers in the manuscript come from the final result
+      files, and E6 was rerun afterward so its hash manifest matches the
+      reported artifacts.

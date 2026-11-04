@@ -1,0 +1,355 @@
+{
+  "all_passed": true,
+  "env": {
+    "cpu_count": 28,
+    "executable": "/home/md/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python",
+    "git_commit": null,
+    "machine": "x86_64",
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "sklearn": "1.9.0",
+      "statsmodels": "0.15.0",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
+    "processor": "",
+    "python": "3.12.13",
+    "timestamp_utc": "2026-11-04T20:02:41+00:00",
+    "torch_cuda_available": true,
+    "torch_cuda_devices": 1
+  },
+  "experiment": "E6_reproducibility",
+  "generated_utc": "2026-11-04T20:02:41+00:00",
+  "hypothesis_tests": {
+    "deterministic_rerun_byte_identical": true
+  },
+  "inputs": {
+    "e2_sha256": "07117d825b911323ae296665dfb1e278266376d0eb9620bd41d229f0bedfdaeb",
+    "script_sha256": "19c4ef7fbf1a764a19d7cd6b61f93351dd5781e5d7908f94895bd097aa44e87f"
+  },
+  "metrics": {
+    "config_sha256": "07679a6614e32be5a2ce63db059717443b3bf32310f196ec0793bf322c2b7389",
+    "cross_dataset_seed_transfer": {
+      "breast_cancer__digits": {
+        "mean_kendall_tau": -0.06617973665039725,
+        "per_activation": [
+          0.17142857142857143,
+          -0.27607881518711636,
+          -0.21038958142240088,
+          -0.0949157995752499,
+          0.07905694150420949
+        ]
+      },
+      "breast_cancer__wine": {
+        "mean_kendall_tau": -0.009838481242654063,
+        "per_activation": [
+          0.0,
+          0.1178511301977579,
+          0.03253000243161777,
+          0.03253000243161777,
+          -0.23210354127426377
+        ]
+      },
+      "wine__digits": {
+        "mean_kendall_tau": 0.028988266461785466,
+        "per_activation": [
+          0.0,
+          -0.20823168251814142,
+          0.15838910320453642,
+          0.22230800575069135,
+          -0.027524094128159017
+        ]
+      }
+    },
+    "deterministic_rerun": {
+      "accuracies": [
+        0.9649122807017544,
+        0.9649122807017544
+      ],
+      "accuracy_identical": true,
+      "autograd_identical": true,
+      "byte_identical": true,
+      "parameter_hashes": [
+        "c02461aff2be44f9b7bdc64529d21694363c5f59454bea128ad560a6a86deb86",
+        "c02461aff2be44f9b7bdc64529d21694363c5f59454bea128ad560a6a86deb86"
+      ]
+    },
+    "manifest": {
+      "config/experiment.yaml": {
+        "bytes": 1453,
+        "sha256": "07679a6614e32be5a2ce63db059717443b3bf32310f196ec0793bf322c2b7389"
+      },
+      "config/preregistration.yaml": {
+        "bytes": 5811,
+        "sha256": "e7f20951298111402c66e9badf7b8d114eb12c3b6be1aaace75a98b0140af9f5"
+      },
+      "data/public/tinyshakespeare.txt": {
+        "bytes": 1115394,
+        "sha256": "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed"
+      },
+      "experiments/e1_calculus_autograd.py": {
+        "bytes": 6274,
+        "sha256": "3a9b3b04901af41237ba35bc08b599a4e66c55f1b0ba866415c165f5b0623ba0"
+      },
+      "experiments/e2_activations.py": {
+        "bytes": 10640,
+        "sha256": "d9e79fc11b2b6c198a593349030a93c02f6fc9b6ca18707499f8f7d2be2726d9"
+      },
+      "experiments/e3_attention.py": {
+        "bytes": 6660,
+        "sha256": "782537b1f8e0bf49d03713a2cfc68054566a9e1dcf70a7753c87b8e84c56535f"
+      },
+      "experiments/e4_gpt.py": {
+        "bytes": 12598,
+        "sha256": "214faa166cfd555d703c1bd6c99f38b71b69ef62735bf72330fcdcfa71ceb73e"
+      },
+      "experiments/e5_market.py": {
+        "bytes": 13061,
+        "sha256": "33f41dfd141cf5366a1443554b897aa7ec5a69c1a77b2873dbf0b0863601ad75"
+      },
+      "experiments/e6_reproducibility.py": {
+        "bytes": 7295,
+        "sha256": "19c4ef7fbf1a764a19d7cd6b61f93351dd5781e5d7908f94895bd097aa44e87f"
+      },
+      "experiments/run_all.py": {
+        "bytes": 2430,
+        "sha256": "18b05e71d4812d2af760a1352549aa7e0e2f5c3806d6c4595ccd437fa016ec05"
+      },
+      "results/e1_calculus_autograd.json": {
+        "bytes": 6996,
+        "sha256": "dcf5ce978bba46de242fa38e06264928406308ec0dd11ace6770c8d7484d0e49"
+      },
+      "results/e2_activations.json": {
+        "bytes": 68279,
+        "sha256": "07117d825b911323ae296665dfb1e278266376d0eb9620bd41d229f0bedfdaeb"
+      },
+      "results/e3_attention.json": {
+        "bytes": 1652,
+        "sha256": "260a259343e7d42677ef511dd78a25e72fd44f3c5b0317f47f607f94f74f57a8"
+      },
+      "results/e4_gpt.json": {
+        "bytes": 12996,
+        "sha256": "1e57deb95ed2efeb843f3a09e44fee316a59f8cc4a0ba8d7c6fe3e739e059936"
+      },
+      "results/e5_market.json": {
+        "bytes": 253831,
+        "sha256": "6ddaed08c561a10d6430bb8de34575ab06bea18b2226e7460694b92ae0ba1a49"
+      },
+      "scripts/build_preview.py": {
+        "bytes": 21579,
+        "sha256": "0729368f693c6132a0872c6a3e91c7cef01997fdcd521db505d2189805bfdd7e"
+      },
+      "scripts/check_results.py": {
+        "bytes": 9579,
+        "sha256": "14d9218a16bab463467650f78043d1e9e9ab26c26210592fa3e630c91aa7874d"
+      },
+      "scripts/fetch_data.py": {
+        "bytes": 1331,
+        "sha256": "454c48f0c1ecd37f4bec557e82337f8b402a43ebd3e9ddb7edd012635e146ee5"
+      },
+      "scripts/make_demo.py": {
+        "bytes": 6147,
+        "sha256": "72e326fed06bf2527ec4df5b90bdafa64300f07a3fecf60ace3a58ac9aae18f4"
+      },
+      "scripts/make_report.py": {
+        "bytes": 31870,
+        "sha256": "f9b17481f125939306122485257be311f6dd80441d9a9c7d41bb67cf95319b5c"
+      },
+      "src/fbench/__init__.py": {
+        "bytes": 99,
+        "sha256": "6016a51c83dbca9e1442812f3a05b151a48964627d6d7f7952972131bf36370e"
+      },
+      "src/fbench/autograd.py": {
+        "bytes": 5278,
+        "sha256": "8cc338f6be650804c4ecc684e920e1ba32490a6308a4fad0b8e979b2a3300d20"
+      },
+      "src/fbench/calculus.py": {
+        "bytes": 2278,
+        "sha256": "efbb6089c7a888315d89445b00ad43f3aeb0e619079b255525e820ec59ea7b2f"
+      },
+      "src/fbench/data.py": {
+        "bytes": 7561,
+        "sha256": "258da2f592902601b3931fb725c63d67d599db608802bb40170287d72c3f3014"
+      },
+      "src/fbench/models.py": {
+        "bytes": 8464,
+        "sha256": "4e12f14ab789aa8471d6caf4997fab4750f5f4bfffd72da2bb049f912bbb02f9"
+      },
+      "src/fbench/nn.py": {
+        "bytes": 10370,
+        "sha256": "d3225c583ff81c83c8cc4c19fe1b8d73b18b0463f11f2dfa2646ca440acc7fea"
+      },
+      "src/fbench/provenance.py": {
+        "bytes": 3210,
+        "sha256": "5cc2fcf12fe1116a6a7096c8357ac74dc21c25a81356dbe9fa7a8f07a21f9a8e"
+      },
+      "src/fbench/stats.py": {
+        "bytes": 6593,
+        "sha256": "2978dfe65db9f4f176cce75e5a0e1c7de5ee66ab1dc718b102cbe7135011dc83"
+      },
+      "src/fbench/utils.py": {
+        "bytes": 624,
+        "sha256": "ba2045fba27dab0738e7b3344cc6bb26291a0913b494a173d0e910fbea1cef64"
+      },
+      "tests/test_foundations.py": {
+        "bytes": 5032,
+        "sha256": "fc8a3483f1f4dcb8155d0e7c52e65095d76082b214cf1f1e85cc036ff2c526b5"
+      }
+    },
+    "preregistration_sha256": "e7f20951298111402c66e9badf7b8d114eb12c3b6be1aaace75a98b0140af9f5",
+    "seed_stability": {
+      "breast_cancer": {
+        "activation_mean_accuracy": {
+          "first_half": {
+            "gelu": 0.9695906432748537,
+            "leaky_relu": 0.9695906432748537,
+            "relu": 0.9707602339181285,
+            "sigmoid": 0.9625730994152046,
+            "tanh": 0.9719298245614036
+          },
+          "second_half": {
+            "gelu": 0.9625730994152046,
+            "leaky_relu": 0.9695906432748538,
+            "relu": 0.968421052631579,
+            "sigmoid": 0.9660818713450292,
+            "tanh": 0.9719298245614036
+          }
+        },
+        "best_on_second_half": "tanh",
+        "first_half_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "kendall_tau": 0.5270462766947299,
+        "ranking_first_half": [
+          "tanh",
+          "relu",
+          "leaky_relu",
+          "gelu",
+          "sigmoid"
+        ],
+        "ranking_second_half": [
+          "tanh",
+          "leaky_relu",
+          "relu",
+          "sigmoid",
+          "gelu"
+        ],
+        "second_half_seeds": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_on_first_half": "tanh",
+        "selection_regret_accuracy": 0.0
+      },
+      "digits": {
+        "activation_mean_accuracy": {
+          "first_half": {
+            "gelu": 0.9825925925925926,
+            "leaky_relu": 0.9807407407407407,
+            "relu": 0.9792592592592593,
+            "sigmoid": 0.9825925925925926,
+            "tanh": 0.9829629629629629
+          },
+          "second_half": {
+            "gelu": 0.971111111111111,
+            "leaky_relu": 0.9833333333333334,
+            "relu": 0.9818518518518518,
+            "sigmoid": 0.9829629629629629,
+            "tanh": 0.9788888888888888
+          }
+        },
+        "best_on_second_half": "leaky_relu",
+        "first_half_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "kendall_tau": -0.31622776601683794,
+        "ranking_first_half": [
+          "tanh",
+          "sigmoid",
+          "gelu",
+          "leaky_relu",
+          "relu"
+        ],
+        "ranking_second_half": [
+          "leaky_relu",
+          "sigmoid",
+          "relu",
+          "tanh",
+          "gelu"
+        ],
+        "second_half_seeds": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_on_first_half": "tanh",
+        "selection_regret_accuracy": 0.004444444444444584
+      },
+      "wine": {
+        "activation_mean_accuracy": {
+          "first_half": {
+            "gelu": 0.9740740740740741,
+            "leaky_relu": 0.9666666666666666,
+            "relu": 0.9666666666666666,
+            "sigmoid": 0.9814814814814815,
+            "tanh": 0.9814814814814815
+          },
+          "second_half": {
+            "gelu": 0.9888888888888889,
+            "leaky_relu": 0.9851851851851852,
+            "relu": 0.9851851851851852,
+            "sigmoid": 0.9814814814814815,
+            "tanh": 0.9777777777777779
+          }
+        },
+        "best_on_second_half": "gelu",
+        "first_half_seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "kendall_tau": -0.4714045207910316,
+        "ranking_first_half": [
+          "sigmoid",
+          "tanh",
+          "gelu",
+          "relu",
+          "leaky_relu"
+        ],
+        "ranking_second_half": [
+          "gelu",
+          "relu",
+          "leaky_relu",
+          "sigmoid",
+          "tanh"
+        ],
+        "second_half_seeds": [
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "selected_on_first_half": "sigmoid",
+        "selection_regret_accuracy": 0.007407407407407418
+      }
+    }
+  }
+}

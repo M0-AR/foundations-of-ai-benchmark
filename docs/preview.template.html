@@ -1,0 +1,1308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foundations-Bench — AI you can trust, checked from first principles</title>
+<meta name="description" content="A pre-registered, reproducible benchmark of first-principles AI: {{SUPPORTED}} of {{TOTAL}} hypotheses supported, {{BPC_MEAN}} bits per character versus {{BPC_BASE}} for the strongest n-gram baseline, and every claim traceable to executed code.">
+<meta name="theme-color" content="#070b14">
+<meta property="og:title" content="Foundations-Bench — evidence you can audit">
+<meta property="og:description" content="Six pre-registered studies, {{MANIFEST}} hashed artifacts, one honest answer: what works, what does not, and how to reproduce it.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="docs/assets/preview-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Cpath d='M14 46V18h10l8 16 8-16h10v28H40V32l-8 14-8-14v14z' fill='%235eead4'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Foundations-Bench",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Linux, macOS, Windows (Docker)",
+  "description": "A pre-registered, reproducible benchmark of first-principles AI on public and live data.",
+  "license": "https://opensource.org/licenses/MIT",
+  "version": "{{VERSION}}",
+  "datePublished": "{{DATE}}",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+</script>
+<style>
+  :root {
+    --bg: #070b14;
+    --bg2: #0b1220;
+    --panel: rgba(255, 255, 255, 0.045);
+    --panel2: rgba(255, 255, 255, 0.075);
+    --line: rgba(148, 163, 184, 0.18);
+    --text: #e6edf7;
+    --muted: #9fb0c7;
+    --dim: #6b7c94;
+    --teal: #5eead4;
+    --indigo: #818cf8;
+    --pink: #f472b6;
+    --amber: #fbbf24;
+    --red: #fb7185;
+    --green: #34d399;
+    --radius: 18px;
+    --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    --max: 1180px;
+    --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  [hidden] { display: none !important; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1200px 700px at 78% -10%, rgba(129, 140, 248, 0.16), transparent 60%),
+      radial-gradient(900px 600px at 8% 8%, rgba(94, 234, 212, 0.10), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: rgba(94, 234, 212, 0.28); color: #fff; }
+  a { color: var(--teal); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  img { max-width: 100%; }
+  button, input { font: inherit; }
+  :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+  .skip {
+    position: fixed; left: 16px; top: -60px; z-index: 100;
+    background: var(--amber); color: #111; padding: 10px 16px; border-radius: 10px;
+    font-weight: 700; transition: top .2s;
+  }
+  .skip:focus { top: 14px; }
+  .progress { position: fixed; inset: 0 0 auto 0; height: 3px; background: transparent; z-index: 90; }
+  .progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--teal), var(--indigo), var(--pink)); }
+  .wrap { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+  .nav {
+    position: sticky; top: 0; z-index: 80;
+    backdrop-filter: blur(16px);
+    background: rgba(7, 11, 20, 0.72);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  }
+  .nav-inner { display: flex; align-items: center; gap: 22px; min-height: 64px; position: relative; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+  .brand:hover { text-decoration: none; }
+  .brand-mark {
+    width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center;
+    background: linear-gradient(135deg, rgba(94,234,212,.9), rgba(129,140,248,.9));
+    color: #041016; font-weight: 900; font-size: 15px;
+  }
+  .nav-links { display: flex; gap: 18px; margin-left: auto; flex-wrap: wrap; }
+  .nav-links a { color: var(--muted); font-size: .9rem; font-weight: 600; }
+  .nav-links a:hover, .nav-links a[aria-current="true"] { color: var(--text); text-decoration: none; }
+  .nav-toggle { display: none; background: transparent; color: var(--text); border: 1px solid var(--line); border-radius: 9px; padding: 8px 12px; font: inherit; font-weight: 700; font-size: .82rem; cursor: pointer; margin-left: auto; }
+  .nav-cta { margin-left: 6px; }
+  .nav-repo-mobile { display: none; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 20px; border-radius: 12px; border: 1px solid transparent;
+    font-weight: 700; font-size: .95rem; cursor: pointer; text-decoration: none;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    white-space: nowrap;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn.primary {
+    background: linear-gradient(135deg, var(--teal), #7dd3fc);
+    color: #041016; box-shadow: 0 12px 30px rgba(94, 234, 212, 0.24);
+  }
+  .btn.ghost { border-color: var(--line); color: var(--text); background: rgba(255,255,255,.03); }
+  .btn.ghost:hover { background: rgba(255,255,255,.07); }
+  .btn.small { padding: 8px 13px; font-size: .82rem; border-radius: 9px; }
+  .eyebrow {
+    font-size: .74rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--teal); margin: 0 0 16px;
+  }
+  .grad {
+    background: linear-gradient(100deg, #5eead4 0%, #7dd3fc 45%, #a5b4fc 70%, #f472b6 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero { position: relative; padding: 84px 0 34px; overflow: clip; }
+  #net { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .55; pointer-events: none; }
+  .hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr .92fr; gap: 54px; align-items: center; }
+  .hero h1 { font-size: clamp(2.6rem, 5.5vw, 4.6rem); line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 22px; font-weight: 850; }
+  .lede { font-size: clamp(1.02rem, 1.5vw, 1.18rem); color: var(--muted); max-width: 58ch; margin: 0 0 28px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .trust-chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 28px 0 0; }
+  .trust-chips li {
+    font-size: .76rem; font-weight: 700; color: var(--muted);
+    border: 1px solid var(--line); background: rgba(255,255,255,.03);
+    padding: 6px 11px; border-radius: 999px;
+  }
+  .hero-art { position: relative; min-height: 480px; display: grid; place-items: center; perspective: 1200px; }
+  .stack { position: relative; width: 100%; max-width: 430px; height: 470px; transform-style: preserve-3d; animation: float 9s ease-in-out infinite; }
+  .stack::before {
+    content: ""; position: absolute; inset: 6% -8% 4%; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(94,234,212,.16), rgba(125,211,252,.06) 55%, transparent 75%);
+    filter: blur(18px); transform: translateZ(-120px); pointer-events: none;
+  }
+  .tilt-card {
+    position: absolute; border-radius: 20px; padding: 20px; border: 1px solid rgba(255,255,255,.14);
+    background: linear-gradient(160deg, rgba(18, 28, 48, .97), rgba(10, 16, 30, .97));
+    box-shadow: var(--shadow); transform-style: preserve-3d;
+    transition: transform .25s ease; display: flex; flex-direction: column;
+  }
+  .tilt-card.c1 { width: 330px; height: 212px; left: 30px; top: 112px; transform: rotateY(-12deg) rotateX(7deg) translateZ(40px); }
+  .tilt-card.c2 { width: 232px; height: 122px; right: -6px; top: -8px; transform: rotateY(-12deg) rotateX(7deg) translateZ(96px); background: linear-gradient(160deg, #0d1729, #070c17); }
+  .tilt-card.c3 { width: 252px; height: 120px; left: -10px; top: 340px; transform: rotateY(-12deg) rotateX(7deg) translateZ(84px); background: linear-gradient(160deg, #09111f, #060a13); }
+  .stack:hover .tilt-card.c1 { transform: rotateY(-6deg) rotateX(4deg) translateZ(56px); }
+  .stack:hover .tilt-card.c2 { transform: rotateY(-6deg) rotateX(4deg) translateZ(112px) translateY(-4px); }
+  .stack:hover .tilt-card.c3 { transform: rotateY(-6deg) rotateX(4deg) translateZ(100px) translateY(4px); }
+  .card-kicker { font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); font-weight: 800; }
+  .card-value { font-size: 2rem; font-weight: 850; letter-spacing: -0.03em; margin: 5px 0 2px; }
+  .tilt-card.c2 .card-value, .tilt-card.c3 .card-value { font-size: 1.45rem; margin-top: 3px; }
+  .card-note { font-size: .76rem; color: var(--muted); line-height: 1.35; }
+  .tilt-card.c2 .card-note, .tilt-card.c3 .card-note { font-size: .7rem; }
+  .spark { display: flex; gap: 4px; align-items: flex-end; height: 44px; margin-top: auto; }
+  .spark i { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(180deg, #3b5674, rgba(59,86,116,.22)); }
+  .spark i.win { background: linear-gradient(180deg, var(--teal), rgba(94,234,212,.2)); }
+  .motion-toggle {
+    position: absolute; bottom: 2px; right: 2px; z-index: 2;
+    background: rgba(7, 11, 20, .72); color: var(--muted); border: 1px solid var(--line);
+    padding: 6px 10px; border-radius: 999px; font-size: .72rem; cursor: pointer;
+  }
+  .motion-toggle:hover { color: var(--text); }
+  .hero-stats {
+    position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-top: 54px; border-top: 1px solid var(--line); padding-top: 24px;
+  }
+  .hstat strong { display: block; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: -0.03em; line-height: 1.1; }
+  .hstat span { font-size: .78rem; color: var(--dim); font-weight: 600; }
+  section { padding: 86px 0; }
+  .section-head { max-width: 760px; margin-bottom: 38px; }
+  .section-head h2 { font-size: clamp(1.8rem, 3.4vw, 2.7rem); letter-spacing: -0.035em; line-height: 1.1; margin: 0 0 12px; font-weight: 820; }
+  .section-head p { color: var(--muted); margin: 0; font-size: 1.02rem; }
+  .kicker { color: var(--indigo); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 850; margin: 0 0 12px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card {
+    background: linear-gradient(165deg, var(--panel), rgba(255,255,255,.015));
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;
+    transition: border-color .2s, transform .2s, background .2s;
+  }
+  .card:hover { border-color: rgba(94,234,212,.38); transform: translateY(-2px); background: linear-gradient(165deg, var(--panel2), rgba(255,255,255,.02)); }
+  .card h3 { margin: 0 0 8px; font-size: 1.06rem; letter-spacing: -0.015em; }
+  .card p { margin: 0; color: var(--muted); font-size: .93rem; }
+  .num {
+    width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center;
+    background: rgba(94,234,212,.12); color: var(--teal); font-weight: 850; font-size: .82rem;
+    margin-bottom: 14px; border: 1px solid rgba(94,234,212,.22);
+  }
+  .dashboard { display: grid; grid-template-columns: 1.25fr .75fr; gap: 18px; }
+  .chart-card { padding: 24px; }
+  .chart-card h3 { margin: 0; font-size: 1rem; }
+  .chart-card .sub { color: var(--dim); font-size: .8rem; margin: 4px 0 16px; }
+  .chart-box { position: relative; height: 300px; }
+  .chart-box canvas { width: 100%; height: 100%; display: block; }
+  .chart-box.small { height: 230px; }
+  .hyp-list { display: grid; gap: 9px; }
+  .hyp {
+    display: flex; align-items: center; gap: 12px; padding: 11px 13px;
+    border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.025);
+  }
+  .hyp .id { font-family: var(--mono); font-size: .76rem; color: var(--muted); min-width: 24px; }
+  .hyp .name { font-size: .86rem; font-weight: 650; flex: 1; }
+  .pill { font-size: .68rem; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
+  .pill.yes { color: #052e22; background: var(--green); }
+  .pill.no { color: #3b0a13; background: var(--red); }
+  .pill.partial { color: #3b2a05; background: var(--amber); }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .tab {
+    padding: 9px 15px; border-radius: 999px; border: 1px solid var(--line);
+    background: rgba(255,255,255,.025); color: var(--muted); font-weight: 700; font-size: .84rem; cursor: pointer;
+  }
+  .tab[aria-selected="true"] { background: var(--text); color: #08111f; border-color: var(--text); }
+  .evidence-panel {
+    display: grid; grid-template-columns: 1.05fr .95fr; gap: 18px;
+    background: linear-gradient(165deg, rgba(129,140,248,.09), rgba(255,255,255,.015));
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
+  }
+  .evidence-panel h3 { margin: 0 0 6px; font-size: 1.35rem; letter-spacing: -0.02em; }
+  .evidence-panel .plain { color: var(--muted); margin: 10px 0 0; }
+  .kv { display: grid; grid-template-columns: 128px 1fr; gap: 8px 14px; margin-top: 18px; font-size: .88rem; }
+  .kv dt { color: var(--dim); font-weight: 650; }
+  .kv dd { margin: 0; color: var(--text); }
+  .learn-grid { display: grid; grid-template-columns: 1fr 260px; gap: 28px; align-items: start; }
+  .step {
+    border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.025); margin-bottom: 9px;
+  }
+  .step summary {
+    list-style: none; cursor: pointer; padding: 15px 18px; display: flex; align-items: center; gap: 13px;
+    font-weight: 700; font-size: .95rem;
+  }
+  .step summary::-webkit-details-marker { display: none; }
+  .step summary .n {
+    width: 27px; height: 27px; border-radius: 8px; display: grid; place-items: center;
+    background: rgba(129,140,248,.14); color: #c7d2fe; font-size: .74rem; font-family: var(--mono); flex: none;
+  }
+  .step summary .tag { margin-left: auto; font-size: .68rem; color: var(--dim); font-weight: 650; }
+  .step[open] { border-color: rgba(129,140,248,.45); }
+  .step .body { padding: 0 18px 18px 58px; color: var(--muted); font-size: .9rem; }
+  .step .body p { margin: 0 0 8px; }
+  .step .body code { color: #c7d2fe; font-family: var(--mono); font-size: .82rem; }
+  .step .check { display: flex; align-items: center; gap: 8px; margin-top: 10px; color: var(--dim); font-size: .8rem; }
+  .step .check input { width: 17px; height: 17px; accent-color: var(--teal); }
+  .learn-meter { position: sticky; top: 92px; }
+  .ring {
+    width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 16px;
+    background: conic-gradient(var(--teal) calc(var(--p, 0) * 1%), rgba(255,255,255,.08) 0);
+    display: grid; place-items: center; position: relative;
+  }
+  .ring::before { content: ""; position: absolute; inset: 12px; border-radius: 50%; background: #0a101c; }
+  .ring span { position: relative; font-size: 1.55rem; font-weight: 850; }
+  .learn-meter h3 { text-align: center; margin: 0 0 4px; font-size: 1rem; }
+  .learn-meter p { text-align: center; color: var(--dim); font-size: .78rem; margin: 0 0 16px; }
+  .quiz-shell { max-width: 820px; margin-inline: auto; }
+  .quiz-card { border: 1px solid var(--line); border-radius: 22px; padding: 28px; background: linear-gradient(165deg, rgba(94,234,212,.07), rgba(255,255,255,.02)); box-shadow: var(--shadow); }
+  .quiz-top { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .quiz-bar { flex: 1; height: 7px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; }
+  .quiz-bar i { display: block; height: 100%; width: 10%; background: linear-gradient(90deg, var(--teal), var(--indigo)); transition: width .3s; }
+  .quiz-count { font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+  .quiz-card h3 { margin: 0 0 18px; font-size: 1.22rem; letter-spacing: -0.02em; }
+  .options { display: grid; gap: 9px; border: 0; padding: 0; margin: 0; }
+  .option {
+    display: flex; gap: 12px; align-items: flex-start; padding: 13px 15px; cursor: pointer;
+    border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.025);
+    transition: border-color .15s, background .15s;
+  }
+  .option:hover { border-color: rgba(94,234,212,.4); background: rgba(94,234,212,.05); }
+  .option input { margin-top: 3px; accent-color: var(--teal); flex: none; }
+  .option.correct { border-color: var(--green); background: rgba(52,211,153,.10); }
+  .option.wrong { border-color: var(--red); background: rgba(251,113,133,.10); }
+  .quiz-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .quiz-feedback { margin-top: 16px; padding: 14px 16px; border-radius: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--line); font-size: .9rem; color: var(--muted); }
+  .quiz-feedback strong { color: var(--text); }
+  .quiz-result { text-align: center; padding: 18px 0 4px; }
+  .quiz-result .score { font-size: 3.4rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1; }
+  .quiz-result p { color: var(--muted); }
+  .biz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .biz-card { border: 1px solid var(--line); border-radius: 16px; padding: 22px; background: rgba(255,255,255,.025); }
+  .biz-card .label { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); font-weight: 850; }
+  .biz-card h3 { margin: 8px 0 8px; font-size: 1.02rem; }
+  .biz-card p { margin: 0; color: var(--muted); font-size: .88rem; }
+  .engage { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .engage .card { padding: 22px; }
+  .engage ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: .9rem; }
+  .engage li { margin: 5px 0; }
+  .code-card { border: 1px solid var(--line); border-radius: 14px; background: #060a12; overflow: hidden; }
+  .code-head { display: flex; align-items: center; justify-content: space-between; padding: 9px 13px; border-bottom: 1px solid var(--line); color: var(--dim); font-size: .75rem; }
+  pre { margin: 0; padding: 16px; overflow-x: auto; font-family: var(--mono); font-size: .82rem; line-height: 1.7; color: #cbd5e1; }
+  .copy { background: rgba(255,255,255,.06); color: var(--muted); border: 1px solid var(--line); border-radius: 7px; padding: 4px 9px; font-size: .7rem; cursor: pointer; }
+  .copy:hover { color: var(--text); }
+  .repro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .trust-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+  .hash { font-family: var(--mono); font-size: .72rem; color: var(--muted); overflow-wrap: anywhere; }
+  .limits { border-left: 3px solid var(--amber); padding-left: 16px; color: var(--muted); font-size: .9rem; }
+  .limits strong { color: var(--text); }
+  details.faq { border-bottom: 1px solid var(--line); padding: 4px 0; }
+  details.faq summary { cursor: pointer; padding: 15px 0; font-weight: 700; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after { content: "+"; color: var(--teal); font-size: 1.2rem; line-height: 1; }
+  details.faq[open] summary::after { content: "−"; }
+  details.faq p { margin: 0 0 16px; color: var(--muted); font-size: .92rem; }
+  footer { border-top: 1px solid var(--line); padding: 40px 0 60px; color: var(--dim); font-size: .82rem; }
+  .foot-inner { display: flex; justify-content: space-between; gap: 22px; flex-wrap: wrap; align-items: center; }
+  .foot-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .foot-links a { color: var(--muted); }
+  .noscript { max-width: var(--max); margin: 24px auto; padding: 18px; border: 1px solid var(--amber); border-radius: 12px; color: var(--muted); }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @media (max-width: 980px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 30px; }
+    .hero-art { min-height: 330px; order: 2; }
+    .stack { height: 300px; transform: scale(.86); }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
+    .dashboard, .evidence-panel, .learn-grid, .trust-grid, .repro-grid, .engage { grid-template-columns: 1fr; }
+    .grid3, .biz-grid { grid-template-columns: 1fr; }
+    .learn-meter { position: static; }
+    .nav-links {
+      display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+      margin: 0; padding: 10px; flex-direction: column; gap: 2px;
+      background: #070b14; border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.45); z-index: 50;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 10px 12px; border-radius: 8px; font-size: .95rem; }
+    .nav-links a:hover { background: rgba(255,255,255,.04); }
+    .nav-toggle { display: inline-flex; }
+    .nav-cta { margin-left: 0; }
+  }
+  @media (max-width: 620px) {
+    .brand { font-size: .95rem; white-space: nowrap; }
+    .brand-mark { width: 26px; height: 26px; border-radius: 8px; font-size: 13px; }
+    .nav-inner { gap: 10px; }
+    .nav-cta { display: none; }
+    .nav-repo-mobile { display: block; }
+    section { padding: 62px 0; }
+    .hero { padding-top: 54px; }
+    .hero-art { display: none; }
+    .quiz-card, .evidence-panel, .card { padding: 20px; }
+    .kv { grid-template-columns: 1fr; }
+    .kv dt { margin-top: 6px; }
+    .tilt-card { width: 280px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    .stack { animation: none; }
+  }
+  body.paused #net, body.paused .stack { animation-play-state: paused; }
+  body.paused .tilt-card { transition: none; }
+  @media print {
+    body { background: #fff; color: #111; }
+    .nav, #net, .hero-art, .progress, .quiz-shell, .copy { display: none !important; }
+    .card, .evidence-panel, .quiz-card { border-color: #ccc; background: #fff; }
+    a { color: #0645ad; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">F</span> Foundations-Bench</a>
+    <nav class="nav-links" id="primaryNav" aria-label="Primary">
+      <a href="#summary">Summary</a>
+      <a href="#results">Results</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#learn">Learn</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#business">For teams</a>
+      <a href="#reproduce">Reproduce</a>
+      <a class="nav-repo-mobile" href="{{REPO_URL}}">Repository</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+    <a class="btn ghost small nav-cta" id="navRepo" href="{{REPO_URL}}">Repository</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <canvas id="net" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Pre-registered · Reproducible · Open source</p>
+          <h1>AI you can trust,<br><span class="grad">checked from first principles.</span></h1>
+          <p class="lede">
+            Six pre-registered studies test the maths, the code, and the claims behind modern AI —
+            on public data and live markets. Every number comes from executed code, every artifact
+            is hashed, and every failed hypothesis is reported in the open.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="#results">See the evidence</a>
+            <a class="btn ghost" href="#quiz">Take the 3-minute quiz</a>
+          </div>
+          <ul class="trust-chips" aria-label="Trust signals">
+            <li>MIT licensed</li>
+            <li>Docker reproducible</li>
+            <li>No GPU required</li>
+            <li>Human-readable results</li>
+          </ul>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="stack" id="stack">
+            <article class="tilt-card c1">
+              <div class="card-kicker">Character transformer</div>
+              <div class="card-value"><span data-stat="bpc">—</span> <span style="font-size:.9rem;color:var(--muted)">BPC</span></div>
+              <div class="card-note">versus <span data-stat="baseBpc">—</span> for the strongest n-gram baseline</div>
+              <div class="spark" id="spark"></div>
+            </article>
+            <article class="tilt-card c2">
+              <div class="card-kicker">Gradient fidelity</div>
+              <div class="card-value"><span data-stat="gradErr">—</span></div>
+              <div class="card-note">worst relative error across three independent checks</div>
+            </article>
+            <article class="tilt-card c3">
+              <div class="card-kicker">Reproducibility</div>
+              <div class="card-value"><span data-stat="det">—</span></div>
+              <div class="card-note"><span data-stat="manifest">—</span> artifacts hashed · same seed, same bytes</div>
+            </article>
+          </div>
+          <button class="motion-toggle" id="motionToggle" type="button" aria-pressed="false">Pause motion</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><strong><span data-stat="studies">—</span></strong><span>pre-registered studies</span></div>
+        <div class="hstat"><strong><span data-stat="supported">—</span> / <span data-stat="total">—</span></strong><span>hypotheses supported</span></div>
+        <div class="hstat"><strong><span data-stat="improve">—</span>%</strong><span>lower bits per character</span></div>
+        <div class="hstat"><strong><span data-stat="files">—</span></strong><span>hashed artifacts</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">The 30-second version</p>
+        <h2>What this is, what we found, and why you should care.</h2>
+        <p>No jargon. No hype. Three sentences a busy person can use in a meeting.</p>
+      </div>
+      <div class="grid3">
+        <article class="card">
+          <div class="num">1</div>
+          <h3>It is an independent lab for AI claims.</h3>
+          <p>We rebuild the core ideas from scratch — derivatives, backpropagation, attention, a small transformer — and test them against trusted references in double precision.</p>
+        </article>
+        <article class="card">
+          <div class="num">2</div>
+          <h3>It separates real signal from noise.</h3>
+          <p>Six hypotheses were frozen before the runs. <strong><span data-stat="supported">—</span> of <span data-stat="total">—</span> passed.</strong> The two failures are documented with the same care as the wins.</p>
+        </article>
+        <article class="card">
+          <div class="num">3</div>
+          <h3>It gives teams evidence they can audit.</h3>
+          <p>Every table, figure, and sentence is generated from JSON results. A clean checkout reproduces the numbers, the figures, and the manuscript in one command.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Evidence dashboard</p>
+        <h2>The headline numbers, without the marketing.</h2>
+        <p>Hover or focus a chart for exact values. All figures are rendered from the same result files used by the manuscript.</p>
+      </div>
+      <div class="dashboard">
+        <article class="card chart-card">
+          <h3>Character-level language modelling</h3>
+          <p class="sub">Validation bits per character (lower is better). TinyGPT is the mean of three seeds.</p>
+          <div class="chart-box"><canvas id="chartBpc" role="img" aria-label="Bar chart comparing validation bits per character for uniform, unigram, interpolated n-gram, trigram and TinyGPT models."></canvas></div>
+        </article>
+        <article class="card chart-card">
+          <h3>Hypothesis scorecard</h3>
+          <p class="sub">Frozen before execution. Supported means the pre-registered criterion was met.</p>
+          <div class="hyp-list" id="hypList"></div>
+        </article>
+        <article class="card chart-card">
+          <h3>Live market test</h3>
+          <p class="sub">Out-of-sample R² versus a zero forecast, with 95% moving-block bootstrap intervals. Negative is normal here.</p>
+          <div class="chart-box small"><canvas id="chartRisk" role="img" aria-label="Dot-and-interval chart of out-of-sample R-squared for five market symbols."></canvas></div>
+        </article>
+        <article class="card chart-card">
+          <h3>What survives scrutiny</h3>
+          <p class="sub">The parts a reviewer can verify without trusting us.</p>
+          <div class="kv" style="margin-top:0">
+            <dt>Deterministic rerun</dt><dd><span data-stat="det">—</span></dd>
+            <dt>Hashed artifacts</dt><dd><span data-stat="manifest">—</span></dd>
+            <dt>Test suite</dt><dd><span data-stat="tests">—</span> passing checks</dd>
+            <dt>Figures</dt><dd><span data-stat="figures">—</span> generated</dd>
+            <dt>Pre-registration</dt><dd>SHA-256 pinned</dd>
+            <dt>License</dt><dd>MIT — commercial use allowed</dd>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="evidence">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Explore the evidence</p>
+        <h2>Six studies. One question each.</h2>
+        <p>Select a study to see the pre-registered criterion, the observed result, and the plain-English meaning.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Studies" id="evidenceTabs"></div>
+      <div class="evidence-panel" id="evidencePanel" role="tabpanel" tabindex="0" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="learn">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">🌱 Beginner guide — read this and you are a professional</p>
+        <h2>From zero to “I can defend this in an interview.”</h2>
+        <p>Ten short steps. Each one explains the idea in plain English, points to the exact code, and gives you a sentence you can say out loud. You will know more than most interview candidates.</p>
+      </div>
+      <div class="learn-grid">
+        <div id="learnSteps"></div>
+        <aside class="learn-meter card">
+          <div class="ring" id="learnRing" style="--p:0"><span id="learnPct">0%</span></div>
+          <h3>Your progress</h3>
+          <p id="learnCount">0 of 10 steps checked</p>
+          <button class="btn ghost small" id="learnReset" type="button">Reset progress</button>
+          <p style="margin-top:14px">Progress is stored only in your browser.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="quiz">
+    <div class="wrap">
+      <div class="section-head" style="margin-inline:auto;text-align:center">
+        <p class="kicker">Test yourself</p>
+        <h2>Ten questions. No timer. Real explanations.</h2>
+        <p>Every answer explains the reasoning, so a wrong answer still teaches you something.</p>
+      </div>
+      <div class="quiz-shell">
+        <div class="quiz-card" id="quizCard" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="business">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">For teams and buyers</p>
+        <h2>Buy evidence, not adjectives.</h2>
+        <p>Use this repository when a claim about AI needs to survive a technical reviewer, a procurement team, or a skeptical customer.</p>
+      </div>
+      <div class="biz-grid">
+        <article class="biz-card">
+          <div class="label">Due diligence</div>
+          <h3>Check what a system actually does.</h3>
+          <p>Use the fidelity harness and pre-registered protocol to test a vendor’s numbers, or to build an internal baseline before you commit budget.</p>
+        </article>
+        <article class="biz-card">
+          <div class="label">Team onboarding</div>
+          <h3>Give new hires one honest reference.</h3>
+          <p>Engineers can trace every concept from a derivative to a transformer, run the tests, and see where real systems fail — in days, not months.</p>
+        </article>
+        <article class="biz-card">
+          <div class="label">Teaching and hiring</div>
+          <h3>Replace trivia with demonstrated skill.</h3>
+          <p>The beginner guide, interactive quiz, and reproducible experiments give candidates and students something concrete to build, break, and explain.</p>
+        </article>
+      </div>
+      <div class="engage">
+        <article class="card">
+          <h3>Ways to engage</h3>
+          <ul>
+            <li>Independent technical audit of an AI claim or benchmark.</li>
+            <li>Half-day workshop: from backpropagation to a working transformer.</li>
+            <li>Custom benchmark design with pre-registration and reporting.</li>
+            <li>Retained support for reproducible evaluation in your stack.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>What you can verify before talking to us</h3>
+          <ul>
+            <li>The exact code, data hashes, and environment pins.</li>
+            <li>All six hypotheses — including the two that failed.</li>
+            <li>A one-command Docker reproduction path.</li>
+            <li>An MIT license that permits commercial use.</li>
+          </ul>
+          <p style="margin-top:14px"><a class="btn primary" id="bizCta" href="{{ISSUE_URL}}">Request an assessment</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reproduce">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Reproduce it</p>
+        <h2>Four commands from clone to verified manuscript.</h2>
+        <p>CPU only. About 15 minutes for the full suite on a modern laptop; the fast checks take seconds.</p>
+      </div>
+      <div class="repro-grid">
+        <div class="code-card">
+          <div class="code-head"><span>Fast checks</span><button class="copy" type="button" data-copy="fastCmd">Copy</button></div>
+          <pre id="fastCmd">python -m pip install -e ".[dev]"
+python scripts/fetch_data.py
+python -m pytest -q
+python scripts/check_results.py</pre>
+        </div>
+        <div class="code-card">
+          <div class="code-head"><span>Full reproduction</span><button class="copy" type="button" data-copy="fullCmd">Copy</button></div>
+          <pre id="fullCmd">docker compose build
+docker compose run --rm bench
+docker compose run --rm report
+docker compose run --rm check</pre>
+        </div>
+      </div>
+      <div class="grid3" style="margin-top:16px">
+        <article class="card"><div class="num">A</div><h3>Data is pinned.</h3><p>Public text and tabular inputs are hashed. Market data is snapshotted with retrieval timestamps and hashes.</p></article>
+        <article class="card"><div class="num">B</div><h3>Claims are pre-registered.</h3><p>The protocol, endpoints, and correction methods were frozen before the confirmatory runs. Deviations are appended, never rewritten.</p></article>
+        <article class="card"><div class="num">C</div><h3>Reports are generated.</h3><p>Tables, figures, and the manuscript are rendered from JSON. No number is typed by hand.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Trust, limits, and provenance</p>
+        <h2>What we can prove — and what we cannot.</h2>
+        <p>A benchmark is only useful if it is honest about its boundaries.</p>
+      </div>
+      <div class="trust-grid">
+        <article class="card">
+          <h3>Provenance</h3>
+          <div class="kv" style="margin-top:10px">
+            <dt>Release</dt><dd>v{{VERSION}} · {{DATE}}</dd>
+            <dt>Corpus hash</dt><dd class="hash">{{CORPUS_HASH}}</dd>
+            <dt>Configuration</dt><dd class="hash">{{CONFIG_HASH}}</dd>
+            <dt>Pre-registration</dt><dd class="hash">{{PREREG_HASH}}</dd>
+            <dt>Manifest</dt><dd><span data-stat="manifest">—</span> files, SHA-256 each</dd>
+            <dt>Determinism</dt><dd><span data-stat="det">—</span></dd>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Honest limitations</h3>
+          <p class="limits" style="margin-top:10px">
+            <strong>The model is small.</strong> A 0.8M-parameter character transformer proves the pipeline, not frontier capability.
+            <strong>The market test is narrow.</strong> Five liquid US symbols over five years, with a simplified cost model.
+            <strong>Two hypotheses failed.</strong> We keep them in the headline instead of hiding them.
+            <strong>Live data moves.</strong> Re-running today will produce a new snapshot; the committed results record the exact retrieval time.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Questions</p>
+        <h2>The things people ask before they trust a benchmark.</h2>
+      </div>
+      <div style="max-width:860px">
+        <details class="faq"><summary>Is this another LLM leaderboard?</summary><p>No. It does not rank commercial models. It tests whether the foundations people claim to implement — gradients, attention, a small transformer, a market hypothesis — actually behave as advertised.</p></details>
+        <details class="faq"><summary>Why report failed hypotheses?</summary><p>Because pre-registration only means something if failures are visible. H4 (activation effects) and H6 (market structure plus no alpha) did not meet their strict criteria. Reporting that is the product.</p></details>
+        <details class="faq"><summary>Can I use it commercially?</summary><p>Yes. The code is MIT licensed. You can use it internally, in products, or in client work. Attribution is appreciated but not required.</p></details>
+        <details class="faq"><summary>How long does it take?</summary><p>The fast checks take seconds. The full six-study suite takes about 15 minutes on a modern CPU. The transformer study dominates the runtime.</p></details>
+        <details class="faq"><summary>Do I need a GPU?</summary><p>No. The NumPy model and the small PyTorch transformer run on CPU. Docker is the recommended path because it pins the environment.</p></details>
+        <details class="faq"><summary>What if I disagree with a result?</summary><p>Good. The protocol, code, data hashes, and result JSON are all available. Open an issue with a concrete reproduction or a proposed deviation; the process is designed for that.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <strong style="color:var(--text)">Foundations-Bench</strong> · v{{VERSION}} · MIT License<br>
+      Generated from executed results on {{DATE}}.
+    </div>
+    <div class="foot-links">
+      <a id="footRepo" href="{{REPO_URL}}">Repository</a>
+      <a id="footIssues" href="{{ISSUE_URL}}">Issues</a>
+      <a href="README.md">README</a>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<noscript>
+  <div class="noscript">
+    <strong>Foundations-Bench:</strong> {{SUPPORTED}} of {{TOTAL}} pre-registered hypotheses supported.
+    TinyGPT reached {{BPC_MEAN}} bits per character versus {{BPC_BASE}} for the strongest n-gram baseline.
+    Every claim is generated from executed results and reproducible with Docker.
+  </div>
+</noscript>
+
+<script id="data" type="application/json">{{DATA_JSON}}</script>
+<script>
+(() => {
+  "use strict";
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let motionOn = !reduceQuery.matches;
+  let userPaused = false;
+
+  const fmt = (v, d = 2) => {
+    if (v === null || v === undefined || Number.isNaN(Number(v))) return "—";
+    const n = Number(v);
+    if (n !== 0 && (Math.abs(n) < 1e-3 || Math.abs(n) >= 1e4)) return n.toExponential(d);
+    return n.toFixed(d);
+  };
+  const fmtInt = (v) => Number(v).toLocaleString("en-US");
+  const setStat = (name, value) => $$(`[data-stat="${name}"]`).forEach((el) => { el.textContent = value; });
+  const linkFor = (path) => DATA.meta.repoUrl ? `${DATA.meta.repoUrl}/blob/main/${path}` : path;
+
+  // ------------------------------------------------------------------ stats
+  setStat("studies", DATA.meta.studies);
+  setStat("supported", DATA.meta.supported);
+  setStat("total", DATA.meta.total);
+  setStat("bpc", fmt(DATA.e4.bpcMean, 3));
+  setStat("baseBpc", fmt(DATA.e4.baseBpc, 3));
+  setStat("improve", fmt(DATA.e4.improvePct, 1));
+  if (!DATA.meta.repoUrl) {
+    $$("#navRepo, #footRepo, .nav-repo-mobile").forEach((a) => { a.style.display = "none"; });
+  }
+  setStat("files", DATA.meta.manifest);
+  setStat("manifest", DATA.meta.manifest);
+  setStat("tests", DATA.meta.tests);
+  setStat("figures", DATA.meta.figures);
+  setStat("det", DATA.e6.deterministic ? "yes" : "no");
+  setStat("gradErr", DATA.e1.gradErrText);
+
+  // ------------------------------------------------------------- spark bars
+  const spark = $("#spark");
+  if (spark) {
+    const maxBpc = Math.max(...DATA.e4.baselines.map((b) => b.value));
+    DATA.e4.baselines.forEach((b, i) => {
+      const bar = document.createElement("i");
+      bar.style.height = `${16 + 84 * ((b.value - Math.min(...DATA.e4.baselines.map((x) => x.value))) / (maxBpc - Math.min(...DATA.e4.baselines.map((x) => x.value))))}%`;
+      bar.title = `${b.label}: ${fmt(b.value, 3)} BPC`;
+      if (i === DATA.e4.baselines.length - 1) bar.className = "win";
+      spark.appendChild(bar);
+    });
+  }
+
+  // ------------------------------------------------------------ hypothesis list
+  const hypList = $("#hypList");
+  DATA.hypotheses.forEach((h) => {
+    const row = document.createElement("div");
+    row.className = "hyp";
+    const cls = h.status === "supported" ? "yes" : h.status === "partial" ? "partial" : "no";
+    row.innerHTML = `<span class="id">${h.id}</span><span class="name">${h.short}</span><span class="pill ${cls}">${h.status}</span>`;
+    hypList.appendChild(row);
+  });
+
+  // ------------------------------------------------------------------- charts
+  const drawBpc = () => {
+    const canvas = $("#chartBpc");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const box = canvas.parentElement.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.round(box.width * dpr));
+    canvas.height = Math.max(1, Math.round(box.height * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const w = box.width, h = box.height;
+    ctx.clearRect(0, 0, w, h);
+    const items = DATA.e4.baselines;
+    const pad = { l: 46, r: 12, t: 12, b: 48 };
+    const max = Math.max(...items.map((d) => d.value)) * 1.12;
+    const x0 = pad.l, y0 = h - pad.b, plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
+    ctx.font = "11px " + getComputedStyle(document.body).fontFamily;
+    ctx.textAlign = "center";
+    for (let i = 0; i <= 4; i++) {
+      const y = y0 - (plotH * i) / 4;
+      ctx.strokeStyle = "rgba(148,163,184,.14)";
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x0 + plotW, y); ctx.stroke();
+      ctx.fillStyle = "rgba(159,176,199,.8)";
+      ctx.textAlign = "right";
+      ctx.fillText(((max * i) / 4).toFixed(1), x0 - 8, y + 4);
+    }
+    const bw = plotW / items.length;
+    items.forEach((d, i) => {
+      const bh = (d.value / max) * plotH;
+      const bx = x0 + i * bw + bw * 0.18;
+      const by = y0 - bh;
+      const grad = ctx.createLinearGradient(0, by, 0, y0);
+      if (d.key === "tinygpt") { grad.addColorStop(0, "#5eead4"); grad.addColorStop(1, "rgba(94,234,212,.28)"); }
+      else if (d.key === "trigram") { grad.addColorStop(0, "#818cf8"); grad.addColorStop(1, "rgba(129,140,248,.25)"); }
+      else { grad.addColorStop(0, "rgba(148,163,184,.72)"); grad.addColorStop(1, "rgba(148,163,184,.16)"); }
+      ctx.fillStyle = grad;
+      const r = 5;
+      ctx.beginPath();
+      ctx.moveTo(bx, y0); ctx.lineTo(bx, by + r);
+      ctx.quadraticCurveTo(bx, by, bx + r, by);
+      ctx.lineTo(bx + bw * 0.64 - r, by);
+      ctx.quadraticCurveTo(bx + bw * 0.64, by, bx + bw * 0.64, by + r);
+      ctx.lineTo(bx + bw * 0.64, y0);
+      ctx.closePath(); ctx.fill();
+      ctx.fillStyle = d.key === "tinygpt" ? "#5eead4" : "#cbd5e1";
+      ctx.textAlign = "center";
+      ctx.fillText(fmt(d.value, 3), bx + bw * 0.32, by - 6);
+      ctx.fillStyle = "rgba(159,176,199,.9)";
+      ctx.fillText(d.label, bx + bw * 0.32, y0 + 18);
+      if (d.sublabel) { ctx.fillStyle = "rgba(107,124,148,.9)"; ctx.font = "10px " + getComputedStyle(document.body).fontFamily; ctx.fillText(d.sublabel, bx + bw * 0.32, y0 + 32); ctx.font = "11px " + getComputedStyle(document.body).fontFamily; }
+    });
+    ctx.strokeStyle = "rgba(148,163,184,.35)";
+    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x0 + plotW, y0); ctx.stroke();
+  };
+
+  const drawRisk = () => {
+    const canvas = $("#chartRisk");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const box = canvas.parentElement.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.round(box.width * dpr));
+    canvas.height = Math.max(1, Math.round(box.height * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const w = box.width, h = box.height;
+    ctx.clearRect(0, 0, w, h);
+    const rows = DATA.e5.symbols;
+    const pad = { l: 54, r: 16, t: 10, b: 34 };
+    const x0 = pad.l, y0 = h - pad.b, plotW = w - pad.l - pad.r, plotH = h - pad.t - pad.b;
+    const vals = rows.flatMap((r) => [r.lo, r.hi, r.r2, 0]);
+    const min = Math.min(...vals) - 0.005, max = Math.max(...vals) + 0.005;
+    const x = (v) => x0 + ((v - min) / (max - min)) * plotW;
+    const rowH = plotH / rows.length;
+    ctx.font = "11px " + getComputedStyle(document.body).fontFamily;
+    for (let i = 0; i <= 4; i++) {
+      const v = min + ((max - min) * i) / 4;
+      const px = x(v);
+      ctx.strokeStyle = "rgba(148,163,184,.12)";
+      ctx.beginPath(); ctx.moveTo(px, y0); ctx.lineTo(px, pad.t); ctx.stroke();
+      ctx.fillStyle = "rgba(159,176,199,.8)";
+      ctx.textAlign = "center"; ctx.fillText(v.toFixed(2), px, y0 + 18);
+    }
+    ctx.strokeStyle = "rgba(251,191,36,.7)";
+    ctx.beginPath(); ctx.moveTo(x(0), y0); ctx.lineTo(x(0), pad.t); ctx.stroke();
+    rows.forEach((r, i) => {
+      const cy = pad.t + rowH * (i + 0.5);
+      ctx.fillStyle = "rgba(159,176,199,.9)";
+      ctx.textAlign = "right"; ctx.fillText(r.symbol, x0 - 12, cy + 4);
+      ctx.strokeStyle = "rgba(148,163,184,.5)";
+      ctx.beginPath(); ctx.moveTo(x(r.lo), cy); ctx.lineTo(x(r.hi), cy); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x(r.lo), cy - 4); ctx.lineTo(x(r.lo), cy + 4); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(x(r.hi), cy - 4); ctx.lineTo(x(r.hi), cy + 4); ctx.stroke();
+      ctx.fillStyle = r.r2 <= 0 ? "#fb7185" : "#5eead4";
+      ctx.beginPath(); ctx.arc(x(r.r2), cy, 5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = "#cbd5e1";
+      ctx.textAlign = "left"; ctx.fillText(r.r2.toFixed(3), x(r.r2) + 9, cy + 4);
+    });
+  };
+
+  // ------------------------------------------------------------------ tabs
+  const tabs = $("#evidenceTabs");
+  const panel = $("#evidencePanel");
+  const renderEvidence = (index) => {
+    const h = DATA.studies[index];
+    $$(".tab", tabs).forEach((t, i) => t.setAttribute("aria-selected", String(i === index)));
+    const cls = h.status === "supported" ? "yes" : h.status === "partial" ? "partial" : "no";
+    panel.innerHTML = `
+      <div>
+        <p class="kicker" style="margin-bottom:8px">${h.id} · ${h.field}</p>
+        <h3>${h.title}</h3>
+        <p class="plain">${h.plain}</p>
+        <dl class="kv">
+          <dt>Criterion</dt><dd>${h.criterion}</dd>
+          <dt>Observed</dt><dd>${h.observed}</dd>
+          <dt>Verdict</dt><dd><span class="pill ${cls}">${h.status}</span></dd>
+        </dl>
+      </div>
+      <div>
+        <div class="code-card">
+          <div class="code-head"><span>Why it matters</span></div>
+          <pre style="white-space:pre-wrap;font-family:var(--font);font-size:.9rem;line-height:1.65">${h.why}</pre>
+        </div>
+        <p style="margin:14px 0 0"><a href="${h.link}" target="_blank" rel="noopener">Open the experiment code →</a></p>
+      </div>`;
+  };
+  DATA.studies.forEach((h, i) => {
+    const b = document.createElement("button");
+    b.className = "tab";
+    b.type = "button";
+    b.role = "tab";
+    b.textContent = h.id;
+    b.setAttribute("aria-selected", "false");
+    b.addEventListener("click", () => renderEvidence(i));
+    tabs.appendChild(b);
+  });
+  renderEvidence(0);
+
+  // ------------------------------------------------------------- beginner path
+  const steps = [
+    {
+      title: "Functions and derivatives",
+      tag: "E1",
+      body: `A derivative is a slope: how much one thing changes when another changes a little. The code measures that slope in two independent ways and compares them. Try changing the step size and watch the error fall, then rise as rounding takes over.`,
+      takeaway: "I can explain why a derivative is a limit, and why floating point eventually breaks the approximation.",
+      link: "experiments/e1_calculus_autograd.py",
+    },
+    {
+      title: "Gradients and gradient descent",
+      tag: "E1·E2",
+      body: `A gradient is a list of slopes, one per parameter. Training walks downhill by subtracting a small multiple of the gradient. The learning rate decides how big each step is; too large and you bounce, too small and you crawl.`,
+      takeaway: "I can explain what a gradient is and why training needs a learning rate.",
+      link: "src/fbench/nn.py",
+    },
+    {
+      title: "Backpropagation and autograd",
+      tag: "E1",
+      body: `Backpropagation is the chain rule applied backwards through a graph. The scalar engine builds that graph from ordinary arithmetic, then calls one backward pass. It agrees with finite differences to about 1e-10.`,
+      takeaway: "I can explain the chain rule on a computation graph and why autograd is not magic.",
+      link: "src/fbench/autograd.py",
+    },
+    {
+      title: "A neural network from scratch",
+      tag: "E2",
+      body: `A layer is a weighted sum followed by a nonlinearity. Stack two layers and you can separate curved boundaries. The NumPy MLP implements the forward pass, the loss, the gradients, and the update — no framework.`,
+      takeaway: "I can describe a neuron, an activation function, and one training step.",
+      link: "src/fbench/nn.py",
+    },
+    {
+      title: "Seeds, confidence, and multiplicity",
+      tag: "E2·E6",
+      body: `One run is an anecdote. Ten seeds give a distribution. Many pairwise tests inflate false positives, so Holm correction raises the bar. E2 shows a large effect that still does not survive the family-wise threshold.`,
+      takeaway: "I can explain why a big effect can fail after correction, and why that is not a bug.",
+      link: "src/fbench/stats.py",
+    },
+    {
+      title: "Attention",
+      tag: "E3",
+      body: `Attention lets every token ask how relevant every other token is. Queries and keys produce scores, a softmax turns them into weights, and values are mixed. A causal mask prevents the future from leaking into the past.`,
+      takeaway: "I can write the attention formula and explain the causal mask.",
+      link: "src/fbench/models.py",
+    },
+    {
+      title: "Rotary position embeddings",
+      tag: "E3",
+      body: `RoPE rotates pairs of dimensions by an angle proportional to position. The dot product between two rotated vectors depends only on their relative distance, which is exactly what a language model needs.`,
+      takeaway: "I can explain how RoPE encodes relative position through rotation.",
+      link: "src/fbench/models.py",
+    },
+    {
+      title: "A decoder-only transformer",
+      tag: "E4",
+      body: `TinyGPT stacks causal attention, a small feed-forward network, residuals, and layer norm, then predicts the next character. It has 798,464 parameters and trains on CPU. The learning curves are the evidence.`,
+      takeaway: "I can name the blocks in a transformer and explain next-token prediction.",
+      link: "src/fbench/models.py",
+    },
+    {
+      title: "Evaluation and baselines",
+      tag: "E4",
+      body: `Bits per character measures how surprised the model is by the next character; lower is better. A smoothed trigram is a strong, cheap baseline. The transformer must beat it across seeds by a pre-registered margin, not just once.`,
+      takeaway: "I can explain BPC, why baselines matter, and what seed consistency proves.",
+      link: "experiments/e4_gpt.py",
+    },
+    {
+      title: "Markets: structure versus alpha",
+      tag: "E5",
+      body: `Volatility clusters: calm and turbulent days arrive in patches. Direction is harder. The study finds strong clustering but no reliable next-day edge after costs across five liquid symbols.`,
+      takeaway: "I can distinguish a statistical structure from a tradeable edge.",
+      link: "experiments/e5_market.py",
+    },
+  ];
+  const learnSteps = $("#learnSteps");
+  const STORE_KEY = "foundations-bench-learn-v1";
+  let learned = {};
+  try { learned = JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); } catch (_) { learned = {}; }
+  steps.forEach((s, i) => {
+    const d = document.createElement("details");
+    d.className = "step";
+    d.innerHTML = `
+      <summary><span class="n">${String(i + 1).padStart(2, "0")}</span><span>${s.title}</span><span class="tag">${s.tag}</span></summary>
+      <div class="body">
+        <p>${s.body}</p>
+        <p><strong style="color:var(--text)">You can say:</strong> “${s.takeaway}”</p>
+        <p><a href="${linkFor(s.link)}" target="_blank" rel="noopener">Open the code →</a></p>
+        <label class="check"><input type="checkbox" data-step="${i}" ${learned[i] ? "checked" : ""}> I can explain this without notes.</label>
+      </div>`;
+    learnSteps.appendChild(d);
+  });
+  const updateLearn = () => {
+    const checked = $$("#learnSteps input[type=checkbox]").filter((c) => c.checked).length;
+    const pct = Math.round((checked / steps.length) * 100);
+    $("#learnRing").style.setProperty("--p", pct);
+    $("#learnPct").textContent = pct + "%";
+    $("#learnCount").textContent = `${checked} of ${steps.length} steps checked`;
+  };
+  $$("#learnSteps input[type=checkbox]").forEach((c) => {
+    c.addEventListener("change", () => {
+      learned[c.dataset.step] = c.checked;
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(learned)); } catch (_) {}
+      updateLearn();
+    });
+  });
+  $("#learnReset").addEventListener("click", () => {
+    learned = {};
+    try { localStorage.removeItem(STORE_KEY); } catch (_) {}
+    $$("#learnSteps input[type=checkbox]").forEach((c) => { c.checked = false; });
+    updateLearn();
+  });
+  updateLearn();
+
+  // --------------------------------------------------------------------- quiz
+  const quiz = [
+    {
+      q: "In this project, lower bits per character (BPC) means…",
+      options: ["The model is smaller", "The model predicts the next character better", "The model trains faster", "The model uses less memory"],
+      answer: 1,
+      why: `BPC is a compression-style score: lower means the model assigns more probability to what actually came next. TinyGPT reached ${fmt(DATA.e4.bpcMean, 3)} versus ${fmt(DATA.e4.baseBpc, 3)} for the strongest n-gram baseline.`,
+    },
+    {
+      q: "Which result directly supports H5?",
+      options: ["Attention parity at machine precision", "TinyGPT beating the smoothed trigram across seeds", "Volatility clustering in 3 of 5 symbols", "Byte-identical retraining"],
+      answer: 1,
+      why: `H5 was the transformer-versus-baseline claim. The pre-registered criterion required lower BPC across all seeds and at least a 5% improvement; the observed gap was ${fmt(DATA.e4.improvePct, 1)}%.`,
+    },
+    {
+      q: "What does the Holm correction do?",
+      options: ["Makes p-values smaller", "Controls false positives across many tests", "Removes outliers", "Increases statistical power"],
+      answer: 1,
+      why: "Holm adjusts for the fact that running many tests inflates the chance of a false positive. It is stricter than an uncorrected threshold, not looser.",
+    },
+    {
+      q: `E2 found a paired effect as large as |d_z| = ${fmt(DATA.e2.maxDz, 2)}, yet H4 failed. Why?`,
+      options: ["The effect size was calculated incorrectly", "No pair passed the Holm-adjusted threshold", "The sample size was too large", "The activation functions were identical"],
+      answer: 1,
+      why: `A large point estimate is not enough. After correcting across all ${DATA.e2.pairs} pre-registered pairs, the smallest Holm p-value was ${fmt(DATA.e2.minHolm, 3)}, so the strict criterion was not met.`,
+    },
+    {
+      q: "What does causal attention prevent?",
+      options: ["Overfitting", "Future tokens influencing earlier positions", "Vanishing gradients", "Excessive memory use"],
+      answer: 1,
+      why: "The causal mask zeroes out scores for future positions, so the prediction at position t can only depend on tokens at or before t. E3 measured exactly zero leakage.",
+    },
+    {
+      q: "What does RoPE encode?",
+      options: ["Absolute token identity", "Relative position through rotation", "Vocabulary size", "Batch order"],
+      answer: 1,
+      why: "RoPE rotates query and key dimensions by position-dependent angles. The resulting dot product depends on relative distance, and E3 verified the Toeplitz structure to about 1e-14.",
+    },
+    {
+      q: "What did the live market study find?",
+      options: ["Strong next-day directional alpha", "Volatility clustering, but no reliable next-day direction after costs", "No structure at all", "That all five symbols are predictable"],
+      answer: 1,
+      why: `Ljung–Box rejected in ${DATA.e5.lbRejects} of ${DATA.e5.n} symbols, but Diebold–Mariano rejected in ${DATA.e5.dmRejects} of ${DATA.e5.n}. Structure is not the same as a tradeable edge.`,
+    },
+    {
+      q: "What does a byte-identical retraining run prove?",
+      options: ["The model is correct", "The pipeline is deterministic under the same seed and environment", "The model generalises", "The data is unbiased"],
+      answer: 1,
+      why: "Determinism is a reproducibility property, not a correctness proof. E6 retrained the same model twice and got identical parameter hashes.",
+    },
+    {
+      q: "What is the null hypothesis in the Diebold–Mariano test?",
+      options: ["The models have equal forecast accuracy", "The returns are normally distributed", "The model has no parameters", "The market is efficient"],
+      answer: 0,
+      why: "DM tests whether two forecasts have equal expected loss. Rejecting it would suggest a difference in accuracy; here it did not reject for any symbol after correction.",
+    },
+    {
+      q: "A pre-registered hypothesis fails. What is the right response?",
+      options: ["Change the threshold", "Remove the study", "Report the failure and keep the protocol", "Run until it passes"],
+      answer: 2,
+      why: "Pre-registration is only credible if failures stay visible. H4 and H6 are in the headline table with the same detail as the passing hypotheses.",
+    },
+  ];
+  let qIndex = 0, qScore = 0, qAnswered = false, qSelected = null;
+  const quizCard = $("#quizCard");
+  const renderQuiz = (focusQuestion = true) => {
+    if (qIndex >= quiz.length) {
+      const pct = Math.round((qScore / quiz.length) * 100);
+      quizCard.innerHTML = `
+        <div class="quiz-result">
+          <p class="kicker">Your result</p>
+          <div class="score">${qScore}<span style="font-size:1.2rem;color:var(--dim)">/${quiz.length}</span></div>
+          <p>${pct >= 80 ? "Excellent. You can explain the evidence, not just quote it." : pct >= 50 ? "Solid start. Revisit the steps you missed and try again." : "Good first pass. The beginner guide above will make the next round easier."}</p>
+          <button class="btn primary" id="quizRestart" type="button">Try again</button>
+          <p style="margin-top:14px"><a href="#learn">Back to the beginner guide</a></p>
+        </div>`;
+      $("#quizRestart").addEventListener("click", () => { qIndex = 0; qScore = 0; qAnswered = false; qSelected = null; renderQuiz(); });
+      return;
+    }
+    qAnswered = false;
+    qSelected = null;
+    const item = quiz[qIndex];
+    quizCard.innerHTML = `
+      <div class="quiz-top">
+        <span class="quiz-count">Question ${qIndex + 1} of ${quiz.length}</span>
+        <div class="quiz-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${quiz.length}" aria-valuenow="${qIndex + 1}" aria-label="Quiz progress"><i style="width:${((qIndex + 1) / quiz.length) * 100}%"></i></div>
+        <span class="quiz-count">Score ${qScore}</span>
+      </div>
+      <h3 id="quizQuestion" tabindex="-1">${item.q}</h3>
+      <fieldset class="options" aria-labelledby="quizQuestion">
+        ${item.options.map((o, i) => `<label class="option" data-i="${i}"><input type="radio" name="quiz-option" value="${i}"><span>${o}</span></label>`).join("")}
+      </fieldset>
+      <div class="quiz-actions">
+        <button class="btn primary" id="quizCheck" type="button" disabled>Check answer</button>
+        <button class="btn ghost" id="quizSkip" type="button">Skip</button>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback" hidden></div>`;
+    if (focusQuestion) $("#quizQuestion").focus();
+    const check = $("#quizCheck");
+    $$("#quizCard input[type=radio]").forEach((r) => {
+      r.addEventListener("change", () => { qSelected = Number(r.value); check.disabled = false; });
+    });
+    check.addEventListener("click", () => {
+      if (qAnswered || qSelected === null) return;
+      qAnswered = true;
+      const correct = qSelected === item.answer;
+      if (correct) qScore++;
+      $$("#quizCard .option").forEach((label, i) => {
+        label.classList.toggle("correct", i === item.answer);
+        label.classList.toggle("wrong", i === qSelected && !correct);
+        label.querySelector("input").disabled = true;
+      });
+      const fb = $("#quizFeedback");
+      fb.hidden = false;
+      fb.innerHTML = `<strong>${correct ? "Correct." : "Not quite."}</strong> ${item.why}`;
+      check.hidden = true;
+      $("#quizSkip").textContent = qIndex === quiz.length - 1 ? "See result" : "Next question";
+      $("#quizSkip").className = "btn primary";
+      $("#quizSkip").focus();
+    });
+    $("#quizSkip").addEventListener("click", () => { qIndex++; renderQuiz(); });
+  };
+  renderQuiz(false);
+
+  // ------------------------------------------------------------- 3D network
+  const canvas = $("#net");
+  const ctx = canvas.getContext("2d");
+  let nodes = [], edges = [], t = 0, raf = null, last = 0;
+  const buildNet = () => {
+    nodes = [];
+    edges = [];
+    const count = 64;
+    const golden = Math.PI * (3 - Math.sqrt(5));
+    for (let i = 0; i < count; i++) {
+      const y = 1 - (i / (count - 1)) * 2;
+      const r = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = golden * i;
+      nodes.push({ x: Math.cos(theta) * r, y, z: Math.sin(theta) * r });
+    }
+    for (let i = 0; i < count; i++) {
+      for (let j = i + 1; j < count; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y, dz = nodes[i].z - nodes[j].z;
+        if (dx * dx + dy * dy + dz * dz < 0.16) edges.push([i, j]);
+      }
+    }
+  };
+  const resize = () => {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = Math.max(1, Math.round(rect.width * dpr));
+    canvas.height = Math.max(1, Math.round(rect.height * dpr));
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  const drawNet = (time) => {
+    const w = canvas.width / (Math.min(window.devicePixelRatio || 1, 2));
+    const h = canvas.height / (Math.min(window.devicePixelRatio || 1, 2));
+    ctx.clearRect(0, 0, w, h);
+    const cx = w * 0.5, cy = h * 0.5;
+    const scale = Math.min(w, h) * 0.33;
+    const rotY = time * 0.00012, rotX = Math.sin(time * 0.00007) * 0.22;
+    const project = (p) => {
+      const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+      const x1 = p.x * cosY - p.z * sinY;
+      const z1 = p.x * sinY + p.z * cosY;
+      const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+      const y1 = p.y * cosX - z1 * sinX;
+      const z2 = p.y * sinX + z1 * cosX;
+      const persp = 1.6 / (1.6 + z2 * 0.6);
+      return { x: cx + x1 * scale * persp, y: cy + y1 * scale * persp, z: z2, a: Math.max(0.08, persp * 0.55) };
+    };
+    const proj = nodes.map(project);
+    edges.forEach(([i, j]) => {
+      const a = proj[i], b = proj[j];
+      const alpha = Math.min(a.a, b.a) * 0.5;
+      ctx.strokeStyle = `rgba(94,234,212,${alpha})`;
+      ctx.lineWidth = 0.6;
+      ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+    });
+    proj.forEach((p) => {
+      ctx.fillStyle = `rgba(129,140,248,${p.a + 0.18})`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.8 * p.a + 0.7, 0, Math.PI * 2); ctx.fill();
+    });
+  };
+  const loop = (time) => {
+    if (!last) last = time;
+    if (time - last > 32) { t = time; drawNet(t); last = time; }
+    if (motionOn && !userPaused && !document.hidden) raf = requestAnimationFrame(loop);
+    else raf = null;
+  };
+  const startNet = () => {
+    if (raf !== null) cancelAnimationFrame(raf);
+    raf = null;
+    last = 0;
+    if (motionOn && !userPaused) raf = requestAnimationFrame(loop);
+    else drawNet(performance.now());
+  };
+  buildNet();
+  resize();
+  drawNet(performance.now());
+  startNet();
+  window.addEventListener("resize", () => { resize(); drawNet(performance.now()); drawBpc(); drawRisk(); });
+
+  // ---------------------------------------------------------- motion toggle
+  const toggle = $("#motionToggle");
+  const syncToggle = () => {
+    toggle.setAttribute("aria-pressed", String(userPaused));
+    toggle.textContent = userPaused || !motionOn ? "Enable motion" : "Pause motion";
+    document.body.classList.toggle("paused", userPaused || !motionOn);
+  };
+  toggle.addEventListener("click", () => {
+    userPaused = !userPaused;
+    motionOn = !userPaused;
+    syncToggle();
+    startNet();
+  });
+  if (reduceQuery.matches) { userPaused = true; }
+  syncToggle();
+
+  // ------------------------------------------------------------- card tilt
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (finePointer && !reduceQuery.matches) {
+    const stack = $("#stack");
+    const hero = $(".hero-art");
+    hero.addEventListener("pointermove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      const dx = (e.clientX - rect.left) / rect.width - 0.5;
+      const dy = (e.clientY - rect.top) / rect.height - 0.5;
+      stack.style.transform = `rotateX(${(-dy * 5).toFixed(2)}deg) rotateY(${(dx * 7).toFixed(2)}deg)`;
+    });
+    hero.addEventListener("pointerleave", () => { stack.style.transform = ""; });
+  }
+
+  // ------------------------------------------------------- progress + nav
+  const bar = $("#progressBar");
+  const onScroll = () => {
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    bar.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : "0%";
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+  const navToggle = $("#navToggle");
+  const navMenu = $("#primaryNav");
+  navToggle?.addEventListener("click", () => {
+    const open = navMenu.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(open));
+  });
+  navMenu?.addEventListener("click", (event) => {
+    if (!event.target.closest("a")) return;
+    navMenu.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+  });
+  const sections = $$("main section[id]");
+  const navLinks = $$(".nav-links a");
+  const setActiveNav = () => {
+    const marker = window.scrollY + window.innerHeight * 0.33;
+    let active = sections[0]?.id;
+    sections.forEach((section) => {
+      if (section.offsetTop <= marker) active = section.id;
+    });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+      active = sections[sections.length - 1]?.id;
+    }
+    navLinks.forEach((a) => a.setAttribute("aria-current", a.getAttribute("href") === "#" + active ? "true" : "false"));
+  };
+  window.addEventListener("scroll", setActiveNav, { passive: true });
+  window.addEventListener("resize", setActiveNav);
+  setActiveNav();
+
+  // ---------------------------------------------------------------- copy
+  $$(".copy").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const target = document.getElementById(btn.dataset.copy);
+      if (!target) return;
+      try {
+        await navigator.clipboard.writeText(target.textContent);
+        const old = btn.textContent;
+        btn.textContent = "Copied";
+        setTimeout(() => { btn.textContent = old; }, 1400);
+      } catch (_) {
+        btn.textContent = "Select and copy";
+      }
+    });
+  });
+
+  // --------------------------------------------------------------- footer
+  const year = new Date().getFullYear();
+  document.title = document.title;
+  const foot = $("footer");
+  if (foot && !foot.textContent.includes(String(year))) { /* no-op, date is frozen in artifact */ }
+
+  window.addEventListener("resize", () => { drawBpc(); drawRisk(); });
+  requestAnimationFrame(() => { drawBpc(); drawRisk(); });
+})();
+</script>
+</body>
+</html>

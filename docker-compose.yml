@@ -1,0 +1,33 @@
+services:
+  bench:
+    build: .
+    image: foundations-bench:0.1.0
+    command: ["python", "experiments/run_all.py"]
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./results:/app/results
+      - ./data:/app/data
+      - ./paper:/app/paper
+
+  report:
+    build: .
+    image: foundations-bench:0.1.0
+    command: ["python", "scripts/make_report.py"]
+    volumes:
+      - .:/app
+
+  test:
+    build: .
+    image: foundations-bench:0.1.0
+    command: ["python", "-m", "pytest", "-q"]
+    volumes:
+      - ./results:/app/results
+
+  check:
+    build: .
+    image: foundations-bench:0.1.0
+    command: ["python", "scripts/check_results.py"]
+    volumes:
+      - ./results:/app/results
+      - ./data:/app/data

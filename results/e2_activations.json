@@ -1,0 +1,2312 @@
+{
+  "all_passed": false,
+  "config": {
+    "activations": [
+      "sigmoid",
+      "tanh",
+      "relu",
+      "leaky_relu",
+      "gelu"
+    ],
+    "batch_size": 128,
+    "epochs": 300,
+    "hidden_units": 64,
+    "learning_rate": 0.01,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "test_fraction": 0.3
+  },
+  "env": {
+    "cpu_count": 28,
+    "executable": "/home/md/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python",
+    "git_commit": null,
+    "machine": "x86_64",
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "sklearn": "1.9.0",
+      "statsmodels": "0.15.0",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
+    "processor": "",
+    "python": "3.12.13",
+    "timestamp_utc": "2026-11-04T16:14:07+00:00",
+    "torch_cuda_available": true,
+    "torch_cuda_devices": 1
+  },
+  "experiment": "E2_activations",
+  "generated_utc": "2026-11-04T16:14:07+00:00",
+  "hypothesis_tests": {
+    "H4_any_significant_pair_with_medium_effect": false
+  },
+  "inputs": {
+    "datasets": [
+      "breast_cancer",
+      "wine",
+      "digits"
+    ],
+    "script_sha256": "96e08941009294992d8bdbb2b4c6feb8c6599eb98661b7444ed99a6e507ddd91"
+  },
+  "metrics": {
+    "all_pairs_holm": {
+      "breast_cancer:leaky_relu_vs_gelu": {
+        "cohen_dz": 0.7115124735378819,
+        "dataset": "breast_cancer",
+        "mean_difference": 0.00350877192982455,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.12271259472816967,
+        "pair": "leaky_relu_vs_gelu",
+        "probability_of_superiority": 0.665,
+        "reject": 0.0
+      },
+      "breast_cancer:relu_vs_gelu": {
+        "cohen_dz": 0.7115124735378819,
+        "dataset": "breast_cancer",
+        "mean_difference": 0.00350877192982455,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.12271259472816967,
+        "pair": "relu_vs_gelu",
+        "probability_of_superiority": 0.665,
+        "reject": 0.0
+      },
+      "breast_cancer:relu_vs_leaky_relu": {
+        "cohen_dz": 0.0,
+        "dataset": "breast_cancer",
+        "mean_difference": 0.0,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 1.0,
+        "pair": "relu_vs_leaky_relu",
+        "probability_of_superiority": 0.5,
+        "reject": 0.0
+      },
+      "breast_cancer:sigmoid_vs_gelu": {
+        "cohen_dz": -0.1588510146640974,
+        "dataset": "breast_cancer",
+        "mean_difference": -0.0017543859649122862,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.6746081126907897,
+        "pair": "sigmoid_vs_gelu",
+        "probability_of_superiority": 0.42,
+        "reject": 0.0
+      },
+      "breast_cancer:sigmoid_vs_leaky_relu": {
+        "cohen_dz": -0.6994724762036347,
+        "dataset": "breast_cancer",
+        "mean_difference": -0.005263157894736836,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.05569962596664958,
+        "pair": "sigmoid_vs_leaky_relu",
+        "probability_of_superiority": 0.24,
+        "reject": 0.0
+      },
+      "breast_cancer:sigmoid_vs_relu": {
+        "cohen_dz": -0.6567807448042033,
+        "dataset": "breast_cancer",
+        "mean_difference": -0.005263157894736836,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.0639650620946166,
+        "pair": "sigmoid_vs_relu",
+        "probability_of_superiority": 0.24,
+        "reject": 0.0
+      },
+      "breast_cancer:sigmoid_vs_tanh": {
+        "cohen_dz": -1.2271677122787288,
+        "dataset": "breast_cancer",
+        "mean_difference": -0.007602339181286555,
+        "n": 10,
+        "p_holm": 0.20869428405995283,
+        "p_value": 0.006956476135331761,
+        "pair": "sigmoid_vs_tanh",
+        "probability_of_superiority": 0.16,
+        "reject": 0.0
+      },
+      "breast_cancer:tanh_vs_gelu": {
+        "cohen_dz": 0.7500000000000009,
+        "dataset": "breast_cancer",
+        "mean_difference": 0.005847953216374269,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.04105088656045887,
+        "pair": "tanh_vs_gelu",
+        "probability_of_superiority": 0.76,
+        "reject": 0.0
+      },
+      "breast_cancer:tanh_vs_leaky_relu": {
+        "cohen_dz": 0.3721042037676274,
+        "dataset": "breast_cancer",
+        "mean_difference": 0.0023391812865497185,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.18462451562339965,
+        "pair": "tanh_vs_leaky_relu",
+        "probability_of_superiority": 0.65,
+        "reject": 0.0
+      },
+      "breast_cancer:tanh_vs_relu": {
+        "cohen_dz": 0.34077710054824073,
+        "dataset": "breast_cancer",
+        "mean_difference": 0.0023391812865497185,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.20252658565594883,
+        "pair": "tanh_vs_relu",
+        "probability_of_superiority": 0.65,
+        "reject": 0.0
+      },
+      "digits:leaky_relu_vs_gelu": {
+        "cohen_dz": 0.27060193039269587,
+        "dataset": "digits",
+        "mean_difference": 0.005185185185185159,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 1.0,
+        "pair": "leaky_relu_vs_gelu",
+        "probability_of_superiority": 0.455,
+        "reject": 0.0
+      },
+      "digits:relu_vs_gelu": {
+        "cohen_dz": 0.1928473039599674,
+        "dataset": "digits",
+        "mean_difference": 0.0037037037037036978,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.3516806827985527,
+        "pair": "relu_vs_gelu",
+        "probability_of_superiority": 0.43,
+        "reject": 0.0
+      },
+      "digits:relu_vs_leaky_relu": {
+        "cohen_dz": -0.3407771005482344,
+        "dataset": "digits",
+        "mean_difference": -0.0014814814814814615,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.7504854193424544,
+        "pair": "relu_vs_leaky_relu",
+        "probability_of_superiority": 0.44,
+        "reject": 0.0
+      },
+      "digits:sigmoid_vs_gelu": {
+        "cohen_dz": 0.30303368477647263,
+        "dataset": "digits",
+        "mean_difference": 0.005925925925925913,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.5730427492875262,
+        "pair": "sigmoid_vs_gelu",
+        "probability_of_superiority": 0.465,
+        "reject": 0.0
+      },
+      "digits:sigmoid_vs_leaky_relu": {
+        "cohen_dz": 0.21081851067789667,
+        "dataset": "digits",
+        "mean_difference": 0.000740740740740753,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.4396586365458026,
+        "pair": "sigmoid_vs_leaky_relu",
+        "probability_of_superiority": 0.55,
+        "reject": 0.0
+      },
+      "digits:sigmoid_vs_relu": {
+        "cohen_dz": 0.376144541575716,
+        "dataset": "digits",
+        "mean_difference": 0.0022222222222222144,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.34112609947633954,
+        "pair": "sigmoid_vs_relu",
+        "probability_of_superiority": 0.58,
+        "reject": 0.0
+      },
+      "digits:sigmoid_vs_tanh": {
+        "cohen_dz": 0.23570226039551626,
+        "dataset": "digits",
+        "mean_difference": 0.0018518518518518602,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.8572090592054344,
+        "pair": "sigmoid_vs_tanh",
+        "probability_of_superiority": 0.495,
+        "reject": 0.0
+      },
+      "digits:tanh_vs_gelu": {
+        "cohen_dz": 0.2923675886745613,
+        "dataset": "digits",
+        "mean_difference": 0.004074074074074052,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.556640625,
+        "pair": "tanh_vs_gelu",
+        "probability_of_superiority": 0.5,
+        "reject": 0.0
+      },
+      "digits:tanh_vs_leaky_relu": {
+        "cohen_dz": -0.13327849749579526,
+        "dataset": "digits",
+        "mean_difference": -0.0011111111111111072,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.9440454257000918,
+        "pair": "tanh_vs_leaky_relu",
+        "probability_of_superiority": 0.545,
+        "reject": 0.0
+      },
+      "digits:tanh_vs_relu": {
+        "cohen_dz": 0.035016539494173764,
+        "dataset": "digits",
+        "mean_difference": 0.00037037037037035425,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.7670968684102772,
+        "pair": "tanh_vs_relu",
+        "probability_of_superiority": 0.58,
+        "reject": 0.0
+      },
+      "wine:leaky_relu_vs_gelu": {
+        "cohen_dz": -0.6210590034081188,
+        "dataset": "wine",
+        "mean_difference": -0.005555555555555558,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.10247043485974937,
+        "pair": "leaky_relu_vs_gelu",
+        "probability_of_superiority": 0.415,
+        "reject": 0.0
+      },
+      "wine:relu_vs_gelu": {
+        "cohen_dz": -0.6210590034081188,
+        "dataset": "wine",
+        "mean_difference": -0.005555555555555558,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.10247043485974937,
+        "pair": "relu_vs_gelu",
+        "probability_of_superiority": 0.415,
+        "reject": 0.0
+      },
+      "wine:relu_vs_leaky_relu": {
+        "cohen_dz": 0.0,
+        "dataset": "wine",
+        "mean_difference": 0.0,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 1.0,
+        "pair": "relu_vs_leaky_relu",
+        "probability_of_superiority": 0.5,
+        "reject": 0.0
+      },
+      "wine:sigmoid_vs_gelu": {
+        "cohen_dz": 2.202778727927036e-15,
+        "dataset": "wine",
+        "mean_difference": 3.3306690738754695e-17,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.3345942595854855,
+        "pair": "sigmoid_vs_gelu",
+        "probability_of_superiority": 0.5,
+        "reject": 0.0
+      },
+      "wine:sigmoid_vs_leaky_relu": {
+        "cohen_dz": 0.3162277660168396,
+        "dataset": "wine",
+        "mean_difference": 0.005555555555555591,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.11082811686279109,
+        "pair": "sigmoid_vs_leaky_relu",
+        "probability_of_superiority": 0.6,
+        "reject": 0.0
+      },
+      "wine:sigmoid_vs_relu": {
+        "cohen_dz": 0.3162277660168396,
+        "dataset": "wine",
+        "mean_difference": 0.005555555555555591,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.11082811686279109,
+        "pair": "sigmoid_vs_relu",
+        "probability_of_superiority": 0.6,
+        "reject": 0.0
+      },
+      "wine:sigmoid_vs_tanh": {
+        "cohen_dz": 0.316227766016838,
+        "dataset": "wine",
+        "mean_difference": 0.0018518518518518602,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.31731050786291415,
+        "pair": "sigmoid_vs_tanh",
+        "probability_of_superiority": 0.55,
+        "reject": 0.0
+      },
+      "wine:tanh_vs_gelu": {
+        "cohen_dz": -0.10056022847309706,
+        "dataset": "wine",
+        "mean_difference": -0.0018518518518518268,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.7498050727300336,
+        "pair": "tanh_vs_gelu",
+        "probability_of_superiority": 0.465,
+        "reject": 0.0
+      },
+      "wine:tanh_vs_leaky_relu": {
+        "cohen_dz": 0.17616606585441205,
+        "dataset": "wine",
+        "mean_difference": 0.003703703703703731,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.3951080685904922,
+        "pair": "tanh_vs_leaky_relu",
+        "probability_of_superiority": 0.565,
+        "reject": 0.0
+      },
+      "wine:tanh_vs_relu": {
+        "cohen_dz": 0.17616606585441205,
+        "dataset": "wine",
+        "mean_difference": 0.003703703703703731,
+        "n": 10,
+        "p_holm": 1.0,
+        "p_value": 0.3951080685904922,
+        "pair": "tanh_vs_relu",
+        "probability_of_superiority": 0.565,
+        "reject": 0.0
+      }
+    },
+    "analysis_note": "Primary H4 family: all 10 unordered activation pairs per dataset, Holm-corrected across 30 tests. The per-dataset vs-ReLU contrasts are retained as a secondary view.",
+    "max_abs_effect_size": 1.2271677122787288,
+    "overall_pairwise_holm": {
+      "breast_cancer:gelu_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.12271259472816967,
+        "rank": 4.0,
+        "reject": 0.0
+      },
+      "breast_cancer:leaky_relu_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 11.0,
+        "reject": 0.0
+      },
+      "breast_cancer:sigmoid_vs_relu": {
+        "p_holm": 0.7675807451353991,
+        "p_raw": 0.0639650620946166,
+        "rank": 1.0,
+        "reject": 0.0
+      },
+      "breast_cancer:tanh_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.20252658565594883,
+        "rank": 5.0,
+        "reject": 0.0
+      },
+      "digits:gelu_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.3516806827985527,
+        "rank": 7.0,
+        "reject": 0.0
+      },
+      "digits:leaky_relu_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.7504854193424544,
+        "rank": 9.0,
+        "reject": 0.0
+      },
+      "digits:sigmoid_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.34112609947633954,
+        "rank": 6.0,
+        "reject": 0.0
+      },
+      "digits:tanh_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.7670968684102772,
+        "rank": 10.0,
+        "reject": 0.0
+      },
+      "wine:gelu_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.10247043485974937,
+        "rank": 2.0,
+        "reject": 0.0
+      },
+      "wine:leaky_relu_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 1.0,
+        "rank": 12.0,
+        "reject": 0.0
+      },
+      "wine:sigmoid_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.11082811686279109,
+        "rank": 3.0,
+        "reject": 0.0
+      },
+      "wine:tanh_vs_relu": {
+        "p_holm": 1.0,
+        "p_raw": 0.3951080685904922,
+        "rank": 8.0,
+        "reject": 0.0
+      }
+    },
+    "per_dataset": {
+      "breast_cancer": {
+        "effect_sizes": {
+          "gelu_vs_relu": {
+            "cohen_dz": -0.7115124735378819,
+            "mean_difference": -0.00350877192982455,
+            "probability_of_superiority": 0.335
+          },
+          "leaky_relu_vs_relu": {
+            "cohen_dz": 0.0,
+            "mean_difference": 0.0,
+            "probability_of_superiority": 0.5
+          },
+          "sigmoid_vs_relu": {
+            "cohen_dz": -0.6567807448042033,
+            "mean_difference": -0.005263157894736836,
+            "probability_of_superiority": 0.24
+          },
+          "tanh_vs_relu": {
+            "cohen_dz": 0.34077710054824073,
+            "mean_difference": 0.0023391812865497185,
+            "probability_of_superiority": 0.65
+          }
+        },
+        "friedman": {
+          "p_value": 0.019060494845941252,
+          "statistic": 11.780487804878044
+        },
+        "pairwise_vs_relu": {
+          "gelu_vs_relu": {
+            "n": 10,
+            "p_holm": 0.36813778418450904,
+            "p_value": 0.12271259472816967,
+            "reject": 0.0,
+            "statistic": 5.0
+          },
+          "leaky_relu_vs_relu": {
+            "n": 10,
+            "p_holm": 1.0,
+            "p_value": 1.0,
+            "reject": 0.0,
+            "statistic": 1.5
+          },
+          "sigmoid_vs_relu": {
+            "n": 10,
+            "p_holm": 0.2558602483784664,
+            "p_value": 0.0639650620946166,
+            "reject": 0.0,
+            "statistic": 5.0
+          },
+          "tanh_vs_relu": {
+            "n": 10,
+            "p_holm": 0.40505317131189766,
+            "p_value": 0.20252658565594883,
+            "reject": 0.0,
+            "statistic": 9.0
+          }
+        },
+        "rank_stability": {
+          "bootstrap_probability_best": {
+            "gelu": 0.0002,
+            "leaky_relu": 0.0294,
+            "relu": 0.0942,
+            "sigmoid": 0.0,
+            "tanh": 0.8762
+          },
+          "split_half_kendall_tau_mean": 0.63702186878261,
+          "split_half_kendall_tau_p05": 0.2222222222222222,
+          "split_half_kendall_tau_p95": 0.9486832980505137
+        },
+        "summary": {
+          "gelu": {
+            "accuracy_mean": 0.9660818713450292,
+            "accuracy_median": 0.9649122807017544,
+            "accuracy_std": 0.006639136984766621,
+            "cross_entropy_mean": 0.16690459708110103,
+            "cross_entropy_std": 0.013893423115635852,
+            "train_seconds_mean": 0.563994178300345
+          },
+          "leaky_relu": {
+            "accuracy_mean": 0.9695906432748537,
+            "accuracy_median": 0.9707602339181286,
+            "accuracy_std": 0.0036985703627700223,
+            "cross_entropy_mean": 0.12059922063983677,
+            "cross_entropy_std": 0.010267432184120613,
+            "train_seconds_mean": 0.22226269120037614
+          },
+          "relu": {
+            "accuracy_mean": 0.9695906432748538,
+            "accuracy_median": 0.9707602339181286,
+            "accuracy_std": 0.0036985703627700223,
+            "cross_entropy_mean": 0.12247287328549443,
+            "cross_entropy_std": 0.009949827331802373,
+            "train_seconds_mean": 0.21856505819996527
+          },
+          "sigmoid": {
+            "accuracy_mean": 0.964327485380117,
+            "accuracy_median": 0.9649122807017544,
+            "accuracy_std": 0.005815373836326032,
+            "cross_entropy_mean": 0.08894329402721264,
+            "cross_entropy_std": 0.009101465320884851,
+            "train_seconds_mean": 0.5023919088002003
+          },
+          "tanh": {
+            "accuracy_mean": 0.9719298245614034,
+            "accuracy_median": 0.9707602339181286,
+            "accuracy_std": 0.004612927706120565,
+            "cross_entropy_mean": 0.08573225430384679,
+            "cross_entropy_std": 0.010202370720690843,
+            "train_seconds_mean": 0.26437327559942786
+          }
+        }
+      },
+      "digits": {
+        "effect_sizes": {
+          "gelu_vs_relu": {
+            "cohen_dz": -0.1928473039599674,
+            "mean_difference": -0.0037037037037036978,
+            "probability_of_superiority": 0.57
+          },
+          "leaky_relu_vs_relu": {
+            "cohen_dz": 0.3407771005482344,
+            "mean_difference": 0.0014814814814814615,
+            "probability_of_superiority": 0.56
+          },
+          "sigmoid_vs_relu": {
+            "cohen_dz": 0.376144541575716,
+            "mean_difference": 0.0022222222222222144,
+            "probability_of_superiority": 0.58
+          },
+          "tanh_vs_relu": {
+            "cohen_dz": 0.035016539494173764,
+            "mean_difference": 0.00037037037037035425,
+            "probability_of_superiority": 0.58
+          }
+        },
+        "friedman": {
+          "p_value": 0.7706420645586043,
+          "statistic": 1.8100558659217927
+        },
+        "pairwise_vs_relu": {
+          "gelu_vs_relu": {
+            "n": 10,
+            "p_holm": 1.0,
+            "p_value": 0.3516806827985527,
+            "reject": 0.0,
+            "statistic": 8.5
+          },
+          "leaky_relu_vs_relu": {
+            "n": 10,
+            "p_holm": 1.0,
+            "p_value": 0.7504854193424544,
+            "reject": 0.0,
+            "statistic": 9.0
+          },
+          "sigmoid_vs_relu": {
+            "n": 10,
+            "p_holm": 1.0,
+            "p_value": 0.34112609947633954,
+            "reject": 0.0,
+            "statistic": 14.5
+          },
+          "tanh_vs_relu": {
+            "n": 10,
+            "p_holm": 1.0,
+            "p_value": 0.7670968684102772,
+            "reject": 0.0,
+            "statistic": 20.0
+          }
+        },
+        "rank_stability": {
+          "bootstrap_probability_best": {
+            "gelu": 0.136,
+            "leaky_relu": 0.1194,
+            "relu": 0.0432,
+            "sigmoid": 0.5258,
+            "tanh": 0.1756
+          },
+          "split_half_kendall_tau_mean": -0.21277555240659443,
+          "split_half_kendall_tau_p05": -0.6666666666666666,
+          "split_half_kendall_tau_p95": 0.2222222222222222
+        },
+        "summary": {
+          "gelu": {
+            "accuracy_mean": 0.9768518518518517,
+            "accuracy_median": 0.9833333333333333,
+            "accuracy_std": 0.018544220846666418,
+            "cross_entropy_mean": 0.12503501406483394,
+            "cross_entropy_std": 0.12688446304798895,
+            "train_seconds_mean": 3.106825465600923
+          },
+          "leaky_relu": {
+            "accuracy_mean": 0.9820370370370368,
+            "accuracy_median": 0.9833333333333333,
+            "accuracy_std": 0.002767470589069117,
+            "cross_entropy_mean": 0.0913402334883376,
+            "cross_entropy_std": 0.026860106653295298,
+            "train_seconds_mean": 1.2096572976995958
+          },
+          "relu": {
+            "accuracy_mean": 0.9805555555555554,
+            "accuracy_median": 0.9824074074074074,
+            "accuracy_std": 0.005327986574577792,
+            "cross_entropy_mean": 0.09571349969823097,
+            "cross_entropy_std": 0.04380971382015991,
+            "train_seconds_mean": 1.0761721450002368
+          },
+          "sigmoid": {
+            "accuracy_mean": 0.9827777777777778,
+            "accuracy_median": 0.9833333333333333,
+            "accuracy_std": 0.0017568209223157456,
+            "cross_entropy_mean": 0.0730005554673911,
+            "cross_entropy_std": 0.0026425645814965796,
+            "train_seconds_mean": 2.6517483520001406
+          },
+          "tanh": {
+            "accuracy_mean": 0.980925925925926,
+            "accuracy_median": 0.9833333333333333,
+            "accuracy_std": 0.007201352139797486,
+            "cross_entropy_mean": 0.08461501510154629,
+            "cross_entropy_std": 0.02686002584706003,
+            "train_seconds_mean": 1.478941550799209
+          }
+        }
+      },
+      "wine": {
+        "effect_sizes": {
+          "gelu_vs_relu": {
+            "cohen_dz": 0.6210590034081188,
+            "mean_difference": 0.005555555555555558,
+            "probability_of_superiority": 0.585
+          },
+          "leaky_relu_vs_relu": {
+            "cohen_dz": 0.0,
+            "mean_difference": 0.0,
+            "probability_of_superiority": 0.5
+          },
+          "sigmoid_vs_relu": {
+            "cohen_dz": 0.3162277660168396,
+            "mean_difference": 0.005555555555555591,
+            "probability_of_superiority": 0.6
+          },
+          "tanh_vs_relu": {
+            "cohen_dz": 0.17616606585441205,
+            "mean_difference": 0.003703703703703731,
+            "probability_of_superiority": 0.565
+          }
+        },
+        "friedman": {
+          "p_value": 0.5199755705457305,
+          "statistic": 3.2307692307692437
+        },
+        "pairwise_vs_relu": {
+          "gelu_vs_relu": {
+            "n": 10,
+            "p_holm": 0.40988173943899747,
+            "p_value": 0.10247043485974937,
+            "reject": 0.0,
+            "statistic": 0.0
+          },
+          "leaky_relu_vs_relu": {
+            "n": 10,
+            "p_holm": 1.0,
+            "p_value": 1.0,
+            "reject": 0.0,
+            "statistic": 0.0
+          },
+          "sigmoid_vs_relu": {
+            "n": 10,
+            "p_holm": 0.40988173943899747,
+            "p_value": 0.11082811686279109,
+            "reject": 0.0,
+            "statistic": 3.0
+          },
+          "tanh_vs_relu": {
+            "n": 10,
+            "p_holm": 0.7902161371809844,
+            "p_value": 0.3951080685904922,
+            "reject": 0.0,
+            "statistic": 6.5
+          }
+        },
+        "rank_stability": {
+          "bootstrap_probability_best": {
+            "gelu": 0.4028,
+            "leaky_relu": 0.0,
+            "relu": 0.0138,
+            "sigmoid": 0.5834,
+            "tanh": 0.0
+          },
+          "split_half_kendall_tau_mean": 0.0944459171239462,
+          "split_half_kendall_tau_p05": -0.8017837257372731,
+          "split_half_kendall_tau_p95": 0.8660254037844386
+        },
+        "summary": {
+          "gelu": {
+            "accuracy_mean": 0.9814814814814815,
+            "accuracy_median": 0.9814814814814815,
+            "accuracy_std": 0.015120307054217172,
+            "cross_entropy_mean": 0.04097488865371993,
+            "cross_entropy_std": 0.018077577671442257,
+            "train_seconds_mean": 0.16789729009979054
+          },
+          "leaky_relu": {
+            "accuracy_mean": 0.975925925925926,
+            "accuracy_median": 0.9814814814814815,
+            "accuracy_std": 0.017568209223157685,
+            "cross_entropy_mean": 0.04448635611270047,
+            "cross_entropy_std": 0.020734774323116444,
+            "train_seconds_mean": 0.062163618399426926
+          },
+          "relu": {
+            "accuracy_mean": 0.975925925925926,
+            "accuracy_median": 0.9814814814814815,
+            "accuracy_std": 0.017568209223157685,
+            "cross_entropy_mean": 0.04382540192477165,
+            "cross_entropy_std": 0.020622364282171474,
+            "train_seconds_mean": 0.044130278499505945
+          },
+          "sigmoid": {
+            "accuracy_mean": 0.9814814814814815,
+            "accuracy_median": 0.9814814814814815,
+            "accuracy_std": 0.0,
+            "cross_entropy_mean": 0.0740845751740035,
+            "cross_entropy_std": 0.0030235589181010726,
+            "train_seconds_mean": 0.14899690650054254
+          },
+          "tanh": {
+            "accuracy_mean": 0.9796296296296297,
+            "accuracy_median": 0.9814814814814815,
+            "accuracy_std": 0.005856069741052581,
+            "cross_entropy_mean": 0.08036502281260763,
+            "cross_entropy_std": 0.00983323661024338,
+            "train_seconds_mean": 0.07201913320022868
+          }
+        }
+      }
+    },
+    "raw_runs": [
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 0,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.08737267597622647,
+        "train_seconds": 0.49145286299972213
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 1,
+        "test_accuracy": 0.9532163742690059,
+        "test_cross_entropy": 0.10663270625599884,
+        "train_seconds": 0.49465073399915127
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 2,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.08173822783923204,
+        "train_seconds": 0.4868746870015457
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 3,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.09206830018217445,
+        "train_seconds": 0.4887369310017675
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 4,
+        "test_accuracy": 0.9590643274853801,
+        "test_cross_entropy": 0.09459717075161501,
+        "train_seconds": 0.5107071370002814
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 5,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.08836187523202531,
+        "train_seconds": 0.4860012490025838
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 6,
+        "test_accuracy": 0.9590643274853801,
+        "test_cross_entropy": 0.09183559353549789,
+        "train_seconds": 0.4908460490005382
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 7,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.08615049100824361,
+        "train_seconds": 0.5256029299998772
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 8,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.07106713977038465,
+        "train_seconds": 0.510247382997477
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 9,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.08960875972072821,
+        "train_seconds": 0.5387991249990591
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 0,
+        "test_accuracy": 0.9766081871345029,
+        "test_cross_entropy": 0.08552745466900136,
+        "train_seconds": 0.26995477200034657
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 1,
+        "test_accuracy": 0.9766081871345029,
+        "test_cross_entropy": 0.08021501268371393,
+        "train_seconds": 0.2847665160006727
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 2,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.07969590249905548,
+        "train_seconds": 0.263558523998654
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 3,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.09148032347542,
+        "train_seconds": 0.255161502998817
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 4,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.08591526645089335,
+        "train_seconds": 0.2591087349974259
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 5,
+        "test_accuracy": 0.9766081871345029,
+        "test_cross_entropy": 0.09217429349831753,
+        "train_seconds": 0.26217576199996984
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 6,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.10899427075549523,
+        "train_seconds": 0.2620168769972224
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 7,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.08276088266121548,
+        "train_seconds": 0.26989994699761155
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 8,
+        "test_accuracy": 0.9766081871345029,
+        "test_cross_entropy": 0.07161661454029271,
+        "train_seconds": 0.2580576300024404
+      },
+      {
+        "activation": "tanh",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 9,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.07894252180506288,
+        "train_seconds": 0.2590324900011183
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 0,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.13811443350305644,
+        "train_seconds": 0.1591225400006806
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 1,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.11720784652799925,
+        "train_seconds": 0.16351779899923713
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 2,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.12399876818067922,
+        "train_seconds": 0.1700670979989809
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 3,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.11350097420050188,
+        "train_seconds": 0.17860182799995528
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 4,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.12547171011239486,
+        "train_seconds": 0.17187862399805454
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 5,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.120471180077844,
+        "train_seconds": 0.17435996499989415
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 6,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.119153907090183,
+        "train_seconds": 0.26765089300170075
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 7,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.1404068640872663,
+        "train_seconds": 0.3416987919990788
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 8,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.11622064347072726,
+        "train_seconds": 0.3419966130022658
+      },
+      {
+        "activation": "relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 9,
+        "test_accuracy": 0.9766081871345029,
+        "test_cross_entropy": 0.11018240560429188,
+        "train_seconds": 0.21675642999980482
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 0,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.13747007225160549,
+        "train_seconds": 0.22034100200107787
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 1,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.11723188087055822,
+        "train_seconds": 0.22491866899872548
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 2,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.12151234662527356,
+        "train_seconds": 0.22189218800122035
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 3,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.11213700852608267,
+        "train_seconds": 0.22070179200090934
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 4,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.12107152232848882,
+        "train_seconds": 0.21595940299812355
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 5,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.1180839386803974,
+        "train_seconds": 0.22318669200103614
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 6,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.11970372230102701,
+        "train_seconds": 0.22038770400104113
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 7,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.13900839109514396,
+        "train_seconds": 0.22981506200085278
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 8,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.11140439226625205,
+        "train_seconds": 0.22176453399879392
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 9,
+        "test_accuracy": 0.9766081871345029,
+        "test_cross_entropy": 0.10836893145353858,
+        "train_seconds": 0.22365986600198084
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 0,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.16503945855541247,
+        "train_seconds": 0.5608353620009439
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 1,
+        "test_accuracy": 0.9766081871345029,
+        "test_cross_entropy": 0.14292457077727816,
+        "train_seconds": 0.563280776997999
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 2,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.16728396803654572,
+        "train_seconds": 0.5682598730018071
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 3,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.16930048643510967,
+        "train_seconds": 0.5816237010003533
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 4,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.177408323855528,
+        "train_seconds": 0.5721355909990962
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 5,
+        "test_accuracy": 0.9590643274853801,
+        "test_cross_entropy": 0.17502654575469057,
+        "train_seconds": 0.5590972579993831
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 6,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.1759858431864685,
+        "train_seconds": 0.5547471160025452
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 7,
+        "test_accuracy": 0.9532163742690059,
+        "test_cross_entropy": 0.18675214069756962,
+        "train_seconds": 0.5661223759998393
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 8,
+        "test_accuracy": 0.9649122807017544,
+        "test_cross_entropy": 0.14465219584006633,
+        "train_seconds": 0.5533833189983852
+      },
+      {
+        "activation": "gelu",
+        "dataset": "breast_cancer",
+        "n_test": 171,
+        "n_train": 398,
+        "seed": 9,
+        "test_accuracy": 0.9707602339181286,
+        "test_cross_entropy": 0.16467243767234108,
+        "train_seconds": 0.5604564100030984
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 0,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07507019486531653,
+        "train_seconds": 0.15308638300120947
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 1,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07183800639351774,
+        "train_seconds": 0.14878561599834939
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 2,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07181111755917809,
+        "train_seconds": 0.1473172340010933
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 3,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.06964115032011259,
+        "train_seconds": 0.1519409380016441
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 4,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07363748577500893,
+        "train_seconds": 0.1551918029981607
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 5,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07652103398846816,
+        "train_seconds": 0.15392408799743862
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 6,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.0739857580760224,
+        "train_seconds": 0.14500254500308074
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 7,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07633518854970091,
+        "train_seconds": 0.1419591580015549
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 8,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07195477415282571,
+        "train_seconds": 0.1419211370011908
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 9,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.08005104205988404,
+        "train_seconds": 0.15084016300170333
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 0,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07273826725851801,
+        "train_seconds": 0.07154548999824328
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 1,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.075309857696255,
+        "train_seconds": 0.07195863200104213
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 2,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.06731634430918268,
+        "train_seconds": 0.07677332000093884
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 3,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.08016371726317265,
+        "train_seconds": 0.07174150100036059
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 4,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.08509174468417073,
+        "train_seconds": 0.07048591599959764
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 5,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.08857528660177658,
+        "train_seconds": 0.07061099999918952
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 6,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.08271125521085078,
+        "train_seconds": 0.07152168099855771
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 7,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.06943550993492485,
+        "train_seconds": 0.072296604001167
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 8,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.08197034575254719,
+        "train_seconds": 0.07241437600168865
+      },
+      {
+        "activation": "tanh",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 9,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.1003378994146779,
+        "train_seconds": 0.07084281200150144
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 0,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.060942768445741924,
+        "train_seconds": 0.043083439999463735
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 1,
+        "test_accuracy": 0.9444444444444444,
+        "test_cross_entropy": 0.07835265189278458,
+        "train_seconds": 0.04312469499927829
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 2,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.07187714996983681,
+        "train_seconds": 0.0439669719999074
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 3,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.03199298437877542,
+        "train_seconds": 0.04406626600029995
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 4,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.030375643900719167,
+        "train_seconds": 0.04420950999701745
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 5,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.04900807427641458,
+        "train_seconds": 0.04438177699921653
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 6,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.02763859388950097,
+        "train_seconds": 0.04474883800139651
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 7,
+        "test_accuracy": 1.0,
+        "test_cross_entropy": 0.021424410609228044,
+        "train_seconds": 0.044928628998604836
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 8,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.04388571085418124,
+        "train_seconds": 0.044695411997963674
+      },
+      {
+        "activation": "relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 9,
+        "test_accuracy": 1.0,
+        "test_cross_entropy": 0.022756031030533766,
+        "train_seconds": 0.04409724600191112
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 0,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.060785401293850586,
+        "train_seconds": 0.060923457000171766
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 1,
+        "test_accuracy": 0.9444444444444444,
+        "test_cross_entropy": 0.07797110212284417,
+        "train_seconds": 0.06098395099979825
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 2,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.07388861010913546,
+        "train_seconds": 0.06503811400034465
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 3,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.032723033994257675,
+        "train_seconds": 0.06348662300297292
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 4,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.030998091693605692,
+        "train_seconds": 0.061783907000062754
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 5,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.050104182768664525,
+        "train_seconds": 0.06242158899840433
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 6,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.02701735891997788,
+        "train_seconds": 0.06097625699840137
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 7,
+        "test_accuracy": 1.0,
+        "test_cross_entropy": 0.0219039499481052,
+        "train_seconds": 0.060846581000078004
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 8,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.04615642381109852,
+        "train_seconds": 0.06058676399698015
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 9,
+        "test_accuracy": 1.0,
+        "test_cross_entropy": 0.02331540646546498,
+        "train_seconds": 0.06458894099705503
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 0,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.0569369705743417,
+        "train_seconds": 0.16562893300215364
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 1,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.06101261066300411,
+        "train_seconds": 0.16521264799666824
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 2,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.07292713147639407,
+        "train_seconds": 0.16829197200058843
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 3,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.0318792830259942,
+        "train_seconds": 0.1664360549984849
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 4,
+        "test_accuracy": 1.0,
+        "test_cross_entropy": 0.026423008569708584,
+        "train_seconds": 0.16854569299903233
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 5,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.04852618816006366,
+        "train_seconds": 0.16885508600171306
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 6,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.025792185753888613,
+        "train_seconds": 0.17156670300028054
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 7,
+        "test_accuracy": 1.0,
+        "test_cross_entropy": 0.02144013776836049,
+        "train_seconds": 0.17036173499946017
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 8,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.04116503209841745,
+        "train_seconds": 0.16768383900125627
+      },
+      {
+        "activation": "gelu",
+        "dataset": "wine",
+        "n_test": 54,
+        "n_train": 124,
+        "seed": 9,
+        "test_accuracy": 1.0,
+        "test_cross_entropy": 0.023646338447026436,
+        "train_seconds": 0.16639023699826794
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 0,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.0732002704542245,
+        "train_seconds": 2.796345505001227
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 1,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07128466761092596,
+        "train_seconds": 2.5382948020014737
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 2,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07517188891032624,
+        "train_seconds": 2.4333809089985152
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 3,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.0791403723125282,
+        "train_seconds": 2.7576429049986473
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 4,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07246712091687965,
+        "train_seconds": 3.1196645189993433
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 5,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.07086159627923033,
+        "train_seconds": 2.425266243997612
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 6,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07424999913648234,
+        "train_seconds": 2.325740513002529
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 7,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.07024319219436974,
+        "train_seconds": 2.794592158999876
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 8,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.07176406281674494,
+        "train_seconds": 3.0047453330007556
+      },
+      {
+        "activation": "sigmoid",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 9,
+        "test_accuracy": 0.9796296296296296,
+        "test_cross_entropy": 0.07162238404219916,
+        "train_seconds": 2.3218106310014264
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 0,
+        "test_accuracy": 0.987037037037037,
+        "test_cross_entropy": 0.07289818324041943,
+        "train_seconds": 2.343217456000275
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 1,
+        "test_accuracy": 0.9796296296296296,
+        "test_cross_entropy": 0.07409743567368812,
+        "train_seconds": 2.151295362997189
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 2,
+        "test_accuracy": 0.987037037037037,
+        "test_cross_entropy": 0.06691634935420292,
+        "train_seconds": 1.0536060589984118
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 3,
+        "test_accuracy": 0.9777777777777777,
+        "test_cross_entropy": 0.08238776555405404,
+        "train_seconds": 1.4594525209977292
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 4,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07404482677624605,
+        "train_seconds": 1.8245271169980697
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 5,
+        "test_accuracy": 0.9777777777777777,
+        "test_cross_entropy": 0.10712420376832135,
+        "train_seconds": 1.2276676520014007
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 6,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.07219692555925761,
+        "train_seconds": 1.2400361530017108
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 7,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07398707898393632,
+        "train_seconds": 1.1758014449987968
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 8,
+        "test_accuracy": 0.9629629629629629,
+        "test_cross_entropy": 0.15380913067603544,
+        "train_seconds": 1.1963862589982455
+      },
+      {
+        "activation": "tanh",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 9,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.06868825142930154,
+        "train_seconds": 1.117425483000261
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 0,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.0728986656323596,
+        "train_seconds": 0.7486954530031653
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 1,
+        "test_accuracy": 0.975925925925926,
+        "test_cross_entropy": 0.15417390314799417,
+        "train_seconds": 0.7632210009978735
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 2,
+        "test_accuracy": 0.9703703703703703,
+        "test_cross_entropy": 0.16037065761629712,
+        "train_seconds": 0.7787474859978829
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 3,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.06827884489589038,
+        "train_seconds": 0.8103364990020054
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 4,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.06097318307332939,
+        "train_seconds": 0.7308686030009994
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 5,
+        "test_accuracy": 0.987037037037037,
+        "test_cross_entropy": 0.06423787475353779,
+        "train_seconds": 0.7329901439989044
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 6,
+        "test_accuracy": 0.9740740740740741,
+        "test_cross_entropy": 0.16178993156477184,
+        "train_seconds": 1.4856470279992209
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 7,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.06491279297312524,
+        "train_seconds": 1.540986141000758
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 8,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07708622960705554,
+        "train_seconds": 1.519114355000056
+      },
+      {
+        "activation": "relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 9,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.0724129137179486,
+        "train_seconds": 1.6511147400015034
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 0,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.06992295311824284,
+        "train_seconds": 1.8651922669996566
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 1,
+        "test_accuracy": 0.9777777777777777,
+        "test_cross_entropy": 0.12057558992584752,
+        "train_seconds": 1.8717513749979844
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 2,
+        "test_accuracy": 0.9777777777777777,
+        "test_cross_entropy": 0.13268800655553808,
+        "train_seconds": 1.2401033520000055
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 3,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07083950908333726,
+        "train_seconds": 1.0940329200020642
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 4,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.060546234659646626,
+        "train_seconds": 1.0392887299967697
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 5,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.11439595013642595,
+        "train_seconds": 1.0118629549979232
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 6,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.06661114175293595,
+        "train_seconds": 1.0124202570004854
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 7,
+        "test_accuracy": 0.9796296296296296,
+        "test_cross_entropy": 0.11593549945539541,
+        "train_seconds": 1.02035705399976
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 8,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.08923220107747112,
+        "train_seconds": 0.976137188001303
+      },
+      {
+        "activation": "leaky_relu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 9,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07265524911853531,
+        "train_seconds": 0.965426879000006
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 0,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.06990389551207686,
+        "train_seconds": 2.2597821570016094
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 1,
+        "test_accuracy": 0.987037037037037,
+        "test_cross_entropy": 0.0741696215432836,
+        "train_seconds": 2.227794498001458
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 2,
+        "test_accuracy": 0.9740740740740741,
+        "test_cross_entropy": 0.10934101285546935,
+        "train_seconds": 2.4115897410010803
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 3,
+        "test_accuracy": 0.987037037037037,
+        "test_cross_entropy": 0.07068585459411707,
+        "train_seconds": 2.3567085309987306
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 4,
+        "test_accuracy": 0.9814814814814815,
+        "test_cross_entropy": 0.06253043995525942,
+        "train_seconds": 5.670532844000263
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 5,
+        "test_accuracy": 0.987037037037037,
+        "test_cross_entropy": 0.06236121247957057,
+        "train_seconds": 6.022961260001466
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 6,
+        "test_accuracy": 0.9740740740740741,
+        "test_cross_entropy": 0.1354045383330357,
+        "train_seconds": 2.542999912002415
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 7,
+        "test_accuracy": 0.9851851851851852,
+        "test_cross_entropy": 0.11531073137683978,
+        "train_seconds": 2.4495578540008864
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 8,
+        "test_accuracy": 0.9259259259259259,
+        "test_cross_entropy": 0.478866522267568,
+        "train_seconds": 2.559474894998857
+      },
+      {
+        "activation": "gelu",
+        "dataset": "digits",
+        "n_test": 540,
+        "n_train": 1257,
+        "seed": 9,
+        "test_accuracy": 0.9833333333333333,
+        "test_cross_entropy": 0.07177631173111912,
+        "train_seconds": 2.5668529640024644
+      }
+    ]
+  }
+}

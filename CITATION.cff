@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use Foundations-Bench, please cite it as below."
+type: software
+title: "Foundations-Bench: A Pre-Registered, Fidelity-First Benchmark of First-Principles AI"
+abstract: >-
+  Six pre-registered studies covering reverse-mode autograd, finite-difference
+  convergence, attention and rotary position embeddings, a small character
+  transformer against n-gram baselines, volatility structure versus directional
+  alpha, and byte-level reproducibility. Every reported number is generated from
+  executed code and hashed in a public manifest.
+authors:
+  - name: "Foundations-Bench Consortium"
+version: 0.1.0
+date-released: 2026-11-04
+repository-code: "https://github.com/M0-AR/foundations-of-ai-benchmark"
+url: "https://M0-AR.github.io/foundations-of-ai-benchmark/"
+license: MIT
+keywords:
+  - reproducibility
+  - benchmark
+  - autograd
+  - transformers
+  - pre-registration
+  - statistics

@@ -1,0 +1,55 @@
+{
+  "all_passed": true,
+  "config": {
+    "batch_size": 4,
+    "head_dim": 16,
+    "n_heads": 4,
+    "seq_len": 16,
+    "trials": 50
+  },
+  "env": {
+    "cpu_count": 28,
+    "executable": "/home/md/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python",
+    "git_commit": null,
+    "machine": "x86_64",
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.2.3",
+      "scipy": "1.13.1",
+      "sklearn": "1.9.0",
+      "statsmodels": "0.15.0",
+      "torch": "2.13.0+cu130"
+    },
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
+    "processor": "",
+    "python": "3.12.13",
+    "timestamp_utc": "2026-11-04T16:08:17+00:00",
+    "torch_cuda_available": true,
+    "torch_cuda_devices": 1
+  },
+  "experiment": "E3_attention",
+  "generated_utc": "2026-11-04T16:08:17+00:00",
+  "hypothesis_tests": {
+    "H3_attention_parity": true,
+    "H3_causal_leak": true,
+    "H3_gradcheck": true,
+    "H3_rope_informative": true,
+    "H3_rope_norm": true,
+    "H3_rope_toeplitz": true,
+    "H3_softmax_normalised": true
+  },
+  "inputs": {
+    "script_sha256": "2d6d032bc5a158302684c90e8c6e401acb149bd9d654ac8269cab6f5b8f1293f"
+  },
+  "metrics": {
+    "attention_gradcheck_pass": true,
+    "attention_parity_max_abs_error": 8.881784197001252e-16,
+    "attention_parity_median_abs_error": 6.661338147750939e-16,
+    "causal_leak_max": 0.0,
+    "rope_norm_max_abs_error": 8.881784197001252e-16,
+    "rope_pair_norm_max_abs_error": 3.552713678800501e-15,
+    "rope_relative_distance_score_std": 2.62808958802195,
+    "rope_toeplitz_max_deviation": 6.217248937900877e-15,
+    "softmax_row_sum_max_abs_error": 2.220446049250313e-16
+  }
+}

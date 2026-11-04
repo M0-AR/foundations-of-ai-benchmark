@@ -1,0 +1,63 @@
+project:
+  name: foundations-bench
+  version: 0.1.0
+  seed: 1234
+
+data:
+  tinyshakespeare_url: "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
+  tinyshakespeare_sha256: "86c4e6aa9db7c042ec79f339dcb96d42b0075e16b8fc2e86bf0ca57e2dc565ed"
+  tinyshakespeare_local: "data/public/tinyshakespeare.txt"
+  tabular_datasets: ["breast_cancer", "wine", "digits"]
+  market_symbols: ["SPY", "QQQ", "AAPL", "MSFT", "NVDA"]
+  market_range: "5y"
+  market_interval: "1d"
+
+e1_calculus:
+  h_values: [0.1, 0.05, 0.02, 0.01, 0.005, 0.002, 0.001, 0.0005, 0.0002, 0.0001]
+  autograd_trials: 200
+
+e2_activations:
+  activations: ["sigmoid", "tanh", "relu", "leaky_relu", "gelu"]
+  hidden_units: 64
+  epochs: 300
+  learning_rate: 0.01
+  batch_size: 128
+  test_fraction: 0.3
+  seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+e3_attention:
+  batch_size: 4
+  seq_len: 16
+  n_heads: 4
+  head_dim: 16
+  trials: 50
+
+e4_gpt:
+  n_layer: 4
+  n_head: 4
+  n_embd: 128
+  block_size: 128
+  dropout: 0.1
+  batch_size: 32
+  max_steps: 1200
+  eval_interval: 200
+  eval_batches: 40
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  seeds: [0, 1, 2]
+  sample_chars: 240
+
+e5_market:
+  initial_train_fraction: 0.6
+  refit_every: 21
+  cost_bps_per_turnover: 2.0
+  ridge_alphas: [0.01, 0.1, 1.0, 10.0]
+  lags: 5
+  vol_window: 20
+  momentum_window: 20
+  bootstrap_resamples: 2000
+  ljung_box_lags: 10
+  hac_lag: 5
+  gd_epochs: 400
+  gd_learning_rate: 0.01
+  gd_l2: 0.001
