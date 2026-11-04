@@ -3,7 +3,7 @@
   "env": {
     "cpu_count": 28,
     "executable": "/home/md/.local/share/uv/python/cpython-3.12-linux-x86_64-gnu/bin/python",
-    "git_commit": null,
+    "git_commit": "8ec2ce1584b6711a9d443cb5cb1f837e98ebb5ff",
     "machine": "x86_64",
     "packages": {
       "numpy": "2.2.6",
@@ -16,12 +16,12 @@
     "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
     "processor": "",
     "python": "3.12.13",
-    "timestamp_utc": "2026-11-04T20:02:41+00:00",
+    "timestamp_utc": "2026-11-04T20:20:22+00:00",
     "torch_cuda_available": true,
     "torch_cuda_devices": 1
   },
   "experiment": "E6_reproducibility",
-  "generated_utc": "2026-11-04T20:02:41+00:00",
+  "generated_utc": "2026-11-04T20:20:22+00:00",
   "hypothesis_tests": {
     "deterministic_rerun_byte_identical": true
   },
